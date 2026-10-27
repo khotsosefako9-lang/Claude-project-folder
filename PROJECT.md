@@ -23,7 +23,7 @@ No spending, debt, ads, paid leads, trading or speculative schemes without the o
 | Google Drive / Calendar / Canva | available | Not needed yet. |
 | Overpass (OpenStreetMap) API | ❌ | Connection reset from this sandbox. |
 | TLS certificate checks | ❌ unreliable | The sandbox egress proxy re-signs TLS. Never report a cert expiry seen from here. |
-| Sending email | ✅ | 5 sent 2026-10-27 ~21:35 UTC (P003, P011, P012, P013, P014). |
+| Sending email | ✅ | 6 sent 2026-10-27 (P003, P011, P012, P013, P014, P020). Log: private/outreach/sent_log.csv |
 | Receiving payment | ✅ designated | Owner's PayPal Business account (address in the private Drive doc). Invoice in USD. |
 
 ## Where records live
@@ -57,7 +57,7 @@ Samples: two one-page PDF reports on real prospects in `private/samples/`. Notes
 ## Funnel (update with every touch)
 | Audited | Qualified | Messages sent | Replies | Agreed jobs | Delivered | Collected |
 |---|---|---|---|---|---|---|
-| 45 | 10 | 5 (2026-10-27) | 0 | 0 | 0 | $0 |
+| 59 | 11 | 6 (2026-10-27) | 0 | 0 | 0 | $0 |
 
 ## Active jobs, deadlines, commitments
 None.
@@ -65,7 +65,17 @@ None.
 ## Experiments
 | # | Hypothesis | Change | Window | Result |
 |---|---|---|---|---|
-| E1 | Specific, verified problem + pay-after-fix gets ≥10% replies | First 10–20 messages | 7 days after each send | running: 5 sent 2026-10-27 |
+| E1 | Specific, verified problem + pay-after-fix gets ≥10% replies | First 10–20 messages | 7 days after each send | running: 6 sent 2026-10-27 |
+
+## Payment collection note
+No PayPal connector is available, so Claude cannot create PayPal invoices. Two options when a client is ready to pay:
+(a) the client pays via PayPal "Send" to the owner's PayPal email as goods & services (no owner action needed); or
+(b) the owner sends a PayPal invoice (one human step). Offer (a) first. Confirm receipt from the PayPal notification email in Gmail before recording revenue.
+
+## Prospecting notes
+- Clay yields ~25% usable US local businesses per page and costs ~10k tokens/page. Its semantic `products_and_services` filter returns many foreign or non-local firms.
+- Exclude video-heavy pages (HLS segments) from "heavy page" pitches; that's a design choice, not a defect.
+- Parked domains (redirect to /lander or `?ch=1&js=`) mean the domain was lost. Not a quick-fix job.
 
 ## Tools
 - `tools/audit.js <url> [out.json]`: read-only mobile audit (status, broken internal links, overflow, page weight, alt text, axe WCAG A/AA, emails found).
