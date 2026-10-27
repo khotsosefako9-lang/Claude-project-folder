@@ -6,11 +6,18 @@ the owner customers (broken internal page, layout wider than a phone screen,
 very heavy homepage, no tap-to-call link, no meta description).
 """
 import json
+import re
 import subprocess
 import sys
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from urllib.parse import urlparse
+
+import requests
+
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
+EMAIL = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
+JUNK = re.compile(r"\.(png|jpe?g|webp|gif|svg)$|sentry|wixpress|example\.com|your@|domain\.com|godaddy", re.I)
 
 HERE = Path(__file__).parent
 
@@ -22,6 +29,18 @@ def run(url, out_dir):
         subprocess.run(["timeout", "180", "node", str(HERE / "audit.js"), url, str(out)],
                        capture_output=True)
     return json.loads(out.read_text()) if out.exists() else {"url": url, "error": "no output"}
+
+
+def published_emails(d):
+    """Emails the business publishes on its homepage or contact page (no guessing)."""
+    found = list((d.get("page") or {}).get("emails") or [])
+    for link in ((d.get("page") or {}).get("contactLinks") or [])[:2]:
+        try:
+            html = requests.get(link, headers={"User-Agent": UA}, timeout=15).text
+            found += [e.lower() for e in EMAIL.findall(html)]
+        except requests.RequestException:
+            pass
+    return sorted({e for e in found if not JUNK.search(e)})
 
 
 def issues(d):
@@ -66,7 +85,7 @@ def main():
         iss = issues(d)
         high = sum(1 for s, _ in iss if s == "high")
         print(f"\n== {d['url']}  status={d.get('status')} err={d.get('error')} wp={p.get('wordpress')} "
-              f"emails={p.get('emails')} HIGH={high}")
+              f"emails={published_emails(d)} HIGH={high}")
         for sev, msg in iss:
             print(f"   [{sev}] {msg}")
 

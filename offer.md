@@ -17,6 +17,7 @@ and every fix can be verified afterward by the same check.
 | Package | Price | Turnaround | Includes |
 |---|---|---|---|
 | **Site Down Rescue** (WordPress "critical error" / white screen) | **$129** fixed | Same or next business day after access | Find the failing plugin/theme, restore the site, record what broke and how to avoid it |
+| **Quick Fix** (one small listed issue, e.g. a broken phone link or a missing page title) | **$49** fixed | 1 business day after access | The single fix, verified on a phone |
 | **Fix Sprint** | **$149** fixed | 3 business days after access | Up to 5 issues from the written check, e.g. broken links and 301 redirects, mobile layout fixes, image compression, meta descriptions, tap-to-call links, alt text |
 
 **Payment:** first-time clients pay after the fix is live and verified (invoice due in 7 days).
@@ -44,10 +45,10 @@ site loads without errors. The client confirms in writing (email reply is fine).
 - Checks are labelled "independent, unsolicited check of public pages".
 
 ## Arithmetic scenarios to $650 net (not forecasts)
-Assumes PayPal-style fees of ~4.5% + $0.50 per invoice; real fees depend on the payment channel chosen.
-- A: 5 Fix Sprints = $745 gross ≈ $709 net.
-- B: 3 Fix Sprints + 2 Site Down Rescues = $705 gross ≈ $670 net.
-- C: 6 Site Down Rescues = $774 gross ≈ $736 net.
+Assumes PayPal South Africa receiving fees of 4.9% + ~$0.30 per invoice (fixed fee to be confirmed on the first payment).
+- A: 5 Fix Sprints = $745 gross ≈ $707 net.
+- B: 3 Fix Sprints + 2 Site Down Rescues = $705 gross ≈ $669 net.
+- C: 6 Site Down Rescues = $774 gross ≈ $734 net.
 
 ## Backup offer: Spreadsheet cleanup (file in, file out)
 For people in the owner's own network (small businesses, churches, clubs, nonprofits):

@@ -19,30 +19,34 @@ No spending, debt, ads, paid leads, trading or speculative schemes without the o
 | GitHub (khotsosefako9-lang) | ✅ | Scoped to this repo only. |
 | Clay (Personal Workspace) | ✅ | Company search; skews to LinkedIn-listed firms; rate-limited (1 search at a time). |
 | Indeed | ✅ | Employment listings only; not useful for gigs. |
-| Gmail (owner's account) | ⚠️ needs re-auth | Even when connected it can only **create drafts**, not send. |
+| Gmail (owner's account) | ⚠️ designated, but connector needs re-auth (checked 2026-10-27 after owner's answer) | Can only **create drafts**; the owner reviews and clicks send. |
 | Google Drive / Calendar / Canva | available | Not needed yet. |
 | Overpass (OpenStreetMap) API | ❌ | Connection reset from this sandbox. |
 | TLS certificate checks | ❌ unreliable | The sandbox egress proxy re-signs TLS. Never report a cert expiry seen from here. |
-| Sending email / marketplace messaging | ❌ | No authorised sending channel yet. |
-| Receiving payment | ❌ | No payment channel yet. |
+| Sending email | ⚠️ | Owner's Gmail designated 2026-10-27: Claude creates drafts, owner sends. Waiting on connector re-auth. |
+| Receiving payment | ✅ designated | Owner's PayPal Business account (address in the private Drive doc). Invoice in USD. |
 
 ## Where records live
 This GitHub repo is **public**, so it holds only tools, the offer, the ledger and this checkpoint.
 Prospect data, outreach drafts and reports on named businesses are kept out of git (`private/`, gitignored)
 and backed up to the owner's private Google Drive folder "Revenue project - private records":
 - Folder: https://drive.google.com/drive/folders/1RcguJb0NTTpHTQf2yG2l1tAECtyzFvS5
-- Prospect log (Sheet): https://docs.google.com/spreadsheets/d/17aCP-j6pKGvn5zvKui9TPoYjufEjaya6XFYySGN2rzE/edit
+- Prospect log (Sheet, current): https://docs.google.com/spreadsheets/d/1ZdsAXokNszo-6KR1ONScEitwufnXdyIOqU3dnMl-2zo/edit
+- READY TO SEND emails (Doc): https://docs.google.com/document/d/1amvRKohVIy-WIg_1i9sJjaK_u2QYctvCgbOgPOmLodQ/edit
 - Outreach drafts + report notes (Doc): https://docs.google.com/document/d/1tUt5omSJb18qs7jZlKhUh5VY-hzhTjO4cVSNsxXl-kY/edit
 Keep the Drive copies current. A new container won't have `private/`, so rebuild it from Drive.
 
 ## Authorised accounts
-- **Sending identity: NOT YET DESIGNATED.** Nothing has been sent.
-- **Payment channel: NOT YET SET UP.**
+- **Sending identity:** the owner's Gmail (designated 2026-10-27). Claude writes drafts; the owner sends. Nothing has been sent yet.
+- **Payment channel:** the owner's PayPal Business account, USD invoices (designated 2026-10-27).
+- **Sender details:** owner's name and postal address (South Africa) for email footers are in the private Drive doc, not in this public repo.
+- PayPal fees (South Africa): published schedule shows **4.90% + fixed fee** for receiving. Assume 4.9% + $0.30 until the first real transaction shows the exact fixed fee. A $149 invoice ≈ $141.40 net; $129 ≈ $122.40 net. ZAR conversion happens at withdrawal; record the rate and date in `ledger.csv`.
 
 ## Research summary (why this offer)
 - Bounties (Algora etc.): saturated by automated hunters. A public scanner filtered out 57 of 201 bounties as "bounty-farm" repos. Ranked low.
 - Open boards: the HN "Freelancer? Seeking freelancer?" threads for Sept and Oct 2026 contain ~45 SEEKING WORK posts and **0** SEEKING FREELANCER posts. Supply far exceeds demand.
-- Small-business websites: 20 real sites audited. **4 (20%) had a serious, hand-verified, customer-facing problem**: 2 sites completely down (WordPress critical error; 503 + certificate mismatch), 2 with broken service links / broken mobile layout. The buyer can see the problem before paying.
+- Batch 3 (25 more sites): 3 more broken-link/phone-link problems, 1 site fully missing ("SITE NOT FOUND"), 1 store with no page title. Hit rate stays around 20%, but only about half of qualified prospects publish an email.
+- Small-business websites: first 20 real sites audited. **4 (20%) had a serious, hand-verified, customer-facing problem**: 2 sites completely down (WordPress critical error; 503 + certificate mismatch), 2 with broken service links / broken mobile layout. The buyer can see the problem before paying.
 - Market prices: Fiverr critical-error gigs from ~$15–85; agencies ~$129–499 per incident.
 
 ## Current offer
@@ -53,7 +57,7 @@ Samples: two one-page PDF reports on real prospects in `private/samples/`. Notes
 ## Funnel (update with every touch)
 | Audited | Qualified | Messages sent | Replies | Agreed jobs | Delivered | Collected |
 |---|---|---|---|---|---|---|
-| 20 | 4 | 0 | 0 | 0 | 0 | $0 |
+| 45 | 10 (5 with a published email, ready to send) | 0 | 0 | 0 | 0 | $0 |
 
 ## Active jobs, deadlines, commitments
 None.
@@ -65,18 +69,18 @@ None.
 
 ## Tools
 - `tools/audit.js <url> [out.json]`: read-only mobile audit (status, broken internal links, overflow, page weight, alt text, axe WCAG A/AA, emails found).
-- `tools/batch.py urls.txt OUT_DIR`: runs audits and prints qualifying issues. Always hand-verify "down" and 404 results with a browser-like request before outreach.
+- `tools/batch.py urls.txt OUT_DIR`: runs audits, prints qualifying issues and the emails the business publishes (homepage + contact page). Always hand-verify "down" and 404 results with a browser-like request before outreach.
 - `tools/report.js audit.json notes.json out.pdf`: one-page PDF report from hand-verified notes.
 - Setup: `cd tools && npm install` (axe-core 4.14.0, MPL-2.0); Playwright is preinstalled.
 
 ## Blocked on (owner)
-1. Which account sends outreach (and whether calls are an option for site-down prospects).
-2. A payment channel the owner can receive with (e.g. PayPal or Wise invoice) and their country.
-3. Name and postal address for email footers.
+1. **Gmail connector re-auth** in claude.ai connector settings (it reports "needs you to sign in again").
+2. Optional: whether the owner will phone the two site-down prospects (they publish no email).
 
 ## Next executable actions
-1. While blocked: audit 40–60 more small-business sites (Clay, one search at a time; web search), hand-verify, add qualified ones to the Prospect log with a report each. Re-check P001/P002 are still down before any contact.
-2. Once a sending account is named: send P003/P004 plus new qualified prospects (max ~15/day), log each touch, follow up once after 5 business days.
+0. Owner reconnects Gmail, or sends the 5 emails from the READY TO SEND doc by hand. Log send dates; follow up after 5 business days.
+1. Keep the pipeline full: audit 40–60 more small-business sites (Clay, one search at a time; web search), hand-verify, add qualified ones to the Prospect log with a report each. Re-check P001/P002 are still down before any contact.
+2. Once Gmail is re-authorised: create drafts for P003/P004 plus new qualified prospects (max ~15/day), log each touch, follow up once after 5 business days.
 3. On a yes: confirm scope and acceptance in writing → get access (Recovery Mode link / temporary user) → fix → re-run audit as proof → invoice → record payment with evidence.
 
 ## Scheduled progress check
