@@ -19,11 +19,11 @@ No spending, debt, ads, paid leads, trading or speculative schemes without the o
 | GitHub (khotsosefako9-lang) | ✅ | Scoped to this repo only. |
 | Clay (Personal Workspace) | ✅ | Company search; skews to LinkedIn-listed firms; rate-limited (1 search at a time). |
 | Indeed | ✅ | Employment listings only; not useful for gigs. |
-| Gmail (owner's account) | ✅ reconnected 2026-10-27 | The connector can now send, but the owner chose **drafts only**: Claude drafts, the owner reviews and clicks send. Claude can read replies. |
+| Gmail (owner's account) | ✅ sending | Owner (2026-10-27): **Claude sends and does everything; owner steps in only where a human is needed.** Cap ~15 cold emails/day; send by `draftId` after re-verifying the issue. |
 | Google Drive / Calendar / Canva | available | Not needed yet. |
 | Overpass (OpenStreetMap) API | ❌ | Connection reset from this sandbox. |
 | TLS certificate checks | ❌ unreliable | The sandbox egress proxy re-signs TLS. Never report a cert expiry seen from here. |
-| Sending email | ✅ drafts | 5 drafts created 2026-10-27 (all issues re-verified that day). Check Gmail Sent to see which went out. |
+| Sending email | ✅ | 5 sent 2026-10-27 ~21:35 UTC (P003, P011, P012, P013, P014). |
 | Receiving payment | ✅ designated | Owner's PayPal Business account (address in the private Drive doc). Invoice in USD. |
 
 ## Where records live
@@ -37,7 +37,7 @@ and backed up to the owner's private Google Drive folder "Revenue project - priv
 Keep the Drive copies current. A new container won't have `private/`, so rebuild it from Drive.
 
 ## Authorised accounts
-- **Sending identity:** the owner's Gmail (designated 2026-10-27). Claude writes drafts; the owner sends. Nothing has been sent yet.
+- **Sending identity:** the owner's Gmail. Claude sends directly (owner instruction 2026-10-27). Escalate only custom commitments, contracts, payment or identity steps, and anything outside the offer.
 - **Payment channel:** the owner's PayPal Business account, USD invoices (designated 2026-10-27).
 - **Sender details:** owner's name and postal address (South Africa) for email footers are in the private Drive doc, not in this public repo.
 - PayPal fees (South Africa): published schedule shows **4.90% + fixed fee** for receiving. Assume 4.9% + $0.30 until the first real transaction shows the exact fixed fee. A $149 invoice ≈ $141.40 net; $129 ≈ $122.40 net. ZAR conversion happens at withdrawal; record the rate and date in `ledger.csv`.
@@ -57,7 +57,7 @@ Samples: two one-page PDF reports on real prospects in `private/samples/`. Notes
 ## Funnel (update with every touch)
 | Audited | Qualified | Messages sent | Replies | Agreed jobs | Delivered | Collected |
 |---|---|---|---|---|---|---|
-| 45 | 10 (5 drafted in Gmail) | 0 (5 drafts awaiting owner) | 0 | 0 | 0 | $0 |
+| 45 | 10 | 5 (2026-10-27) | 0 | 0 | 0 | $0 |
 
 ## Active jobs, deadlines, commitments
 None.
@@ -65,7 +65,7 @@ None.
 ## Experiments
 | # | Hypothesis | Change | Window | Result |
 |---|---|---|---|---|
-| E1 | Specific, verified problem + free one-page report + pay-after-fix gets ≥10% replies | First 10–20 messages | 7 days after send | pending (blocked on sending channel) |
+| E1 | Specific, verified problem + pay-after-fix gets ≥10% replies | First 10–20 messages | 7 days after each send | running: 5 sent 2026-10-27 |
 
 ## Tools
 - `tools/audit.js <url> [out.json]`: read-only mobile audit (status, broken internal links, overflow, page weight, alt text, axe WCAG A/AA, emails found).
@@ -74,11 +74,11 @@ None.
 - Setup: `cd tools && npm install` (axe-core 4.14.0, MPL-2.0); Playwright is preinstalled.
 
 ## Blocked on (owner)
-1. Owner to review and send the 5 Gmail drafts.
-2. Optional: whether the owner will phone the two site-down prospects (they publish no email).
+1. Phone calls to site-down prospects with no email (optional; owner).
+
 
 ## Next executable actions
-0. On each check: search Gmail `in:sent` for the 5 subjects to log send dates, and check for replies. Follow up once 5 business days after each send; stop on any no.
+0. On each check: read replies to the sent threads (Gmail search `newer_than:2d -in:sent` plus each threadId) and answer within scope. One follow-up per prospect 5 business days after the first send (first batch: **2026-11-03**); stop on any no; record bounces.
 1. Keep the pipeline full: audit 40–60 more small-business sites (Clay, one search at a time; web search), hand-verify, add qualified ones to the Prospect log with a report each. Re-check P001/P002 are still down before any contact.
 2. Once Gmail is re-authorised: create drafts for P003/P004 plus new qualified prospects (max ~15/day), log each touch, follow up once after 5 business days.
 3. On a yes: confirm scope and acceptance in writing → get access (Recovery Mode link / temporary user) → fix → re-run audit as proof → invoice → record payment with evidence.
