@@ -19,11 +19,11 @@ No spending, debt, ads, paid leads, trading or speculative schemes without the o
 | GitHub (khotsosefako9-lang) | ✅ | Scoped to this repo only. |
 | Clay (Personal Workspace) | ✅ | Company search; skews to LinkedIn-listed firms; rate-limited (1 search at a time). |
 | Indeed | ✅ | Employment listings only; not useful for gigs. |
-| Gmail (owner's account) | ⚠️ designated, but connector needs re-auth (checked 2026-10-27 after owner's answer) | Can only **create drafts**; the owner reviews and clicks send. |
+| Gmail (owner's account) | ✅ reconnected 2026-10-27 | The connector can now send, but the owner chose **drafts only**: Claude drafts, the owner reviews and clicks send. Claude can read replies. |
 | Google Drive / Calendar / Canva | available | Not needed yet. |
 | Overpass (OpenStreetMap) API | ❌ | Connection reset from this sandbox. |
 | TLS certificate checks | ❌ unreliable | The sandbox egress proxy re-signs TLS. Never report a cert expiry seen from here. |
-| Sending email | ⚠️ | Owner's Gmail designated 2026-10-27: Claude creates drafts, owner sends. Waiting on connector re-auth. |
+| Sending email | ✅ drafts | 5 drafts created 2026-10-27 (all issues re-verified that day). Check Gmail Sent to see which went out. |
 | Receiving payment | ✅ designated | Owner's PayPal Business account (address in the private Drive doc). Invoice in USD. |
 
 ## Where records live
@@ -57,7 +57,7 @@ Samples: two one-page PDF reports on real prospects in `private/samples/`. Notes
 ## Funnel (update with every touch)
 | Audited | Qualified | Messages sent | Replies | Agreed jobs | Delivered | Collected |
 |---|---|---|---|---|---|---|
-| 45 | 10 (5 with a published email, ready to send) | 0 | 0 | 0 | 0 | $0 |
+| 45 | 10 (5 drafted in Gmail) | 0 (5 drafts awaiting owner) | 0 | 0 | 0 | $0 |
 
 ## Active jobs, deadlines, commitments
 None.
@@ -74,11 +74,11 @@ None.
 - Setup: `cd tools && npm install` (axe-core 4.14.0, MPL-2.0); Playwright is preinstalled.
 
 ## Blocked on (owner)
-1. **Gmail connector re-auth** in claude.ai connector settings (it reports "needs you to sign in again").
+1. Owner to review and send the 5 Gmail drafts.
 2. Optional: whether the owner will phone the two site-down prospects (they publish no email).
 
 ## Next executable actions
-0. Owner reconnects Gmail, or sends the 5 emails from the READY TO SEND doc by hand. Log send dates; follow up after 5 business days.
+0. On each check: search Gmail `in:sent` for the 5 subjects to log send dates, and check for replies. Follow up once 5 business days after each send; stop on any no.
 1. Keep the pipeline full: audit 40–60 more small-business sites (Clay, one search at a time; web search), hand-verify, add qualified ones to the Prospect log with a report each. Re-check P001/P002 are still down before any contact.
 2. Once Gmail is re-authorised: create drafts for P003/P004 plus new qualified prospects (max ~15/day), log each touch, follow up once after 5 business days.
 3. On a yes: confirm scope and acceptance in writing → get access (Recovery Mode link / temporary user) → fix → re-run audit as proof → invoice → record payment with evidence.
