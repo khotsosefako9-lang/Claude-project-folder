@@ -79,6 +79,11 @@ None.
 2. Once a sending account is named: send P003/P004 plus new qualified prospects (max ~15/day), log each touch, follow up once after 5 business days.
 3. On a yes: confirm scope and acceptance in writing → get access (Recovery Mode link / temporary user) → fix → re-run audit as proof → invoice → record payment with evidence.
 
+## Scheduled progress check
+Daily at 17:43 UTC, wakes this same session (scheduled task `trig_01XejNcutWdwGkNUbMcGt7Um`, created 2026-10-27, first run 2026-10-28).
+It can only do what a normal session can: research, audit, update records, and send through channels the owner has designated.
+It disables itself after 3 blocked days with no change.
+
 ## Resume instruction
 Read this file, then the Drive Prospect log and drafts Doc (or `private/` if present) and `ledger.csv`. Check for owner answers to "Blocked on".
 Continue from "Next executable actions". Never record revenue without payment evidence.
