@@ -37,6 +37,7 @@ and backed up to the owner's private Google Drive folder "Revenue project - priv
 Keep the Drive copies current. A new container won't have `private/`, so rebuild it from Drive.
 
 ## Authorised accounts
+- **No phone calls** unless a client asks for one (owner, 2026-10-27). Prospects with no published email are parked, not called.
 - **Sending identity:** the owner's Gmail. Claude sends directly (owner instruction 2026-10-27). Escalate only custom commitments, contracts, payment or identity steps, and anything outside the offer.
 - **Payment channel:** the owner's PayPal Business account, USD invoices (designated 2026-10-27).
 - **Sender details:** owner's name and postal address (South Africa) for email footers are in the private Drive doc, not in this public repo.
@@ -84,7 +85,6 @@ No PayPal connector is available, so Claude cannot create PayPal invoices. Two o
 - Setup: `cd tools && npm install` (axe-core 4.14.0, MPL-2.0); Playwright is preinstalled.
 
 ## Blocked on (owner)
-1. Phone calls to site-down prospects with no email (optional; owner).
 
 
 ## Next executable actions
