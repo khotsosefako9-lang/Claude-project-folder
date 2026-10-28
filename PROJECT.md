@@ -103,6 +103,8 @@ Side finding: expired Squarespace sites (2 found: Custom Craft Remodeling, J. Th
   showed a false "378px wider than the screen". One false claim was emailed (Elite Auto Experts); a correction and apology
   was sent the same day and that prospect is closed. Fix: `tools/audit.js` now uses Playwright's iPhone 13 device
   profile. Rule: confirm any mobile-layout claim on two real device profiles (iPhone 13 + Pixel 7) and a screenshot before sending.
+- 2026-10-28: compress_images.py crashed on corrupt phone EXIF, and the first fallback dropped the rotation tag (photos came out
+  sideways or upside down). Fix: orientation is applied by hand when exif_transpose fails. Rule: eyeball one output per job.
 - Server errors (5xx) seen during audits can be transient or bot protection. Rule: re-request twice and confirm from an independent fetch.
 
 ## Prospecting notes

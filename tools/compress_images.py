@@ -51,6 +51,21 @@ def collect(url, min_kb):
     return json.loads(out.stdout.strip().splitlines()[-1])
 
 
+ORIENT = {2: [Image.Transpose.FLIP_LEFT_RIGHT], 3: [Image.Transpose.ROTATE_180], 4: [Image.Transpose.FLIP_TOP_BOTTOM],
+          5: [Image.Transpose.TRANSPOSE], 6: [Image.Transpose.ROTATE_270], 7: [Image.Transpose.TRANSVERSE],
+          8: [Image.Transpose.ROTATE_90]}
+
+
+def upright(img):
+    try:
+        tag = img.getexif().get(274, 1)
+    except Exception:
+        return img
+    for op in ORIENT.get(tag, []):
+        img = img.transpose(op)
+    return img
+
+
 def optimize(data, name, max_width, quality):
     """Re-encode in the format the filename promises, so the file drops straight back in.
 
@@ -59,7 +74,12 @@ def optimize(data, name, max_width, quality):
     img = Image.open(io.BytesIO(data))
     if img.format == "GIF" and getattr(img, "is_animated", False):
         return None, "animated GIF"  # needs a video/WebP decision with the client; report only
-    img = ImageOps.exif_transpose(img)
+    try:
+        img = ImageOps.exif_transpose(img)
+    except (ValueError, TypeError, OSError):
+        # Corrupt EXIF (common on phone photos) breaks exif_transpose, but browsers still honour the
+        # orientation tag, so apply it by hand or the copy shows up rotated.
+        img = upright(img)
     if img.width > max_width:
         img = img.resize((max_width, round(img.height * max_width / img.width)), Image.LANCZOS)
     ext = Path(name).suffix.lower()
