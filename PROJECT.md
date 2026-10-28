@@ -68,6 +68,16 @@ None.
 |---|---|---|---|---|
 | E1 | Specific, verified problem + pay-after-fix gets ≥10% replies | First 10–20 messages | 7 days after each send | running: 6 sent 2026-10-27 |
 
+## Other activity on the same Gmail (found 2026-10-28)
+The owner's Gmail also carries other outreach that this project did not send: a spreadsheet/CSV-preparation pitch
+to SA bookkeepers and Shopify agencies (5 sent 2026-10-27/28, one declined), and a separate "DulyQualified" business
+(info@dulyqualified.co.za alias) emailing security and cleaning firms. Before every send, check
+`private/outreach/do_not_contact.csv` and search Gmail `to:<address>` so no business gets two pitches.
+
+## PayPal status
+PayPal emailed "Set Up Your PayPal Business Account" on 2026-10-27 20:50 UTC (new account). The owner may need to finish
+setup (identity verification, linking a bank account) before the account can receive payments. That's a human step.
+
 ## Payment collection note
 No PayPal connector is available, so Claude cannot create PayPal invoices. Two options when a client is ready to pay:
 (a) the client pays via PayPal "Send" to the owner's PayPal email as goods & services (no owner action needed); or
