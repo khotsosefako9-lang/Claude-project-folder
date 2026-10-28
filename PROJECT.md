@@ -60,7 +60,7 @@ Samples: two one-page PDF reports on real prospects in `private/samples/`. Notes
 ## Funnel (update with every touch)
 | Audited | Qualified | Messages sent | Replies | Agreed jobs | Delivered | Collected |
 |---|---|---|---|---|---|---|
-| ~1,390 | 26 owners + 2 builders | 20 (18 owner + 2 builder) + 1 correction | 0 | 0 | 0 | $0 |
+| ~1,830 | 26 owners + 2 builders | 20 (18 owner + 2 builder) + 1 correction | 0 | 0 | 0 | $0 |
 
 ## Active jobs, deadlines, commitments
 None.
@@ -145,7 +145,7 @@ Last new first-touch email 2026-11-08. Checkpoint 2026-11-06: no payment by then
 
 ## Prospecting notes
 - Chamber of commerce directories (GrowthZone `/list/ql/...`, `/list/category/...`) are the best free source so far: local, owner-run, website listed. Some answer 403, so skip those.
-- Small-city chambers yield better than metro contractor lists: Norfolk NE (members.norfolkareachamber.com/list/ql/...) gave ~12 usable of 287 (4%); Des Moines contractor categories gave ~3 of 152.
+- Small-city chambers yield better than metro contractor lists: Norfolk NE (members.norfolkareachamber.com/list/ql/...) gave ~12 usable of 287 (4%); Des Moines contractor categories gave ~3 of 152. Kearney+Hastings NE ~3-7 of 421; Dubuque IA ~2 strong + 6 heavy-image of 303.
 - Clay yields ~25% usable US local businesses per page and costs ~10k tokens/page. Its semantic `products_and_services` filter returns many foreign or non-local firms.
 - Exclude video-heavy pages (HLS segments) from "heavy page" pitches; that's a design choice, not a defect.
 - Parked domains (redirect to /lander or `?ch=1&js=`) mean the domain was lost. Not a quick-fix job.
