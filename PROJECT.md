@@ -77,8 +77,11 @@ to SA bookkeepers and Shopify agencies (5 sent 2026-10-27/28, one declined), and
 `private/outreach/do_not_contact.csv` and search Gmail `to:<address>` so no business gets two pitches.
 
 ## PayPal status
-Account live (owner screenshot 2026-10-28: balance US$0.00, payment links working). Still open: **link a bank account**
-so collected money is withdrawable (owner step).
+Account live (owner screenshot 2026-10-28: balance US$0.00, payment links working). PayPal's in-app "Link a bank" offers
+only a U.S. bank form. Do NOT use it: the account is South African (setup email cnac=ZA). SA withdrawals go through
+FNB's PayPal service: a free FNB Online Banking profile (works for non-FNB banks after FICA documents) → Forex → PayPal Services
+→ Link PayPal Profile → Withdraw from PayPal (USD amount, BoP code per withdrawal, transactional ZA account only).
+Owner step, not yet done. Record the ZAR amount and rate at each withdrawal in ledger.csv.
 
 ## Payment links (2026-10-28)
 The owner created three fixed-price PayPal payment links ($49 Quick Fix, $129 Site Down Rescue, $149 Fix Sprint, USD, no
