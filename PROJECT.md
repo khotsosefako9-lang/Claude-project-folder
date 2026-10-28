@@ -32,7 +32,7 @@ Prospect data, outreach drafts and reports on named businesses are kept out of g
 and backed up to the owner's private Google Drive folder "Revenue project - private records":
 - Folder: https://drive.google.com/drive/folders/1RcguJb0NTTpHTQf2yG2l1tAECtyzFvS5
 - Prospect log (Sheet, current): https://docs.google.com/spreadsheets/d/1ZdsAXokNszo-6KR1ONScEitwufnXdyIOqU3dnMl-2zo/edit
-- Sent log (Sheet, current): https://docs.google.com/spreadsheets/d/15cMbzpRJZyIU36IQC3SuYuS_XCtgzozDrKxVrJyCkyc/edit
+- Sent log (Sheet, current): https://docs.google.com/spreadsheets/d/1Afe1vlt8gqneikIHggT81hUpdJhKsTV7Kjz6fvz2Ahw/edit
 - Reply templates + do-not-contact (Doc): https://docs.google.com/document/d/1mwhHWHEmGxgjZ4FjLybq8PAe6E0jvJX2Sbezt-c6AMk/edit
 - READY TO SEND emails (Doc, first batch, all sent): https://docs.google.com/document/d/1amvRKohVIy-WIg_1i9sJjaK_u2QYctvCgbOgPOmLodQ/edit
 - Outreach drafts + report notes (Doc): https://docs.google.com/document/d/1tUt5omSJb18qs7jZlKhUh5VY-hzhTjO4cVSNsxXl-kY/edit
