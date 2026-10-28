@@ -81,7 +81,8 @@ Account live (owner screenshot 2026-10-28: balance US$0.00, payment links workin
 only a U.S. bank form. Do NOT use it: the account is South African (setup email cnac=ZA). SA withdrawals go through
 FNB's PayPal service: a free FNB Online Banking profile (works for non-FNB banks after FICA documents) → Forex → PayPal Services
 → Link PayPal Profile → Withdraw from PayPal (USD amount, BoP code per withdrawal, transactional ZA account only).
-Owner step, not yet done. Record the ZAR amount and rate at each withdrawal in ledger.csv.
+Owner step: owner will set this up once the first payment arrives (2026-10-28). On the first PayPal payment-received email,
+remind the owner to (1) set up the FNB PayPal link and (2) confirm PayPal Settings shows country = South Africa. Record the ZAR amount and rate at each withdrawal in ledger.csv.
 
 ## Payment links (2026-10-28)
 The owner created three fixed-price PayPal payment links ($49 Quick Fix, $129 Site Down Rescue, $149 Fix Sprint, USD, no
