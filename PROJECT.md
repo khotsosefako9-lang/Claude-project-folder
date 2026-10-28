@@ -112,7 +112,7 @@ Side finding: expired Squarespace sites (2 found: Custom Craft Remodeling, J. Th
 LLM Council (5 advisors, anonymous peer review, chairman; transcript in private/council/): **keep the channel, change the buyer.**
 Lead yield to owners is ~3% of audited sites, and owners lack logins and distrust strangers, so sell to the web designers/agencies
 credited in site footers (white-label, private heads-up, pay after check). Keep the 14 owner threads with plain-language,
-no-login follow-ups. Drop: the schema upsell, "warm network", HN, bounties. Review deadline: **first payment by 2026-11-11**.
+no-login follow-ups. Drop: the schema upsell, "warm network", HN, bounties. Review deadline: **first payment by 2026-11-11**. Owner goal (set 2026-10-28): **US$650 collected by 2026-11-18**.
 Checked after the council: 70/326 sites credit someone; 28 link to a real builder (24 builders), mostly 1 audited site each, so
 the method is to start from the builder's portfolio. Pilot (3 builders, 58 portfolio sites): 2 builders qualified (≥2 client
 sites with verified defects). Sent 2 builder heads-ups (Marketing Main Street: 4 sites; JBZign: 2 sites). Client sites of pitched
