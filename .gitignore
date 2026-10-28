@@ -2,3 +2,4 @@ node_modules/
 # Prospect data, outreach drafts and reports on named businesses: kept out of this PUBLIC repo.
 # Backed up to the owner's private Google Drive instead (see PROJECT.md).
 private/
+__pycache__/
