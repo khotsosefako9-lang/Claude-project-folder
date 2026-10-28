@@ -23,6 +23,14 @@ and every fix can be verified afterward by the same check.
 **Payment:** first-time clients pay after the fix is live and verified (invoice due in 7 days).
 This is a deliberate trust lever for a new provider with no reviews; revisit after 3 paid jobs.
 
+### Optional add-ons inside a Fix Sprint (AI search readiness, no ranking promises)
+- **LocalBusiness structured data**: name, address, phone, hours and service area as schema.org JSON-LD, so search engines and
+  AI assistants read the basics reliably. 67% of the 293 small-business sites checked on 2026-10-28 had none.
+  Google says this is optional for AI Overviews, so it's offered as tidy-up, not as a visibility guarantee.
+- **AI crawler access check**: confirm robots.txt doesn't block the search/answer crawlers (OAI-SearchBot, ChatGPT-User,
+  Claude-SearchBot, PerplexityBot, Bingbot, Googlebot). Rare (7 of 293), but serious when it happens, e.g. an expired
+  Squarespace site serving `Disallow: /` to everyone.
+
 ## Inclusions / exclusions
 - Included: the fixes listed in the written check that the client approves, one round of revisions, a short before/after summary.
 - Not included: redesigns, new pages or copywriting beyond small text fixes, hosting/domain purchases,

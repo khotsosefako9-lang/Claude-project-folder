@@ -85,6 +85,19 @@ No PayPal connector is available, so Claude cannot create PayPal invoices. Two o
 (a) the client pays via PayPal "Send" to the owner's PayPal email as goods & services (no owner action needed); or
 (b) the owner sends a PayPal invoice (one human step). Offer (a) first. Confirm receipt from the PayPal notification email in Gmail before recording revenue.
 
+## Experiment log: AI SEO angle (2026-10-28)
+Hypothesis: small-business sites often block AI assistants or lack LocalBusiness schema, which would be a new reason to reach out.
+Test: `tools/ai_access.py` over all 326 audited domains (293 reachable).
+Result: only 7 block any AI crawler (2 are expired or parked domains; 3 block training-only bots, not search bots). 196/293 (67%)
+have no LocalBusiness-type JSON-LD. Decision: no standalone AI-SEO pitch. Both checks become optional Fix Sprint add-ons (offer.md).
+Side finding: expired Squarespace sites (2 found: Custom Craft Remodeling, J. Thompson Builders) serve `Disallow: /` and a
+"Website Expired" page. Both have no published email, so they're parked.
+
+## Cold-email changes (2026-10-28, cold-email skill)
+- Follow-ups: max 2, in-thread, each adds one new free thing (compressed copy of their own biggest image, or exact DIY fix
+  steps); the second is a 1-2-3 breakup that is honoured. Plan and timing: private/outreach/followups.md.
+- New first touches: 2–4 word lowercase subjects, ~80–110 words, interest-based question CTA, price in one line.
+
 ## Mistakes and fixes
 - 2026-10-28: the audit used a desktop user agent in a phone-sized window. Duda sites served their tablet layout, so 6 sites
   showed a false "378px wider than the screen". One false claim was emailed (Elite Auto Experts); a correction and apology
@@ -110,7 +123,7 @@ No PayPal connector is available, so Claude cannot create PayPal invoices. Two o
 
 
 ## Next executable actions
-0. On each check: read replies to the sent threads (Gmail search `newer_than:2d -in:sent` plus each threadId) and answer within scope. One follow-up per prospect 5 business days after the first send (first batch: **2026-11-03**); stop on any no; record bounces.
+0. On each check: read replies to the sent threads (Gmail search `newer_than:2d -in:sent` plus each threadId) and answer within scope. Follow-ups per private/outreach/followups.md: batch 1 FU1 **Fri 2026-10-30**, batch 2 FU1 **Mon 2026-11-02**, final notes 11-05 / 11-10. Stop on any no; record bounces.
 1. Keep the pipeline full: audit 40–60 more small-business sites (Clay, one search at a time; web search), hand-verify, add qualified ones to the Prospect log with a report each. Re-check P001/P002 are still down before any contact.
 2. Once Gmail is re-authorised: create drafts for P003/P004 plus new qualified prospects (max ~15/day), log each touch, follow up once after 5 business days.
 3. On a yes: confirm scope and acceptance in writing → get access (Recovery Mode link / temporary user) → fix → re-run audit as proof → invoice → record payment with evidence.
