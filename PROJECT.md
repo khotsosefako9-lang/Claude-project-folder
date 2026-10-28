@@ -60,7 +60,7 @@ Samples: two one-page PDF reports on real prospects in `private/samples/`. Notes
 ## Funnel (update with every touch)
 | Audited | Qualified | Messages sent | Replies | Agreed jobs | Delivered | Collected |
 |---|---|---|---|---|---|---|
-| 113 | 15 | 9 (6 on 10-27, 3 on 10-28) | 0 from website prospects | 0 | 0 | $0 |
+| 326 | 20 | 14 pitches (6 on 10-27, 8 on 10-28) + 1 correction | 0 | 0 | 0 | $0 |
 
 ## Active jobs, deadlines, commitments
 None.
@@ -84,6 +84,13 @@ setup (identity verification, linking a bank account) before the account can rec
 No PayPal connector is available, so Claude cannot create PayPal invoices. Two options when a client is ready to pay:
 (a) the client pays via PayPal "Send" to the owner's PayPal email as goods & services (no owner action needed); or
 (b) the owner sends a PayPal invoice (one human step). Offer (a) first. Confirm receipt from the PayPal notification email in Gmail before recording revenue.
+
+## Mistakes and fixes
+- 2026-10-28: the audit used a desktop user agent in a phone-sized window. Duda sites served their tablet layout, so 6 sites
+  showed a false "378px wider than the screen". One false claim was emailed (Elite Auto Experts); a correction and apology
+  was sent the same day and that prospect is closed. Fix: `tools/audit.js` now uses Playwright's iPhone 13 device
+  profile. Rule: confirm any mobile-layout claim on two real device profiles (iPhone 13 + Pixel 7) and a screenshot before sending.
+- Server errors (5xx) seen during audits can be transient or bot protection. Rule: re-request twice and confirm from an independent fetch.
 
 ## Prospecting notes
 - Chamber of commerce directories (GrowthZone `/list/ql/...`, `/list/category/...`) are the best free source so far: local, owner-run, website listed. Some answer 403, so skip those.

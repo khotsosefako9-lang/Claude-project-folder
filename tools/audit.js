@@ -1,12 +1,11 @@
 // Read-only public website audit for a single homepage (plus a light internal link check).
 // Usage: node audit.js https://example.com [out.json]
 // Makes only normal GET requests a visitor's browser would make; no forms are submitted.
-const { chromium } = require('playwright');
+const { chromium, devices } = require('playwright');
 const fs = require('fs');
 const path = require('path');
 
 const AXE = fs.readFileSync(require.resolve('axe-core/axe.min.js'), 'utf8');
-const UA = 'Mozilla/5.0 (compatible; site-health-check/1.0)';
 
 async function checkLinks(ctx, links) {
   const results = [];
@@ -31,7 +30,9 @@ async function audit(url) {
   const browser = await chromium.launch();
   try {
     // Mobile viewport: most local-business visitors are on phones.
-    const ctx = await browser.newContext({ userAgent: UA, viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
+    // A real phone profile (user agent included): site builders such as Duda pick their phone layout
+    // from the user agent, so a desktop UA in a narrow window reports overflow real phones never see.
+    const ctx = await browser.newContext({ ...devices['iPhone 13'] });
     const page = await ctx.newPage();
     const consoleErrors = [];
     const failed = [];
