@@ -140,6 +140,7 @@ Last new first-touch email 2026-11-08. Checkpoint 2026-11-06: no payment by then
   profile. Rule: confirm any mobile-layout claim on two real device profiles (iPhone 13 + Pixel 7) and a screenshot before sending.
 - 2026-10-28: compress_images.py crashed on corrupt phone EXIF, and the first fallback dropped the rotation tag (photos came out
   sideways or upside down). Fix: orientation is applied by hand when exif_transpose fails. Rule: eyeball one output per job.
+- 2026-10-28: palette PNGs without dithering posterized photo skies (caught by eyeballing Westside's banner before sending). Fix: Floyd-Steinberg dithering in compress_images.py; for fully opaque photo PNGs send a JPEG copy instead.
 - Server errors (5xx) seen during audits can be transient or bot protection. Rule: re-request twice and confirm from an independent fetch.
 
 ## Prospecting notes

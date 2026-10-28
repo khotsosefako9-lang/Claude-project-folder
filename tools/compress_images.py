@@ -86,7 +86,8 @@ def optimize(data, name, max_width, quality):
     buf = io.BytesIO()
     if ext == ".png":
         # 256-colour palette keeps transparency and is usually 60-80% smaller for logos and graphics.
-        img.convert("RGBA").quantize(256, method=Image.Quantize.FASTOCTREE).save(buf, "PNG", optimize=True)
+        img.convert("RGBA").quantize(256, method=Image.Quantize.FASTOCTREE,
+                                         dither=Image.Dither.FLOYDSTEINBERG).save(buf, "PNG", optimize=True)
         fmt = "PNG"
     elif ext == ".webp":
         img.save(buf, "WEBP", quality=quality, method=6)
