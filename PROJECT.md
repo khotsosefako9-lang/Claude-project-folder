@@ -146,7 +146,8 @@ Pipeline method: `tools/chamber.py` → footer credits → builder portfolio →
 
 
 ## Next executable actions
-0. On each check: read replies to the sent threads (Gmail search `newer_than:2d -in:sent` plus each threadId) and answer within scope. Follow-ups per private/outreach/followups.md: batch 1 FU1 **Fri 2026-10-30**, batch 2 FU1 **Mon 2026-11-02**, final notes 11-05 / 11-10. Stop on any no; record bounces.
+0. Prepared follow-ups: private/outreach/fu1_batch1.md (send Fri 10-30) and fu1_batch2.md (send Mon 11-02), already written; re-verify and regenerate attachments on the day.
+0b. On each check: read replies to the sent threads (Gmail search `newer_than:2d -in:sent` plus each threadId) and answer within scope. Follow-ups per private/outreach/followups.md: batch 1 FU1 **Fri 2026-10-30**, batch 2 FU1 **Mon 2026-11-02**, final notes 11-05 / 11-10. Stop on any no; record bounces.
 1. Keep the pipeline full: audit 40–60 more small-business sites (Clay, one search at a time; web search), hand-verify, add qualified ones to the Prospect log with a report each. Re-check P001/P002 are still down before any contact.
 2. Once Gmail is re-authorised: create drafts for P003/P004 plus new qualified prospects (max ~15/day), log each touch, follow up once after 5 business days.
 3. On a yes: confirm scope and acceptance in writing → get access (Recovery Mode link / temporary user) → fix → re-run audit as proof → invoice → record payment with evidence.
