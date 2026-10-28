@@ -156,6 +156,7 @@ Last new first-touch email 2026-11-08. Checkpoint 2026-11-06: no payment by then
 - `tools/report.js audit.json notes.json out.pdf`: one-page PDF report from hand-verified notes.
 - `tools/chamber.py <directory-url>...`: lists member websites from GrowthZone/ChamberMaster chamber directories (skips 403s).
 - `tools/defect_candidates.py raw_dir...`: machine-flags saved audits (broken internal links, 1 MB+ images, 5xx). Hand-verify before any claim.
+- `tools/spam_scan.py domains.txt`: finds outbound links to casino/pharma/essay domains (injected SEO spam). 1 real hit in 1,527 homepages (2026-10-28).
 - `tools/compress_images.py <page-url> OUT_DIR`: delivery tool. Same-name web-sized copies of every image over 300 KB plus a before/after report.csv. Tested on a prospect's public images: 17 images, 20.0 MB -> 5.0 MB; an 8 MB PNG-named-.jpg -> 457 KB. Palette PNGs show light dithering on photos; for paid jobs also offer JPEG/WebP conversion.
 - Setup: `cd tools && npm install` (axe-core 4.14.0, MPL-2.0); Playwright is preinstalled.
 
