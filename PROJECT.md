@@ -119,6 +119,19 @@ sites with verified defects). Sent 2 builder heads-ups (Marketing Main Street: 4
 builders are on do-not-contact (white-label promise). Template: private/outreach/builder_template.md.
 Pipeline method: `tools/chamber.py` → footer credits → builder portfolio → `tools/batch.py` → verify → builder email.
 
+## Council 2 (2026-10-28): Shopify, ecommerce, digital products
+Question from the owner: add Shopify/ecommerce or digital products? Verdict (5 advisors, 5 peer reviews, report in private/council/):
+**no Shopify line** (19/849 audited local businesses are Shopify, defects mild, crowded inboxes), **no digital products** (no
+audience or traffic within 20 days). Keep website fixes; put a finished fix in every email. Builders: send every qualified one,
+but the reviewers' "count first" check was right. `tools/defect_candidates.py` over 666 saved audits found 145 machine-flagged
+sites, 60 with footer credits; builders with 2+ candidate sites: Marketing Main Street 10 (already contacted, FU can add 6),
+Berry Digital 3 and Amplimark 2 (only ~1 MB images, too weak), Project7 2 (slider-arrow "404s" are false; 1 real), Farmboy 2
+and Blue Compass 2 (5 MB images, but mid-size agencies with in-house devs and no published email, forms only). Net: ~0 new
+builder emails; owner outreach stays the volume engine.
+Money rules from the review: fixed links only, paid at acceptance, nothing on payment terms (agencies pay 15-30 days late);
+bigger jobs = several link payments. PayPal may hold new-merchant funds; owner asked to check for any hold notice.
+Last new first-touch email 2026-11-08. Checkpoint 2026-11-06: no payment by then means tell the owner $650 is very unlikely.
+
 ## Mistakes and fixes
 - 2026-10-28: the audit used a desktop user agent in a phone-sized window. Duda sites served their tablet layout, so 6 sites
   showed a false "378px wider than the screen". One false claim was emailed (Elite Auto Experts); a correction and apology
@@ -139,6 +152,7 @@ Pipeline method: `tools/chamber.py` → footer credits → builder portfolio →
 - `tools/batch.py urls.txt OUT_DIR`: runs audits, prints qualifying issues and the emails the business publishes (homepage + contact page). Always hand-verify "down" and 404 results with a browser-like request before outreach.
 - `tools/report.js audit.json notes.json out.pdf`: one-page PDF report from hand-verified notes.
 - `tools/chamber.py <directory-url>...`: lists member websites from GrowthZone/ChamberMaster chamber directories (skips 403s).
+- `tools/defect_candidates.py raw_dir...`: machine-flags saved audits (broken internal links, 1 MB+ images, 5xx). Hand-verify before any claim.
 - `tools/compress_images.py <page-url> OUT_DIR`: delivery tool. Same-name web-sized copies of every image over 300 KB plus a before/after report.csv. Tested on a prospect's public images: 17 images, 20.0 MB -> 5.0 MB; an 8 MB PNG-named-.jpg -> 457 KB. Palette PNGs show light dithering on photos; for paid jobs also offer JPEG/WebP conversion.
 - Setup: `cd tools && npm install` (axe-core 4.14.0, MPL-2.0); Playwright is preinstalled.
 
