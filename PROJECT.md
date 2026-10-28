@@ -77,8 +77,14 @@ to SA bookkeepers and Shopify agencies (5 sent 2026-10-27/28, one declined), and
 `private/outreach/do_not_contact.csv` and search Gmail `to:<address>` so no business gets two pitches.
 
 ## PayPal status
-PayPal emailed "Set Up Your PayPal Business Account" on 2026-10-27 20:50 UTC (new account). The owner may need to finish
-setup (identity verification, linking a bank account) before the account can receive payments. That's a human step.
+Account live (owner screenshot 2026-10-28: balance US$0.00, payment links working). Still open: **link a bank account**
+so collected money is withdrawable (owner step).
+
+## Payment links (2026-10-28)
+The owner created three fixed-price PayPal payment links ($49 Quick Fix, $129 Site Down Rescue, $149 Fix Sprint, USD, no
+quantity/shipping). Each was checked by rendering it. They're stored in private/outreach/payment_links.md and the Drive folder,
+not in this repo. No human step per sale now: after the client confirms the fix, Claude sends the matching link.
+PayPal business display name is "DulyQualified", so payment messages say so. Bank account not yet linked (needed to withdraw).
 
 ## Payment collection note
 No PayPal connector is available, so Claude cannot create PayPal invoices. Two options when a client is ready to pay:
