@@ -60,7 +60,7 @@ Samples: two one-page PDF reports on real prospects in `private/samples/`. Notes
 ## Funnel (update with every touch)
 | Audited | Qualified | Messages sent | Replies | Agreed jobs | Delivered | Collected |
 |---|---|---|---|---|---|---|
-| 326 | 20 | 14 pitches (6 on 10-27, 8 on 10-28) + 1 correction | 0 | 0 | 0 | $0 |
+| 384 | 20 owners + 2 builders | 16 (14 owner + 2 builder) + 1 correction | 0 | 0 | 0 | $0 |
 
 ## Active jobs, deadlines, commitments
 None.
@@ -107,6 +107,17 @@ Side finding: expired Squarespace sites (2 found: Custom Craft Remodeling, J. Th
 - Follow-ups: max 2, in-thread, each adds one new free thing (compressed copy of their own biggest image, or exact DIY fix
   steps); the second is a 1-2-3 breakup that is honoured. Plan and timing: private/outreach/followups.md.
 - New first touches: 2–4 word lowercase subjects, ~80–110 words, interest-based question CTA, price in one line.
+
+## Council decision (2026-10-28) and builder pilot
+LLM Council (5 advisors, anonymous peer review, chairman; transcript in private/council/): **keep the channel, change the buyer.**
+Lead yield to owners is ~3% of audited sites, and owners lack logins and distrust strangers, so sell to the web designers/agencies
+credited in site footers (white-label, private heads-up, pay after check). Keep the 14 owner threads with plain-language,
+no-login follow-ups. Drop: the schema upsell, "warm network", HN, bounties. Review deadline: **first payment by 2026-11-11**.
+Checked after the council: 70/326 sites credit someone; 28 link to a real builder (24 builders), mostly 1 audited site each, so
+the method is to start from the builder's portfolio. Pilot (3 builders, 58 portfolio sites): 2 builders qualified (≥2 client
+sites with verified defects). Sent 2 builder heads-ups (Marketing Main Street: 4 sites; JBZign: 2 sites). Client sites of pitched
+builders are on do-not-contact (white-label promise). Template: private/outreach/builder_template.md.
+Pipeline method: `tools/chamber.py` → footer credits → builder portfolio → `tools/batch.py` → verify → builder email.
 
 ## Mistakes and fixes
 - 2026-10-28: the audit used a desktop user agent in a phone-sized window. Duda sites served their tablet layout, so 6 sites
