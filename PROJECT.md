@@ -81,6 +81,7 @@ Account live (owner screenshot 2026-10-28: balance US$0.00, payment links workin
 only a U.S. bank form. Do NOT use it: the account is South African (setup email cnac=ZA). SA withdrawals go through
 FNB's PayPal service: a free FNB Online Banking profile (works for non-FNB banks after FICA documents) → Forex → PayPal Services
 → Link PayPal Profile → Withdraw from PayPal (USD amount, BoP code per withdrawal, transactional ZA account only).
+Owner checked 2026-10-28: no hold, review or limitation notice. Display name "DulyQualified" can't be changed, so every payment message carries the line "The PayPal page will show my business name, DulyQualified. That's me, Khotso Sefako." (private/outreach/reply_templates.md).
 Owner step: owner will set this up once the first payment arrives (2026-10-28). On the first PayPal payment-received email,
 remind the owner to (1) set up the FNB PayPal link and (2) confirm PayPal Settings shows country = South Africa. Record the ZAR amount and rate at each withdrawal in ledger.csv.
 
@@ -129,7 +130,7 @@ Berry Digital 3 and Amplimark 2 (only ~1 MB images, too weak), Project7 2 (slide
 and Blue Compass 2 (5 MB images, but mid-size agencies with in-house devs and no published email, forms only). Net: ~0 new
 builder emails; owner outreach stays the volume engine.
 Money rules from the review: fixed links only, paid at acceptance, nothing on payment terms (agencies pay 15-30 days late);
-bigger jobs = several link payments. PayPal may hold new-merchant funds; owner asked to check for any hold notice.
+bigger jobs = several link payments. PayPal hold: owner checked, none (2026-10-28).
 Last new first-touch email 2026-11-08. Checkpoint 2026-11-06: no payment by then means tell the owner $650 is very unlikely.
 
 ## Mistakes and fixes
