@@ -58,7 +58,7 @@ Samples: two one-page PDF reports on real prospects in `private/samples/`. Notes
 ## Funnel (update with every touch)
 | Audited | Qualified | Messages sent | Replies | Agreed jobs | Delivered | Collected |
 |---|---|---|---|---|---|---|
-| 59 | 11 | 6 (2026-10-27) | 0 | 0 | 0 | $0 |
+| 113 | 15 | 9 (6 on 10-27, 3 on 10-28) | 0 from website prospects | 0 | 0 | $0 |
 
 ## Active jobs, deadlines, commitments
 None.
@@ -84,6 +84,7 @@ No PayPal connector is available, so Claude cannot create PayPal invoices. Two o
 (b) the owner sends a PayPal invoice (one human step). Offer (a) first. Confirm receipt from the PayPal notification email in Gmail before recording revenue.
 
 ## Prospecting notes
+- Chamber of commerce directories (GrowthZone `/list/ql/...`, `/list/category/...`) are the best free source so far: local, owner-run, website listed. Some answer 403, so skip those.
 - Clay yields ~25% usable US local businesses per page and costs ~10k tokens/page. Its semantic `products_and_services` filter returns many foreign or non-local firms.
 - Exclude video-heavy pages (HLS segments) from "heavy page" pitches; that's a design choice, not a defect.
 - Parked domains (redirect to /lander or `?ch=1&js=`) mean the domain was lost. Not a quick-fix job.
@@ -92,6 +93,8 @@ No PayPal connector is available, so Claude cannot create PayPal invoices. Two o
 - `tools/audit.js <url> [out.json]`: read-only mobile audit (status, broken internal links, overflow, page weight, alt text, axe WCAG A/AA, emails found).
 - `tools/batch.py urls.txt OUT_DIR`: runs audits, prints qualifying issues and the emails the business publishes (homepage + contact page). Always hand-verify "down" and 404 results with a browser-like request before outreach.
 - `tools/report.js audit.json notes.json out.pdf`: one-page PDF report from hand-verified notes.
+- `tools/chamber.py <directory-url>...`: lists member websites from GrowthZone/ChamberMaster chamber directories (skips 403s).
+- `tools/compress_images.py <page-url> OUT_DIR`: delivery tool. Same-name web-sized copies of every image over 300 KB plus a before/after report.csv. Tested on a prospect's public images: 17 images, 20.0 MB -> 5.0 MB; an 8 MB PNG-named-.jpg -> 457 KB. Palette PNGs show light dithering on photos; for paid jobs also offer JPEG/WebP conversion.
 - Setup: `cd tools && npm install` (axe-core 4.14.0, MPL-2.0); Playwright is preinstalled.
 
 ## Blocked on (owner)
