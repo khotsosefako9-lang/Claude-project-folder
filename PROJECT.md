@@ -60,7 +60,7 @@ Samples: two one-page PDF reports on real prospects in `private/samples/`. Notes
 ## Funnel (update with every touch)
 | Audited | Qualified | Messages sent | Replies | Agreed jobs | Delivered | Collected |
 |---|---|---|---|---|---|---|
-| ~1,830 | 40 owners + 2 builders | 27 (25 owner + 2 builder) + 1 correction | 0 | 0 | 0 | $0 |
+| ~1,830 | 40 owners + 2 builders | 33 (31 owner + 2 builder) + 1 correction | 0 | 0 | 0 | $0 |
 
 ## Active jobs, deadlines, commitments
 None.
@@ -164,7 +164,7 @@ Last new first-touch email 2026-11-08. Checkpoint 2026-11-06: no payment by then
 
 
 ## Next executable actions
-00. 2026-10-29: send the 7 drafts listed in private/outreach/send_2026-10-29.md after same-day re-checks. Cap 10-15 first touches/day.
+00. Fri 2026-10-30: FU1 batch 1 (fu1_batch1.md) + P067 Nebraska Coins draft; Mon 11-02: FU1 batch 2 + P068/P069 drafts; refill from Dubuque heavy-image leads (send_2026-10-29.md). 10-15 first touches/day.
 0. Prepared follow-ups: private/outreach/fu1_batch1.md (send Fri 10-30) and fu1_batch2.md (send Mon 11-02), already written; re-verify and regenerate attachments on the day.
 0b. On each check: read replies to the sent threads (Gmail search `newer_than:2d -in:sent` plus each threadId) and answer within scope. Follow-ups per private/outreach/followups.md: batch 1 FU1 **Fri 2026-10-30**, batch 2 FU1 **Mon 2026-11-02**, final notes 11-05 / 11-10. Stop on any no; record bounces.
 1. Keep the pipeline full: audit 40–60 more small-business sites (Clay, one search at a time; web search), hand-verify, add qualified ones to the Prospect log with a report each. Re-check P001/P002 are still down before any contact.
