@@ -60,7 +60,7 @@ Samples: two one-page PDF reports on real prospects in `private/samples/`. Notes
 ## Funnel (update with every touch)
 | Audited | Qualified | Messages sent | Replies | Agreed jobs | Delivered | Collected |
 |---|---|---|---|---|---|---|
-| ~1,830 | 26 owners + 2 builders | 20 (18 owner + 2 builder) + 1 correction | 0 | 0 | 0 | $0 |
+| ~1,830 | 40 owners + 2 builders | 27 (25 owner + 2 builder) + 1 correction | 0 | 0 | 0 | $0 |
 
 ## Active jobs, deadlines, commitments
 None.
