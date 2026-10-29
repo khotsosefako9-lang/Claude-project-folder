@@ -164,6 +164,8 @@ Last new first-touch email 2026-11-08. Checkpoint 2026-11-06: no payment by then
 
 
 ## Next executable actions
+PAUSED by the owner on 2026-10-29 for the rest of the week (token cost). Daily scheduled task disabled. Nothing is sent while paused.
+On resume: check Gmail for replies first; FU1 batch 1 (due 10-30) and batch 2 (due 11-02) are still unsent; drafts P067-P072 sit in Gmail Drafts and need same-day re-checks.
 00. Fri 2026-10-30: FU1 batch 1 (fu1_batch1.md) + P067 Nebraska Coins draft; Mon 11-02: FU1 batch 2 + P068/P069 drafts; refill from Dubuque heavy-image leads (send_2026-10-29.md). 10-15 first touches/day.
 0. Prepared follow-ups: private/outreach/fu1_batch1.md (send Fri 10-30) and fu1_batch2.md (send Mon 11-02), already written; re-verify and regenerate attachments on the day.
 0b. On each check: read replies to the sent threads (Gmail search `newer_than:2d -in:sent` plus each threadId) and answer within scope. Follow-ups per private/outreach/followups.md: batch 1 FU1 **Fri 2026-10-30**, batch 2 FU1 **Mon 2026-11-02**, final notes 11-05 / 11-10. Stop on any no; record bounces.
