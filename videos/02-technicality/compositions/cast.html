@@ -43,7 +43,7 @@
     </div>
   </div>
   <script>
-    const A = {"box": [10, 700, 530], "enter": 0, "duration": 35.4, "moods": [[0, "sad", 4], [1.1, "smile", 0], [8.4, "neutral", 5], [10.9, "shock", 3], [12.7, "sad", -4], [14.9, "sad", -3], [21.9, "sad", -8], [23.4, "smile", 0], [28.1, "smile", -2], [33.6, "delight", -3]], "poses": [[0, "despair"], [1.0, "none"], [1.9, "point"], [3.9, "none"], [5.1, "thumb"], [7.0, "none"], [8.4, "point"], [10.0, "none"], [10.95, "despair"], [13.4, "none"], [28.0, "phone"], [31.3, "none"], [34.0, "fist"]], "nods": [5.2, 6.1, 32.4], "jumps": [33.6], "slumps": [18.3], "blinks": [2.6, 4.6, 7.6, 9.6, 14.0, 16.8, 20.0, 24.6, 26.6, 30.2], "moves": [[22.9, 520, 1.0, 70]]};
+    const A = {"box": [10, 700, 530], "enter": 0, "duration": 36.83, "moods": [[0, "sad", 4], [1.1, "smile", 0], [8.43, "neutral", 5], [10.91, "shock", 3], [13.16, "sad", -4], [15.06, "sad", -3], [23.12, "sad", -8], [24.58, "smile", 0], [29.15, "smile", -2], [35.03, "delight", -3]], "poses": [[0, "despair"], [1.0, "none"], [1.98, "point"], [4.38, "none"], [5.46, "thumb"], [7.64, "none"], [8.43, "point"], [10.16, "none"], [10.96, "despair"], [13.56, "none"], [29.15, "phone"], [33.23, "none"], [35.33, "fist"]], "nods": [5.56, 6.74, 32.39], "jumps": [35.03], "slumps": [19.58], "moves": [[24.18, 520, 1.0, 70]], "blinks": [1.7, 4.7, 7.7, 10.7, 13.7, 16.7, 19.7, 22.7, 25.7, 28.7, 31.7, 34.7]};
     const P = "nm";
     const tl = gsap.timeline({ paused: true });
     const MOUTH = { smile: "smile", neutral: "neutral", sad: "sad", shock: "open", delight: "open" };
@@ -94,7 +94,7 @@
     (A.slumps || []).forEach(t => {
       tl.to(q("body"), { scaleY: 0.96, duration: 0.5, ease: "power2.out" }, t);
       tl.to(q("head"), { y: 18, duration: 0.5, ease: "power2.out" }, t + 0.05);
-      tl.to([q("body"), q("head")], { scaleY: 1, y: 0, duration: 0.6, ease: "power2.inOut" }, t + 2.2);
+      tl.to([q("body"), q("head")], { scaleY: 1, y: 0, duration: 0.5, ease: "power2.inOut" }, t + 1.5);
     });
     if (A.walkin) {
       const [t, fx] = A.walkin;

@@ -54,7 +54,7 @@
   </div>
   <script>
     // timing anchors (seconds from the voice start) — set from the transcript
-    const T = { lift: 1.0, week: 1.6, price: 5.12, refs: 6.06, letter: 8.34, disq: 10.82, end: 12.46 };
+    const T = { lift: 1.0, week: 1.68, price: 5.41, refs: 6.64, letter: 8.38, disq: 10.86, end: 12.36 };
     const tl = gsap.timeline({ paused: true });
     // frame 0: the finished bid already stamped (the thumbnail); the stamp lifts away — a week earlier
     tl.fromTo("#b-stamp0", { opacity: 1, scale: 1, rotation: -11 }, { opacity: 0, scale: 1.25, rotation: -11, duration: 0.3, ease: "power3.in" }, T.lift);

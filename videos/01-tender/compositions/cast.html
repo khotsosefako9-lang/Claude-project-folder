@@ -43,7 +43,7 @@
     </div>
   </div>
   <script>
-    const A = {"box": [10, 700, 530], "enter": 0, "duration": 36.2, "moods": [[0, "sad", 6], [1.7, "smile", 0], [7.5, "neutral", 6], [14.15, "shock", 3], [16.3, "sad", -6], [18.2, "neutral", -6], [22.4, "sad", -3], [25.5, "smile", 0], [32.1, "delight", -3]], "poses": [[0, "phone"], [1.6, "none"], [4.5, "thumb"], [6.3, "none"], [7.5, "phone"], [9.6, "none"], [11.4, "point"], [13.8, "none"], [14.25, "despair"], [17.2, "none"], [27.3, "fist"], [28.8, "none"], [33.1, "thumb"]], "nods": [3.5, 5.8, 29.4], "jumps": [32.1], "slumps": [16.3], "blinks": [1.2, 3.0, 6.8, 9.0, 12.0, 17.6, 20.3, 23.3, 26.4, 30.6, 34.6], "moves": [[25.1, 520, 1.0, 70]]};
+    const A = {"box": [10, 700, 530], "enter": 0, "duration": 38.68, "moods": [[0, "sad", 6], [1.48, "smile", 0], [7.23, "neutral", 6], [14.05, "shock", 3], [16.2, "sad", -6], [19.34, "neutral", -6], [23.94, "sad", -3], [27.42, "smile", 0], [34.66, "delight", -3]], "poses": [[0, "phone"], [1.38, "none"], [4.32, "thumb"], [6.0, "none"], [7.23, "phone"], [9.7, "none"], [11.54, "point"], [13.7, "none"], [14.15, "despair"], [17.1, "none"], [29.6, "fist"], [31.08, "none"], [35.72, "thumb"]], "nods": [3.3, 5.5, 31.52], "jumps": [34.66], "slumps": [16.2], "moves": [[27.02, 520, 1.0, 70]], "blinks": [1.7, 4.7, 7.7, 10.7, 13.7, 16.7, 19.7, 22.7, 25.7, 28.7, 31.7, 34.7, 37.7]};
     const P = "th";
     const tl = gsap.timeline({ paused: true });
     const MOUTH = { smile: "smile", neutral: "neutral", sad: "sad", shock: "open", delight: "open" };
@@ -94,7 +94,7 @@
     (A.slumps || []).forEach(t => {
       tl.to(q("body"), { scaleY: 0.96, duration: 0.5, ease: "power2.out" }, t);
       tl.to(q("head"), { y: 18, duration: 0.5, ease: "power2.out" }, t + 0.05);
-      tl.to([q("body"), q("head")], { scaleY: 1, y: 0, duration: 0.6, ease: "power2.inOut" }, t + 2.2);
+      tl.to([q("body"), q("head")], { scaleY: 1, y: 0, duration: 0.5, ease: "power2.inOut" }, t + 1.5);
     });
     if (A.walkin) {
       const [t, fx] = A.walkin;

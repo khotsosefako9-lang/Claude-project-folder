@@ -96,7 +96,7 @@ html = f'''<html>
     (A.slumps || []).forEach(t => {{
       tl.to(q("body"), {{ scaleY: 0.96, duration: 0.5, ease: "power2.out" }}, t);
       tl.to(q("head"), {{ y: 18, duration: 0.5, ease: "power2.out" }}, t + 0.05);
-      tl.to([q("body"), q("head")], {{ scaleY: 1, y: 0, duration: 0.6, ease: "power2.inOut" }}, t + 2.2);
+      tl.to([q("body"), q("head")], {{ scaleY: 1, y: 0, duration: 0.5, ease: "power2.inOut" }}, t + 1.5);
     }});
     if (A.walkin) {{
       const [t, fx] = A.walkin;
