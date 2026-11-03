@@ -2,21 +2,19 @@
 <template>
   <style>
     #root { position: absolute; inset: 0; font-family: Inter, sans-serif; color: #14213D; }
-    #x-centre { position: absolute; left: 40px; top: 300px; width: 1000px; height: 760px; }
-    #x-centre svg { position: absolute; inset: 0; overflow: visible; }
+    #x-centre { position: absolute; left: 350px; top: 230px; width: 690px; height: 525px; }
+    #x-scale { position: absolute; left: 0; top: 0; width: 1000px; height: 760px; transform: scale(0.69); transform-origin: 0 0; }
+    #x-scale svg { position: absolute; inset: 0; overflow: visible; }
     .cam, .reader { transform-box: fill-box; transform-origin: 50% 50%; }
-    #x-banner { position: absolute; left: 250px; top: 220px; width: 580px; height: 84px; background: #F2F1EC; border: 4px solid #14213D;
-      font-family: Outfit, sans-serif; font-weight: 800; font-size: 50px; text-align: center; line-height: 76px; }
-    #x-tag { position: absolute; left: 600px; top: 40px; width: 380px; padding: 18px 24px; background: #FFFFFF; border: 5px solid #C8372D;
-      color: #C8372D; font-weight: 700; font-size: 34px; line-height: 1.2; transform-origin: 50% 0%; }
+    #x-banner { position: absolute; left: 250px; top: 220px; width: 580px; height: 96px; background: #F2F1EC; border: 5px solid #14213D; font-family: Outfit, sans-serif; font-weight: 800; font-size: 60px; text-align: center; line-height: 86px; }
+    #x-tag { position: absolute; left: 520px; top: 30px; width: 460px; padding: 20px 26px; background: #FFFFFF; border: 6px solid #C8372D; color: #C8372D; font-weight: 700; font-size: 44px; line-height: 1.2; transform-origin: 50% 0%; }
     #x-tag::before { content: ""; position: absolute; left: 60px; top: -46px; width: 4px; height: 46px; background: #C8372D; }
 
-    #x-card { position: absolute; left: 110px; top: 330px; width: 860px; height: 620px; background: #FFFFFF;
-      border: 2px solid rgba(20,33,61,.12); box-shadow: 0 18px 40px rgba(20,33,61,.18); padding: 60px 64px; }
-    #x-card .big { font-family: Outfit, sans-serif; font-weight: 800; font-size: 104px; line-height: 1; letter-spacing: -0.02em; }
-    #x-card .line { font-size: 42px; margin-top: 26px; }
+    #x-card { position: absolute; left: 360px; top: 200px; width: 670px; height: 470px; background: #FFFFFF; border: 2px solid rgba(20,33,61,.12); box-shadow: 0 18px 40px rgba(20,33,61,.18); padding: 46px 48px; }
+    #x-card .big { font-family: Outfit, sans-serif; font-weight: 800; font-size: 84px; line-height: 1; letter-spacing: -0.02em; }
+    #x-card .line { font-size: 34px; margin-top: 22px; }
     #x-card .rule { height: 3px; background: #14213D; margin: 40px 0 28px; }
-    #x-card .svc { display: flex; gap: 40px; font-weight: 700; font-size: 44px; }
+    #x-card .svc { display: flex; gap: 34px; font-weight: 700; font-size: 40px; }
   </style>
   <div id="root" data-composition-id="site" data-width="1080" data-height="1920">
     <div id="x-card">
@@ -27,6 +25,7 @@
     </div>
 
     <div id="x-centre" data-layout-allow-overflow data-layout-allow-overlap>
+     <div id="x-scale">
       <svg viewBox="0 0 1000 760">
         <!-- ground line and car park -->
         <rect x="0" y="690" width="1000" height="70" fill="#14213D" opacity=".12"/>
@@ -48,29 +47,19 @@
           <rect x="810" y="560" width="70" height="130" opacity=".85"/>
         </g>
         <line x1="500" y1="470" x2="500" y2="690" stroke="#F2F1EC" stroke-width="4"/>
-        <!-- cameras: body + mount, one on every corner -->
-        <g fill="#14213D">
-          <g class="cam" id="x-cam1"><rect x="48" y="198" width="54" height="26" rx="4"/><rect x="40" y="206" width="12" height="10"/></g>
-          <g class="cam" id="x-cam2"><rect x="898" y="198" width="54" height="26" rx="4"/><rect x="948" y="206" width="12" height="10"/></g>
-          <g class="cam" id="x-cam3"><rect x="48" y="338" width="54" height="26" rx="4"/><rect x="40" y="346" width="12" height="10"/></g>
-          <g class="cam" id="x-cam4"><rect x="898" y="338" width="54" height="26" rx="4"/><rect x="948" y="346" width="12" height="10"/></g>
-          <g class="cam" id="x-cam5"><rect x="230" y="198" width="54" height="26" rx="4"/></g>
-          <g class="cam" id="x-cam6"><rect x="716" y="198" width="54" height="26" rx="4"/></g>
-        </g>
+        <!-- cameras: wall mount, body and lens, one on every corner -->
+        <g><g class="cam" id="x-cam1"><rect x="64" y="190" width="12" height="28" fill="#14213D"/><rect x="-34" y="210" width="96" height="44" rx="10" fill="#14213D"/><circle cx="-34" cy="232" r="17" fill="#14213D"/><circle cx="-34" cy="232" r="8" fill="#F2F1EC"/></g><g class="cam" id="x-cam2"><rect x="924" y="190" width="12" height="28" fill="#14213D"/><rect x="938" y="210" width="96" height="44" rx="10" fill="#14213D"/><circle cx="1034" cy="232" r="17" fill="#14213D"/><circle cx="1034" cy="232" r="8" fill="#F2F1EC"/></g><g class="cam" id="x-cam3"><rect x="64" y="330" width="12" height="28" fill="#14213D"/><rect x="-34" y="350" width="96" height="44" rx="10" fill="#14213D"/><circle cx="-34" cy="372" r="17" fill="#14213D"/><circle cx="-34" cy="372" r="8" fill="#F2F1EC"/></g><g class="cam" id="x-cam4"><rect x="924" y="330" width="12" height="28" fill="#14213D"/><rect x="938" y="350" width="96" height="44" rx="10" fill="#14213D"/><circle cx="1034" cy="372" r="17" fill="#14213D"/><circle cx="1034" cy="372" r="8" fill="#F2F1EC"/></g><g class="cam" id="x-cam5"><rect x="294" y="190" width="12" height="28" fill="#14213D"/><rect x="196" y="210" width="96" height="44" rx="10" fill="#14213D"/><circle cx="196" cy="232" r="17" fill="#14213D"/><circle cx="196" cy="232" r="8" fill="#F2F1EC"/></g><g class="cam" id="x-cam6"><rect x="694" y="190" width="12" height="28" fill="#14213D"/><rect x="708" y="210" width="96" height="44" rx="10" fill="#14213D"/><circle cx="804" cy="232" r="17" fill="#14213D"/><circle cx="804" cy="232" r="8" fill="#F2F1EC"/></g></g>
         <!-- access readers beside every entrance -->
-        <g fill="#14213D">
-          <g class="reader" id="x-rd1"><rect x="574" y="540" width="26" height="40" rx="4"/></g>
-          <g class="reader" id="x-rd2"><rect x="200" y="590" width="22" height="34" rx="4"/></g>
-          <g class="reader" id="x-rd3"><rect x="778" y="590" width="22" height="34" rx="4"/></g>
-        </g>
+        <g><g class="reader" id="x-rd1"><rect x="574" y="520" width="40" height="62" rx="6" fill="#14213D"/><rect x="583" y="530" width="22" height="16" rx="3" fill="#F2F1EC"/><circle cx="594" cy="564" r="6" fill="#F2F1EC"/></g><g class="reader" id="x-rd2"><rect x="200" y="580" width="40" height="62" rx="6" fill="#14213D"/><rect x="209" y="590" width="22" height="16" rx="3" fill="#F2F1EC"/><circle cx="220" cy="624" r="6" fill="#F2F1EC"/></g><g class="reader" id="x-rd3"><rect x="770" y="580" width="40" height="62" rx="6" fill="#14213D"/><rect x="779" y="590" width="22" height="16" rx="3" fill="#F2F1EC"/><circle cx="790" cy="624" r="6" fill="#F2F1EC"/></g></g>
       </svg>
       <div id="x-banner">Opening Saturday</div>
       <div id="x-tag">Installed by another installer</div>
+     </div>
     </div>
   </div>
   <script>
     // timing anchors (seconds from the voice start) — set from the transcript
-    const T = { cardIn: 1.6, driving: 4.4, corners: 7.4, gates: 8.8, another: 10.6, never: 12.4, end: 14.2 };
+    const T = { cardIn: 1.3, driving: 6.11, corners: 10.71, gates: 12.83, another: 15.23, never: 18.05, end: 20.41 };
     const tl = gsap.timeline({ paused: true });
     // frame 0: the finished centre with its cameras; the red tag already hangs on it
     tl.set("#x-card", { x: 1200 }, 0);

@@ -2,31 +2,27 @@
 <template>
   <style>
     #root { position: absolute; inset: 0; font-family: Inter, sans-serif; color: #14213D; }
-    #k-title { position: absolute; left: 0; width: 1080px; top: 190px; text-align: center;
-      font-family: Outfit, sans-serif; font-weight: 800; font-size: 120px; letter-spacing: -0.02em; line-height: 1; }
-    #k-page { position: absolute; left: 80px; top: 360px; width: 920px; height: 790px; background: #FFFFFF;
-      border: 2px solid rgba(20,33,61,.12); box-shadow: 0 18px 40px rgba(20,33,61,.18); padding: 40px 48px; }
+    #k-title { position: absolute; left: 0; width: 1080px; top: 170px; text-align: center; font-family: Outfit, sans-serif; font-weight: 800; font-size: 120px; letter-spacing: -0.02em; line-height: 1; }
+    #k-page { position: absolute; left: 60px; top: 310px; width: 960px; height: 560px; background: #FFFFFF; border: 2px solid rgba(20,33,61,.12); box-shadow: 0 18px 40px rgba(20,33,61,.18); padding: 28px 40px; }
     #k-head { display: flex; align-items: center; gap: 22px; padding-bottom: 20px; border-bottom: 3px solid #14213D; }
     #k-head img { width: 96px; height: 74px; }
     #k-head b { font-size: 36px; display: block; }
     #k-head span { font-size: 30px; }
-    .k-row { display: flex; align-items: center; gap: 22px; height: 92px; border-bottom: 1px solid rgba(20,33,61,.15); font-size: 36px; }
+    .k-row { display: flex; align-items: center; gap: 20px; height: 64px; border-bottom: 1px solid rgba(20,33,61,.15); font-size: 32px; }
     .k-row em { margin-left: auto; font-style: normal; font-size: 30px; font-weight: 700; white-space: nowrap; }
-    .k-box { width: 52px; height: 52px; border: 4px solid #14213D; position: relative; flex: none; }
+    .k-box { width: 44px; height: 44px; border: 4px solid #14213D; position: relative; flex: none; }
     .k-box svg { position: absolute; inset: 3px; }
-    #k-ready { position: absolute; left: 48px; right: 48px; bottom: 34px; height: 96px; background: #14213D; color: #F2F1EC;
-      display: flex; align-items: center; justify-content: center; gap: 20px; font-family: Outfit, sans-serif; font-weight: 800; font-size: 54px; }
+    #k-ready { position: absolute; left: 40px; right: 40px; bottom: 26px; height: 76px; background: #14213D; color: #F2F1EC; display: flex; align-items: center; justify-content: center; gap: 20px; font-family: Outfit, sans-serif; font-weight: 800; font-size: 46px; }
 
     /* the reminder that arrives on the phone */
-    #k-remind { position: absolute; left: 110px; top: 520px; width: 860px; padding: 30px 36px; background: #FFFFFF; border: 4px solid #14213D;
-      box-shadow: 0 24px 50px rgba(20,33,61,.28); display: flex; gap: 26px; align-items: center; }
+    #k-remind { position: absolute; left: 90px; top: 450px; width: 900px; padding: 28px 34px; background: #FFFFFF; border: 4px solid #14213D; box-shadow: 0 24px 50px rgba(20,33,61,.28); display: flex; gap: 26px; align-items: center; }
     #k-remind img { width: 92px; height: 71px; flex: none; }
     #k-remind b { display: block; font-size: 38px; }
     #k-remind span { font-size: 34px; }
   </style>
   <div id="root" data-composition-id="checklist" data-width="1080" data-height="1920">
     <div id="k-title">Duly Qualified</div>
-    <div id="k-page" data-hold data-layout-allow-occlusion>
+    <div id="k-page" data-hold data-layout-allow-occlusion data-layout-allow-overlap>
       <div id="k-head"><img src="assets/dq-monogram-colour-transparent.png" alt="" />
         <div><b>Bid documents · checklist</b><span>Nomsa’s Cleaning Services · illustrative example</span></div></div>
       <div class="k-row" id="k-r1"><span class="k-box"><svg viewBox="0 0 40 40"><path class="k-v" d="M6 21l9 9 19-21" fill="none" stroke="#14213D" stroke-width="6"/></svg></span>CSD registration<em>Valid</em></div>
@@ -36,14 +32,14 @@
       <div class="k-row" id="k-r5"><span class="k-box"><svg viewBox="0 0 40 40"><path class="k-v" d="M6 21l9 9 19-21" fill="none" stroke="#14213D" stroke-width="6"/></svg></span>Company registration<em>Valid</em></div>
       <div id="k-ready">Ready to bid</div>
     </div>
-    <div id="k-remind">
+    <div id="k-remind" data-layout-allow-occlusion data-layout-allow-overlap>
       <img src="assets/dq-monogram-colour-transparent.png" alt="" />
       <div><b>COIDA letter expires in 30 days</b><span>Renew it now so you can still bid.</span></div>
     </div>
   </div>
   <script>
     // timing anchors, seconds from this scene's start
-    const T = { page: 0.9, rows: 1.6, remind: 3.8, ready: 6.4 };
+    const T = { page: 2.38, rows: 3.38, remind: 7.0, ready: 12.38 };
     const tl = gsap.timeline({ paused: true });
     tl.fromTo("#k-title", { opacity: 0, filter: "blur(10px)", scale: 1.06 }, { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.35, ease: "expo.out" }, 0.05);
     tl.fromTo("#k-page", { y: 900, rotation: 4, opacity: 0 }, { y: 0, rotation: -1, opacity: 1, duration: 0.7, ease: "expo.out" }, T.page);

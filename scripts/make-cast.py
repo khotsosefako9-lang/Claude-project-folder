@@ -75,7 +75,7 @@ html = f'''<html>
       tl.to(q("eyes"), {{ scaleY: 1, duration: 0.09, ease: "power2.out" }}, t + 0.06);
     }});
     // slides along the floor
-    (A.moves || []).forEach(([t, dx, d]) => tl.to(`#${{P}}-wrap`, {{ x: dx, duration: d, ease: "power2.inOut" }}, t));
+    (A.moves || []).forEach(([t, dx, d, dy]) => tl.to(`#${{P}}-wrap`, {{ x: dx, y: dy || 0, duration: d, ease: "power2.inOut" }}, t));
     // breath: a slow, finite rise and fall of the shoulders
     const breaths = Math.floor(A.duration / 1.8);
     tl.fromTo(q("body"), {{ y: 0 }}, {{ y: -5, duration: 1.8, ease: "sine.inOut", yoyo: true, repeat: breaths }}, 0);

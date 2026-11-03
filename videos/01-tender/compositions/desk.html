@@ -32,14 +32,14 @@
     #d-friday { position: relative; display: inline-block; }
 
     /* tender notice */
-    #d-notice { left: 360px; top: 180px; width: 670px; height: 650px; padding: 42px 44px; }
+    #d-notice { left: 360px; top: 180px; width: 670px; height: 650px; padding: 42px 44px; opacity: 0; }
     #d-notice .kicker { font-weight: 700; font-size: 28px; letter-spacing: .06em; }
     #d-notice .title { font-family: Outfit, sans-serif; font-weight: 800; font-size: 74px; line-height: 1.0; letter-spacing: -0.02em; margin-top: 14px; }
     #d-notice .line { font-size: 32px; margin-top: 16px; }
     #d-notice .rule { height: 3px; background: #14213D; margin: 28px 0 22px; }
     #d-close { position: relative; display: inline-block; font-weight: 700; font-size: 50px; }
     #d-close-strike { position: absolute; left: -6px; right: -6px; top: 52%; height: 8px; background: #C8372D; transform-origin: 0 50%; }
-    #d-stamp { position: absolute; left: 250px; top: 450px; padding: 8px 28px; border: 9px solid #C8372D; color: #C8372D;
+    #d-stamp { position: absolute; left: 140px; top: 440px; padding: 8px 28px; border: 9px solid #C8372D; color: #C8372D;
       font-family: Outfit, sans-serif; font-weight: 800; font-size: 96px; letter-spacing: .04em; line-height: 1; }
   </style>
   <div id="root" data-composition-id="desk" data-width="1080" data-height="1920">
@@ -100,8 +100,8 @@
   </div>
   <script>
     // ---- timing anchors (seconds from the start of the voice) — set from the transcript ----
-    const T = { phoneOut: 2.2, guards: 3.6, clients: 4.6, busy: 5.6,
-                monday: 6.6, contract: 9.6, office: 11.2, closed: 13.4, neverSaw: 15.4, end: 17.4 };
+    const T = { phoneOut: 2.0, guards: 4.62, clients: 5.82, busy: 6.98,
+                monday: 8.51, contract: 11.27, office: 13.45, closed: 15.85, neverSaw: 18.17, end: 20.02 };
 
     const guards = ["Lwazi","Anele","Pieter","Bongani","Xola","Riaan","Themba","Siya","Kagiso","Lindo","Mzi","Ayanda"];
     const sites  = ["Walmer clinic","Newton Park","North End depot","Humewood flats","Greenacres","Korsten school",
@@ -115,7 +115,6 @@
     });
 
     const tl = gsap.timeline({ paused: true });
-    tl.set("#d-notice", { opacity: 0 }, 0);
     tl.set("#d-b2", { opacity: 1 }, 0);
     // frame 0: the phone already reads "Closed Friday."; the date is struck as the film starts
     tl.fromTo("#d-phone", { rotation: 3 }, { rotation: 3, duration: 0.01 }, 0);

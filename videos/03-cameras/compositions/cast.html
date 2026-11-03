@@ -1,0 +1,87 @@
+<html>
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #sp-wrap { position: absolute; left: 10px; top: 700px; width: 530px; height: 671px; }
+    #sp-wrap svg { width: 100%; height: 100%; display: block; overflow: visible; }
+    #sp-head { transform-box: fill-box; transform-origin: 50% 90%; }
+    #sp-body { transform-box: fill-box; transform-origin: 50% 100%; }
+    #sp-eyes { transform-box: fill-box; transform-origin: 50% 50%; }
+    #sp-bl { transform-box: fill-box; transform-origin: 100% 50%; }
+    #sp-br { transform-box: fill-box; transform-origin: 0% 50%; }
+  </style>
+  <div id="root" data-composition-id="cast" data-width="1080" data-height="1920">
+    <div id="sp-wrap" data-layout-allow-overflow data-layout-ignore>
+<svg id="sp" class="person" viewBox="0 0 600 760" xmlns="http://www.w3.org/2000/svg" aria-label="sipho">
+  <g id="sp-body">
+    <path d="M70 760 C76 580 140 470 226 440 C254 430 346 430 374 440 C460 470 524 580 530 760Z" fill="#3E4A5E"/>
+    <path d="M178 500 L246 440 L266 760 L150 760Z" fill="#D9A441"/><path d="M422 500 L354 440 L334 760 L450 760Z" fill="#D9A441"/><rect x="178" y="620" width="96" height="14" fill="#F2F1EC"/><rect x="326" y="620" width="96" height="14" fill="#F2F1EC"/><path d="M258 434 L300 486 L342 434Z" fill="#E7E3D8"/>
+    <path id="sp-arm" d="M420 760 C430 660 452 600 470 560 L520 470 C530 452 560 456 556 480 L536 560 C520 620 500 690 492 760Z" fill="#3E4A5E" opacity="0"/>
+  </g>
+  <rect x="256" y="370" width="88" height="80" rx="30" fill="#55311A"/>
+  <g id="sp-head">
+    <ellipse cx="196" cy="272" rx="22" ry="34" fill="#55311A"/>
+    <ellipse cx="404" cy="272" rx="22" ry="34" fill="#55311A"/>
+    <ellipse cx="300" cy="262" rx="108" ry="132" fill="#6A3F24"/>
+    <path d="M196 214 C196 146 244 116 300 116 C358 116 404 146 404 214Z" fill="#14213D"/><path d="M300 200 C350 198 420 204 452 222 C430 232 380 228 300 222Z" fill="#14213D"/><rect x="282" y="140" width="36" height="22" rx="4" fill="#F2F1EC"/>
+    
+    <g id="sp-eyes">
+      <ellipse cx="262" cy="262" rx="11" ry="14" fill="#14213D"/>
+      <ellipse cx="338" cy="262" rx="11" ry="14" fill="#14213D"/>
+      <circle cx="266" cy="257" r="3.5" fill="#F2F1EC"/><circle cx="342" cy="257" r="3.5" fill="#F2F1EC"/>
+    </g>
+    <path id="sp-bl" d="M236 226 C248 216 270 214 284 220" fill="none" stroke="#17110D" stroke-width="9" stroke-linecap="round"/>
+    <path id="sp-br" d="M316 220 C330 214 352 216 364 226" fill="none" stroke="#17110D" stroke-width="9" stroke-linecap="round"/>
+    <path d="M300 270 C294 296 290 306 298 312 C304 314 310 312 312 308" fill="none" stroke="#55311A" stroke-width="6" stroke-linecap="round"/>
+    <path id="sp-m-smile" d="M262 336 C278 356 322 356 338 336" fill="none" stroke="#14213D" stroke-width="8" stroke-linecap="round"/>
+    <path id="sp-m-neutral" d="M270 344 C286 348 314 348 330 344" fill="none" stroke="#14213D" stroke-width="8" stroke-linecap="round" opacity="0"/>
+    <path id="sp-m-sad" d="M266 354 C282 338 318 338 334 354" fill="none" stroke="#14213D" stroke-width="8" stroke-linecap="round" opacity="0"/>
+    <path id="sp-m-open" d="M260 334 C276 372 324 372 340 334 Z" fill="#14213D" opacity="0"/>
+  </g>
+</svg>
+    </div>
+  </div>
+  <script>
+    const A = {"box": [10, 700, 530], "enter": 0, "duration": 35.0, "moods": [[0, "sad", 6], [1.4, "smile", 0], [6.2, "neutral", 6], [15.3, "shock", 5], [16.3, "sad", -3], [18.2, "sad", -8], [20.6, "neutral", 0], [24.3, "neutral", 5], [27.4, "smile", 0], [31.7, "delight", -3]], "nods": [2.2, 32.3], "blinks": [3.1, 5.0, 8.4, 11.9, 14.2, 19.4, 22.1, 25.6, 29.0, 33.9], "moves": [[27.0, 520, 1.0, 110]]};
+    const P = "sp";
+    const tl = gsap.timeline({ paused: true });
+    const MOUTH = { smile: "smile", neutral: "neutral", sad: "sad", shock: "open", delight: "open" };
+    const BROW = { smile: [0, 0], neutral: [0, 0], sad: [14, 0], shock: [10, -10], delight: [-4, -12] };
+    const q = (s) => `#${P}-${s}`;
+    // start state
+    tl.set(["smile","neutral","sad","open"].map(k => q("m-" + k)), { opacity: 0 }, 0);
+    const m0 = A.moods[0];
+    tl.set(q("m-" + MOUTH[m0[1]]), { opacity: 1 }, 0);
+    tl.set(q("bl"), { rotation: BROW[m0[1]][0], y: BROW[m0[1]][1] }, 0);
+    tl.set(q("br"), { rotation: -BROW[m0[1]][0], y: BROW[m0[1]][1] }, 0);
+    tl.set(q("head"), { rotation: m0[2] || 0, y: 0 }, 0);
+    // entrance: rises into frame unless already there at frame 0
+    if (A.enter > 0) tl.fromTo(`#${P}-wrap`, { y: 760 }, { y: 0, duration: 0.9, ease: "expo.out" }, A.enter);
+    // moods, each through a take
+    A.moods.slice(1).forEach(([t, mood, tilt]) => {
+      tl.to(q("head"), { y: 8, duration: 0.14, ease: "power2.in" }, t - 0.14);
+      tl.to(q("head"), { y: 0, rotation: tilt || 0, duration: 0.5, ease: "back.out(2.2)" }, t);
+      ["smile","neutral","sad","open"].forEach(k => tl.to(q("m-" + k), { opacity: k === MOUTH[mood] ? 1 : 0, duration: 0.08, ease: "none" }, t));
+      tl.to(q("bl"), { rotation: BROW[mood][0], y: BROW[mood][1], duration: 0.3, ease: "power2.out" }, t - 0.04);
+      tl.to(q("br"), { rotation: -BROW[mood][0], y: BROW[mood][1], duration: 0.3, ease: "power2.out" }, t);
+      tl.fromTo(q("body"), { scaleY: 1 }, { keyframes: { scaleY: [1, 0.975, 1.012, 1] }, duration: 0.55, ease: "power1.inOut", immediateRender: false }, t - 0.1);
+    });
+    // nods (head leads, body follows a beat later, by less)
+    (A.nods || []).forEach(t => {
+      tl.to(q("head"), { keyframes: { y: [0, 10, 0, 7, 0] }, duration: 0.7, ease: "power1.inOut" }, t);
+    });
+    // blinks
+    (A.blinks || []).forEach(t => {
+      tl.to(q("eyes"), { scaleY: 0.1, duration: 0.06, ease: "power2.in" }, t);
+      tl.to(q("eyes"), { scaleY: 1, duration: 0.09, ease: "power2.out" }, t + 0.06);
+    });
+    // slides along the floor
+    (A.moves || []).forEach(([t, dx, d, dy]) => tl.to(`#${P}-wrap`, { x: dx, y: dy || 0, duration: d, ease: "power2.inOut" }, t));
+    // breath: a slow, finite rise and fall of the shoulders
+    const breaths = Math.floor(A.duration / 1.8);
+    tl.fromTo(q("body"), { y: 0 }, { y: -5, duration: 1.8, ease: "sine.inOut", yoyo: true, repeat: breaths }, 0);
+    if (A.exit) tl.to(`#${P}-wrap`, { y: 900, duration: 0.6, ease: "power3.in" }, A.exit[0]);
+    window.__timelines["cast"] = tl;
+  </script>
+</template>
+</html>

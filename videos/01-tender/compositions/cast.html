@@ -2,7 +2,7 @@
 <template>
   <style>
     #root { position: absolute; inset: 0; }
-    #th-wrap { position: absolute; left: 20px; top: 740px; width: 470px; height: 595px; }
+    #th-wrap { position: absolute; left: 10px; top: 700px; width: 530px; height: 671px; }
     #th-wrap svg { width: 100%; height: 100%; display: block; overflow: visible; }
     #th-head { transform-box: fill-box; transform-origin: 50% 90%; }
     #th-body { transform-box: fill-box; transform-origin: 50% 100%; }
@@ -42,7 +42,7 @@
     </div>
   </div>
   <script>
-    const A = {"box": [20, 740, 470], "enter": 0, "duration": 28.5, "moods": [[0, "sad", 6], [2.4, "smile", 0], [6.8, "neutral", 5], [13.6, "shock", 4], [14.6, "sad", -4], [19.6, "neutral", 0], [21.0, "smile", 0], [26.0, "delight", -3]], "nods": [5.8, 22.4], "blinks": [1.2, 4.1, 8.3, 11.0, 16.2, 18.4, 23.6, 27.1], "moves": [[19.2, 520, 1.0]]};
+    const A = {"box": [10, 700, 530], "enter": 0, "duration": 37.8, "moods": [[0, "sad", 6], [2.0, "smile", 0], [8.6, "neutral", 5], [16.0, "shock", 4], [17.0, "sad", -4], [18.4, "sad", -8], [21.0, "neutral", -6], [24.9, "sad", -3], [27.7, "smile", 0], [34.8, "delight", -3]], "nods": [4.7, 7.1, 32.2], "blinks": [1.4, 3.9, 6.3, 10.0, 12.6, 14.8, 19.4, 22.6, 26.1, 29.8, 31.4, 36.2], "moves": [[27.3, 520, 1.0, 70]]};
     const P = "th";
     const tl = gsap.timeline({ paused: true });
     const MOUTH = { smile: "smile", neutral: "neutral", sad: "sad", shock: "open", delight: "open" };
@@ -76,7 +76,7 @@
       tl.to(q("eyes"), { scaleY: 1, duration: 0.09, ease: "power2.out" }, t + 0.06);
     });
     // slides along the floor
-    (A.moves || []).forEach(([t, dx, d]) => tl.to(`#${P}-wrap`, { x: dx, duration: d, ease: "power2.inOut" }, t));
+    (A.moves || []).forEach(([t, dx, d, dy]) => tl.to(`#${P}-wrap`, { x: dx, y: dy || 0, duration: d, ease: "power2.inOut" }, t));
     // breath: a slow, finite rise and fall of the shoulders
     const breaths = Math.floor(A.duration / 1.8);
     tl.fromTo(q("body"), { y: 0 }, { y: -5, duration: 1.8, ease: "sine.inOut", yoyo: true, repeat: breaths }, 0);

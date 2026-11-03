@@ -3,29 +3,29 @@
   <style>
     #root { position: absolute; inset: 0; font-family: Inter, sans-serif; color: #14213D; }
     .paper { position: absolute; background: #FFFFFF; border: 2px solid rgba(20,33,61,.12); box-shadow: 0 18px 40px rgba(20,33,61,.18); }
-    #c-doc { left: 100px; top: 220px; width: 880px; height: 560px; padding: 54px 60px; }
+    #c-doc { left: 360px; top: 180px; width: 670px; height: 420px; padding: 40px 44px; }
     #c-doc .kicker { font-weight: 700; font-size: 32px; letter-spacing: .06em; }
-    #c-doc .title { font-family: Outfit, sans-serif; font-weight: 800; font-size: 80px; line-height: 1.02; margin-top: 18px; letter-spacing: -0.02em; }
-    #c-doc .line { font-size: 36px; margin-top: 22px; }
-    #c-valid { position: relative; display: inline-block; font-weight: 700; font-size: 46px; margin-top: 30px; }
+    #c-doc .title { font-family: Outfit, sans-serif; font-weight: 800; font-size: 66px; line-height: 1.02; margin-top: 14px; letter-spacing: -0.02em; }
+    #c-doc .line { font-size: 32px; margin-top: 18px; }
+    #c-valid { position: relative; display: inline-block; font-weight: 700; font-size: 42px; margin-top: 24px; }
     #c-valid i { position: absolute; left: -6px; right: -6px; top: 52%; height: 7px; background: #C8372D; transform-origin: 0 50%; }
 
     /* timeline: expiry vs closing */
-    #c-line { position: absolute; left: 140px; top: 860px; width: 800px; height: 200px; }
+    #c-line { position: absolute; left: 380px; top: 640px; width: 640px; height: 200px; }
     #c-bar { position: absolute; left: 0; right: 0; top: 96px; height: 6px; background: #14213D; transform-origin: 0 50%; }
-    #c-gap { position: absolute; left: 260px; width: 400px; top: 88px; height: 22px; background: #C8372D; transform-origin: 0 50%; }
-    .c-mark { position: absolute; top: 0; width: 300px; font-size: 32px; font-weight: 700; }
+    #c-gap { position: absolute; left: 200px; width: 320px; top: 88px; height: 22px; background: #C8372D; transform-origin: 0 50%; }
+    .c-mark { position: absolute; top: 0; width: 280px; font-size: 30px; font-weight: 700; }
     .c-mark::after { content: ""; position: absolute; top: 76px; width: 6px; height: 46px; background: #14213D; }
-    #c-m1 { left: 110px; text-align: center; } #c-m1::after { left: 147px; }
-    #c-m2 { left: 510px; text-align: center; } #c-m2::after { left: 147px; }
-    #c-two { position: absolute; left: 260px; width: 400px; top: 136px; text-align: center; font-size: 34px; font-weight: 700; color: #C8372D; }
+    #c-m1 { left: 60px; text-align: center; } #c-m1::after { left: 147px; }
+    #c-m2 { left: 380px; text-align: center; } #c-m2::after { left: 147px; }
+    #c-two { position: absolute; left: 200px; width: 320px; top: 130px; text-align: center; font-size: 32px; font-weight: 700; color: #C8372D; }
 
     /* the contract that went */
-    #c-contract { left: 120px; top: 260px; width: 840px; height: 760px; padding: 60px 60px; }
+    #c-contract { left: 360px; top: 200px; width: 670px; height: 470px; padding: 48px 50px; opacity: 0; }
     #c-contract .kicker { font-weight: 700; font-size: 32px; letter-spacing: .06em; }
-    #c-contract .big { font-family: Outfit, sans-serif; font-weight: 800; font-size: 150px; line-height: 1; margin-top: 30px; letter-spacing: -0.03em; }
+    #c-contract .big { font-family: Outfit, sans-serif; font-weight: 800; font-size: 130px; line-height: 1; margin-top: 26px; letter-spacing: -0.03em; }
     #c-contract .line { font-size: 40px; margin-top: 24px; }
-    #c-outline { position: absolute; left: 120px; top: 260px; width: 840px; height: 760px; border: 4px dashed rgba(20,33,61,.35); }
+    #c-outline { position: absolute; left: 360px; top: 200px; width: 670px; height: 470px; border: 4px dashed rgba(20,33,61,.35); opacity: 0; }
   </style>
   <div id="root" data-composition-id="coida" data-width="1080" data-height="1920">
     <div id="c-doc" class="paper">
@@ -50,9 +50,8 @@
   </div>
   <script>
     // timing anchors, seconds from this scene's start
-    const T = { expired: 1.6, before: 2.4, oneDoc: 4.3, gone: 5.6 };
+    const T = { expired: 3.62, before: 4.4, oneDoc: 6.76, gone: 9.86 };
     const tl = gsap.timeline({ paused: true });
-    tl.set(["#c-contract", "#c-outline"], { opacity: 0 }, 0);
     // the letter is pulled from the bid pile
     tl.fromTo("#c-doc", { y: 900, rotation: 5 }, { y: 0, rotation: -1, duration: 0.7, ease: "expo.out" }, 0);
     // "had expired": the date is struck

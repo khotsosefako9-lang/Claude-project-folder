@@ -1,542 +1,467 @@
 [
-  {
-    "text": "Tarbo",
-    "start": 0,
-    "end": 0.48,
-    "id": "w0"
-  },
-  {
-    "text": "runs",
-    "start": 0.48,
-    "end": 0.87,
-    "id": "w1"
-  },
-  {
-    "text": "a",
-    "start": 0.87,
-    "end": 0.97,
-    "id": "w2"
-  },
-  {
-    "text": "guarding",
-    "start": 1.11,
-    "end": 1.76,
-    "id": "w3"
-  },
-  {
-    "text": "firm",
-    "start": 1.76,
-    "end": 2.15,
-    "id": "w4"
-  },
-  {
-    "text": "in",
-    "start": 2.15,
-    "end": 2.33,
-    "id": "w5"
-  },
-  {
-    "text": "Port",
-    "start": 2.33,
-    "end": 2.72,
-    "id": "w6"
-  },
-  {
-    "text": "Elizabeth.",
-    "start": 2.73,
-    "end": 3.79,
-    "id": "w7"
-  },
-  {
-    "text": "12",
-    "start": 3.79,
-    "end": 4.49,
-    "id": "w8"
-  },
-  {
-    "text": "guards,",
-    "start": 4.49,
-    "end": 5,
-    "id": "w9"
-  },
-  {
-    "text": "good",
-    "start": 5,
-    "end": 5.88,
-    "id": "w10"
-  },
-  {
-    "text": "clients,",
-    "start": 5.88,
-    "end": 6.4,
-    "id": "w11"
-  },
-  {
-    "text": "always",
-    "start": 6.4,
-    "end": 7.28,
-    "id": "w12"
-  },
-  {
-    "text": "busy.",
-    "start": 7.28,
-    "end": 8,
-    "id": "w13"
-  },
-  {
-    "text": "On",
-    "start": 8,
-    "end": 8.09,
-    "id": "w14"
-  },
-  {
-    "text": "Monday,",
-    "start": 8.81,
-    "end": 9.01,
-    "id": "w15"
-  },
-  {
-    "text": "another",
-    "start": 9.11,
-    "end": 9.72,
-    "id": "w16"
-  },
-  {
-    "text": "owner",
-    "start": 9.72,
-    "end": 10.22,
-    "id": "w17"
-  },
-  {
-    "text": "mentions",
-    "start": 10.22,
-    "end": 10.99,
-    "id": "w18"
-  },
-  {
-    "text": "a",
-    "start": 11.09,
-    "end": 11.15,
-    "id": "w19"
-  },
-  {
-    "text": "two-year",
-    "start": 11.15,
-    "end": 11.68,
-    "id": "w20"
-  },
-  {
-    "text": "guarding",
-    "start": 12.49,
-    "end": 12.5,
-    "id": "w21"
-  },
-  {
-    "text": "contract",
-    "start": 12.5,
-    "end": 13,
-    "id": "w22"
-  },
-  {
-    "text": "for",
-    "start": 13,
-    "end": 13.13,
-    "id": "w23"
-  },
-  {
-    "text": "a",
-    "start": 13.14,
-    "end": 13.16,
-    "id": "w24"
-  },
-  {
-    "text": "government",
-    "start": 13.23,
-    "end": 13.34,
-    "id": "w25"
-  },
-  {
-    "text": "office",
-    "start": 13.78,
-    "end": 13.99,
-    "id": "w26"
-  },
-  {
-    "text": "in",
-    "start": 14.04,
-    "end": 14.22,
-    "id": "w27"
-  },
-  {
-    "text": "the",
-    "start": 14.22,
-    "end": 14.48,
-    "id": "w28"
-  },
-  {
-    "text": "city.",
-    "start": 14.94,
-    "end": 15,
-    "id": "w29"
-  },
-  {
-    "text": "It",
-    "start": 15,
-    "end": 15.09,
-    "id": "w30"
-  },
-  {
-    "text": "closed",
-    "start": 15.22,
-    "end": 15.83,
-    "id": "w31"
-  },
-  {
-    "text": "on",
-    "start": 15.83,
-    "end": 16.11,
-    "id": "w32"
-  },
-  {
-    "text": "Friday.",
-    "start": 16.11,
-    "end": 16.97,
-    "id": "w33"
-  },
-  {
-    "text": "Tarbo",
-    "start": 17.01,
-    "end": 17.83,
-    "id": "w34"
-  },
-  {
-    "text": "never",
-    "start": 17.83,
-    "end": 18.65,
-    "id": "w35"
-  },
-  {
-    "text": "saw",
-    "start": 18.65,
-    "end": 18.79,
-    "id": "w36"
-  },
-  {
-    "text": "it.",
-    "start": 19.49,
-    "end": 20,
-    "id": "w37"
-  },
-  {
-    "text": "Tenders",
-    "start": 20,
-    "end": 20.1,
-    "id": "w38"
-  },
-  {
-    "text": "like",
-    "start": 20.18,
-    "end": 20.88,
-    "id": "w39"
-  },
-  {
-    "text": "this",
-    "start": 21.1,
-    "end": 21.2,
-    "id": "w40"
-  },
-  {
-    "text": "open",
-    "start": 21.2,
-    "end": 21.52,
-    "id": "w41"
-  },
-  {
-    "text": "and",
-    "start": 21.52,
-    "end": 21.76,
-    "id": "w42"
-  },
-  {
-    "text": "close",
-    "start": 21.76,
-    "end": 22.16,
-    "id": "w43"
-  },
-  {
-    "text": "across",
-    "start": 22.16,
-    "end": 22.64,
-    "id": "w44"
-  },
-  {
-    "text": "the",
-    "start": 22.64,
-    "end": 22.87,
-    "id": "w45"
-  },
-  {
-    "text": "bay",
-    "start": 22.88,
-    "end": 23.12,
-    "id": "w46"
-  },
-  {
-    "text": "every",
-    "start": 23.12,
-    "end": 23.51,
-    "id": "w47"
-  },
-  {
-    "text": "month,",
-    "start": 23.51,
-    "end": 24.09,
-    "id": "w48"
-  },
-  {
-    "text": "and",
-    "start": 24.09,
-    "end": 24.22,
-    "id": "w49"
-  },
-  {
-    "text": "they're",
-    "start": 24.4,
-    "end": 24.53,
-    "id": "w50"
-  },
-  {
-    "text": "easy",
-    "start": 24.58,
-    "end": 24.71,
-    "id": "w51"
-  },
-  {
-    "text": "to",
-    "start": 24.71,
-    "end": 24.79,
-    "id": "w52"
-  },
-  {
-    "text": "miss",
-    "start": 24.87,
-    "end": 25,
-    "id": "w53"
-  },
-  {
-    "text": "when",
-    "start": 25,
-    "end": 25.28,
-    "id": "w54"
-  },
-  {
-    "text": "you're",
-    "start": 25.28,
-    "end": 25.7,
-    "id": "w55"
-  },
-  {
-    "text": "busy",
-    "start": 25.78,
-    "end": 25.92,
-    "id": "w56"
-  },
-  {
-    "text": "running",
-    "start": 25.98,
-    "end": 26.47,
-    "id": "w57"
-  },
-  {
-    "text": "jobs.",
-    "start": 26.47,
-    "end": 27,
-    "id": "w58"
-  },
-  {
-    "text": "Julie",
-    "start": 27,
-    "end": 27.09,
-    "id": "w59"
-  },
-  {
-    "text": "Qualified",
-    "start": 27.18,
-    "end": 28.43,
-    "id": "w60"
-  },
-  {
-    "text": "finds",
-    "start": 28.43,
-    "end": 28.94,
-    "id": "w61"
-  },
-  {
-    "text": "them",
-    "start": 28.94,
-    "end": 29.35,
-    "id": "w62"
-  },
-  {
-    "text": "for",
-    "start": 29.35,
-    "end": 29.65,
-    "id": "w63"
-  },
-  {
-    "text": "you.",
-    "start": 29.65,
-    "end": 30,
-    "id": "w64"
-  },
-  {
-    "text": "Every",
-    "start": 30,
-    "end": 30.09,
-    "id": "w65"
-  },
-  {
-    "text": "month,",
-    "start": 30.18,
-    "end": 30.96,
-    "id": "w66"
-  },
-  {
-    "text": "the",
-    "start": 31.1,
-    "end": 31.2,
-    "id": "w67"
-  },
-  {
-    "text": "tenders",
-    "start": 31.2,
-    "end": 31.76,
-    "id": "w68"
-  },
-  {
-    "text": "you",
-    "start": 31.76,
-    "end": 31.97,
-    "id": "w69"
-  },
-  {
-    "text": "can",
-    "start": 32.01,
-    "end": 32.23,
-    "id": "w70"
-  },
-  {
-    "text": "quote",
-    "start": 32.24,
-    "end": 32.64,
-    "id": "w71"
-  },
-  {
-    "text": "on,",
-    "start": 32.64,
-    "end": 33,
-    "id": "w72"
-  },
-  {
-    "text": "with",
-    "start": 33,
-    "end": 33.22,
-    "id": "w73"
-  },
-  {
-    "text": "closing",
-    "start": 33.22,
-    "end": 33.59,
-    "id": "w74"
-  },
-  {
-    "text": "dates,",
-    "start": 33.59,
-    "end": 34,
-    "id": "w75"
-  },
-  {
-    "text": "and",
-    "start": 34,
-    "end": 34.2,
-    "id": "w76"
-  },
-  {
-    "text": "20",
-    "start": 34.49,
-    "end": 34.6,
-    "id": "w77"
-  },
-  {
-    "text": "local",
-    "start": 34.6,
-    "end": 34.94,
-    "id": "w78"
-  },
-  {
-    "text": "businesses",
-    "start": 34.94,
-    "end": 35.33,
-    "id": "w79"
-  },
-  {
-    "text": "likely",
-    "start": 35.78,
-    "end": 36,
-    "id": "w80"
-  },
-  {
-    "text": "to",
-    "start": 36.04,
-    "end": 36.15,
-    "id": "w81"
-  },
-  {
-    "text": "need",
-    "start": 36.15,
-    "end": 36.42,
-    "id": "w82"
-  },
-  {
-    "text": "guarding.",
-    "start": 36.42,
-    "end": 37,
-    "id": "w83"
-  },
-  {
-    "text": "See",
-    "start": 37,
-    "end": 37.09,
-    "id": "w84"
-  },
-  {
-    "text": "this",
-    "start": 37.18,
-    "end": 37.93,
-    "id": "w85"
-  },
-  {
-    "text": "month's",
-    "start": 38.1,
-    "end": 38.85,
-    "id": "w86"
-  },
-  {
-    "text": "sample",
-    "start": 38.85,
-    "end": 39.64,
-    "id": "w87"
-  },
-  {
-    "text": "at",
-    "start": 39.64,
-    "end": 39.9,
-    "id": "w88"
-  },
-  {
-    "text": "juliqualified.co.za",
-    "start": 39.9,
-    "end": 43,
-    "id": "w89"
-  }
+{
+"text": "Tabo",
+"start": 0.94,
+"end": 1.56
+},
+{
+"text": "runs",
+"start": 1.56,
+"end": 1.78
+},
+{
+"text": "a",
+"start": 1.78,
+"end": 2.02
+},
+{
+"text": "guarding",
+"start": 2.02,
+"end": 2.28
+},
+{
+"text": "firm",
+"start": 2.28,
+"end": 2.7
+},
+{
+"text": "in",
+"start": 2.7,
+"end": 3.02
+},
+{
+"text": "Port",
+"start": 3.02,
+"end": 3.2
+},
+{
+"text": "Elizabeth.",
+"start": 3.2,
+"end": 3.68
+},
+{
+"text": "Twelve",
+"start": 4.62,
+"end": 4.8
+},
+{
+"text": "guards.",
+"start": 4.8,
+"end": 5.18
+},
+{
+"text": "Good",
+"start": 5.82,
+"end": 5.92
+},
+{
+"text": "clients.",
+"start": 5.92,
+"end": 6.38
+},
+{
+"text": "Always",
+"start": 6.98,
+"end": 7.28
+},
+{
+"text": "busy.",
+"start": 7.28,
+"end": 7.54
+},
+{
+"text": "On",
+"start": 8.512,
+"end": 8.652
+},
+{
+"text": "Monday,",
+"start": 8.652,
+"end": 9.052
+},
+{
+"text": "another",
+"start": 9.672,
+"end": 9.872
+},
+{
+"text": "owner",
+"start": 9.872,
+"end": 10.272
+},
+{
+"text": "mentions",
+"start": 10.272,
+"end": 10.712
+},
+{
+"text": "a",
+"start": 10.712,
+"end": 11.272
+},
+{
+"text": "two",
+"start": 11.272,
+"end": 11.592
+},
+{
+"text": "-year",
+"start": 11.592,
+"end": 11.912
+},
+{
+"text": "guarding",
+"start": 11.912,
+"end": 12.352
+},
+{
+"text": "contract",
+"start": 12.352,
+"end": 12.952
+},
+{
+"text": "for",
+"start": 12.952,
+"end": 13.272
+},
+{
+"text": "a",
+"start": 13.272,
+"end": 13.452
+},
+{
+"text": "government",
+"start": 13.452,
+"end": 13.692
+},
+{
+"text": "office",
+"start": 13.692,
+"end": 14.132
+},
+{
+"text": "in",
+"start": 14.132,
+"end": 14.372
+},
+{
+"text": "the",
+"start": 14.372,
+"end": 14.512
+},
+{
+"text": "city.",
+"start": 14.512,
+"end": 14.812
+},
+{
+"text": "It",
+"start": 15.792,
+"end": 15.912
+},
+{
+"text": "closed",
+"start": 15.912,
+"end": 16.252
+},
+{
+"text": "on",
+"start": 16.252,
+"end": 16.552
+},
+{
+"text": "Friday.",
+"start": 16.552,
+"end": 16.932
+},
+{
+"text": "Tarbo",
+"start": 18.172,
+"end": 18.372
+},
+{
+"text": "never",
+"start": 18.372,
+"end": 18.632
+},
+{
+"text": "saw",
+"start": 18.632,
+"end": 18.932
+},
+{
+"text": "it.",
+"start": 18.932,
+"end": 19.152
+},
+{
+"text": "Tenders",
+"start": 20.024,
+"end": 20.704
+},
+{
+"text": "like",
+"start": 20.704,
+"end": 20.944
+},
+{
+"text": "this",
+"start": 20.944,
+"end": 21.204
+},
+{
+"text": "open",
+"start": 21.204,
+"end": 21.624
+},
+{
+"text": "and",
+"start": 21.624,
+"end": 21.824
+},
+{
+"text": "close",
+"start": 21.824,
+"end": 22.144
+},
+{
+"text": "across",
+"start": 22.144,
+"end": 22.444
+},
+{
+"text": "the",
+"start": 22.444,
+"end": 22.664
+},
+{
+"text": "bay",
+"start": 22.664,
+"end": 22.864
+},
+{
+"text": "every",
+"start": 22.864,
+"end": 23.184
+},
+{
+"text": "month",
+"start": 23.184,
+"end": 23.504
+},
+{
+"text": "and",
+"start": 23.504,
+"end": 24.264
+},
+{
+"text": "they're",
+"start": 24.264,
+"end": 24.484
+},
+{
+"text": "easy",
+"start": 24.484,
+"end": 24.704
+},
+{
+"text": "to",
+"start": 24.704,
+"end": 24.964
+},
+{
+"text": "miss",
+"start": 24.964,
+"end": 25.184
+},
+{
+"text": "when",
+"start": 25.184,
+"end": 25.464
+},
+{
+"text": "you're",
+"start": 25.464,
+"end": 25.684
+},
+{
+"text": "busy",
+"start": 25.684,
+"end": 25.884
+},
+{
+"text": "running",
+"start": 25.884,
+"end": 26.224
+},
+{
+"text": "jobs.",
+"start": 26.224,
+"end": 26.564
+},
+{
+"text": "duly",
+"start": 27.601,
+"end": 27.941
+},
+{
+"text": "qualified",
+"start": 27.941,
+"end": 28.581
+},
+{
+"text": "finds",
+"start": 28.581,
+"end": 29.261
+},
+{
+"text": "them",
+"start": 29.261,
+"end": 29.521
+},
+{
+"text": "for",
+"start": 29.521,
+"end": 29.721
+},
+{
+"text": "you",
+"start": 29.721,
+"end": 30.161
+},
+{
+"text": "every",
+"start": 30.161,
+"end": 30.861
+},
+{
+"text": "month",
+"start": 30.861,
+"end": 31.221
+},
+{
+"text": "the",
+"start": 31.221,
+"end": 32.001
+},
+{
+"text": "tenders",
+"start": 32.001,
+"end": 32.361
+},
+{
+"text": "you",
+"start": 32.361,
+"end": 32.501
+},
+{
+"text": "can",
+"start": 32.501,
+"end": 32.641
+},
+{
+"text": "quote",
+"start": 32.641,
+"end": 32.881
+},
+{
+"text": "on",
+"start": 32.881,
+"end": 33.101
+},
+{
+"text": "with",
+"start": 33.101,
+"end": 33.501
+},
+{
+"text": "closing",
+"start": 33.501,
+"end": 33.841
+},
+{
+"text": "dates",
+"start": 33.841,
+"end": 34.141
+},
+{
+"text": "and",
+"start": 34.141,
+"end": 34.681
+},
+{
+"text": "20",
+"start": 34.681,
+"end": 34.961
+},
+{
+"text": "local",
+"start": 34.961,
+"end": 35.321
+},
+{
+"text": "businesses",
+"start": 35.321,
+"end": 35.661
+},
+{
+"text": "likely",
+"start": 35.661,
+"end": 36.001
+},
+{
+"text": "to",
+"start": 36.001,
+"end": 36.281
+},
+{
+"text": "need",
+"start": 36.281,
+"end": 36.481
+},
+{
+"text": "guarding",
+"start": 36.481,
+"end": 36.841
+},
+{
+"text": "See",
+"start": 37.791,
+"end": 38.411
+},
+{
+"text": "this",
+"start": 38.411,
+"end": 38.791
+},
+{
+"text": "month's",
+"start": 38.791,
+"end": 39.311
+},
+{
+"text": "sample",
+"start": 39.311,
+"end": 39.651
+},
+{
+"text": "at",
+"start": 39.651,
+"end": 40.131
+},
+{
+"text": "dulyqualified",
+"start": 40.131,
+"end": 40.971
+},
+{
+"text": ".co",
+"start": 40.971,
+"end": 41.811
+},
+{
+"text": ".za",
+"start": 41.811,
+"end": 43.051
+}
 ]
