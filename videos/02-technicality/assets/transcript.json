@@ -2,391 +2,386 @@
 {
 "text": "Nomsa's",
 "start": 0.0,
-"end": 0.68
+"end": 0.54
 },
 {
 "text": "cleaning",
-"start": 0.68,
-"end": 0.92
+"start": 0.54,
+"end": 0.8
 },
 {
 "text": "company",
-"start": 0.92,
-"end": 1.44
+"start": 0.8,
+"end": 1.3
 },
 {
 "text": "spent",
-"start": 1.44,
-"end": 1.78
+"start": 1.3,
+"end": 1.66
 },
 {
 "text": "a",
-"start": 1.78,
-"end": 1.96
+"start": 1.66,
+"end": 1.94
 },
 {
 "text": "week",
-"start": 1.96,
-"end": 2.18
+"start": 1.94,
+"end": 2.2
 },
 {
 "text": "on",
-"start": 2.18,
-"end": 2.46
+"start": 2.2,
+"end": 2.42
 },
 {
 "text": "a",
-"start": 2.46,
-"end": 2.6
+"start": 2.42,
+"end": 2.56
 },
 {
 "text": "tender",
-"start": 2.6,
-"end": 2.94
+"start": 2.56,
+"end": 2.82
 },
 {
 "text": "for",
-"start": 2.94,
-"end": 3.3
+"start": 2.82,
+"end": 3.12
 },
 {
 "text": "a",
-"start": 3.3,
-"end": 3.4
+"start": 3.12,
+"end": 3.28
 },
 {
 "text": "Port",
-"start": 3.4,
-"end": 3.62
+"start": 3.28,
+"end": 3.48
 },
 {
 "text": "Elizabeth",
-"start": 3.62,
-"end": 4.0
+"start": 3.48,
+"end": 3.94
 },
 {
 "text": "office.",
-"start": 4.0,
-"end": 4.46
+"start": 3.94,
+"end": 4.4
 },
 {
 "text": "Good",
-"start": 5.52,
-"end": 5.66
+"start": 4.98,
+"end": 5.12
 },
 {
-"text": "price.",
-"start": 5.66,
-"end": 6.02
-},
-{
-"text": "Good",
-"start": 6.96,
-"end": 7.08
-},
-{
-"text": "references.",
-"start": 7.08,
-"end": 7.48
-},
-{
-"text": "Then",
-"start": 8.578,
-"end": 8.818
-},
-{
-"text": "the",
-"start": 8.818,
-"end": 8.998
-},
-{
-"text": "letter",
-"start": 8.998,
-"end": 9.198
-},
-{
-"text": "came,",
-"start": 9.198,
-"end": 9.598
-},
-{
-"text": "disqualified.",
-"start": 10.438,
-"end": 10.798
-},
-{
-"text": "Her",
-"start": 12.946,
-"end": 13.606
-},
-{
-"text": "co",
-"start": 13.606,
-"end": 13.866
-},
-{
-"text": "-idor",
-"start": 13.866,
-"end": 14.226
-},
-{
-"text": "letter",
-"start": 14.226,
-"end": 14.406
-},
-{
-"text": "of",
-"start": 14.406,
-"end": 14.706
+"text": "price,",
+"start": 5.12,
+"end": 5.52
 },
 {
 "text": "good",
-"start": 14.706,
-"end": 14.866
+"start": 5.86,
+"end": 5.96
 },
 {
-"text": "standing",
-"start": 14.866,
-"end": 15.346
+"text": "references.",
+"start": 5.96,
+"end": 6.52
 },
 {
-"text": "had",
-"start": 15.346,
-"end": 15.626
-},
-{
-"text": "expired",
-"start": 15.626,
-"end": 16.106
-},
-{
-"text": "two",
-"start": 16.106,
-"end": 16.526
-},
-{
-"text": "weeks",
-"start": 16.526,
-"end": 16.866
-},
-{
-"text": "before",
-"start": 16.866,
-"end": 17.246
-},
-{
-"text": "closing.",
-"start": 17.246,
-"end": 17.746
-},
-{
-"text": "One",
-"start": 18.766,
-"end": 19.086
-},
-{
-"text": "document",
-"start": 19.086,
-"end": 19.566
-},
-{
-"text": "and",
-"start": 19.566,
-"end": 20.646
-},
-{
-"text": "a",
-"start": 20.646,
-"end": 20.786
-},
-{
-"text": "three",
-"start": 20.786,
-"end": 21.086
-},
-{
-"text": "-year",
-"start": 21.086,
-"end": 21.306
-},
-{
-"text": "contract",
-"start": 21.306,
-"end": 21.866
-},
-{
-"text": "was",
-"start": 21.866,
-"end": 22.126
-},
-{
-"text": "gone.",
-"start": 22.126,
-"end": 22.426
-},
-{
-"text": "Julie",
-"start": 23.327,
-"end": 24.927
-},
-{
-"text": "Qualified",
-"start": 24.927,
-"end": 25.707
-},
-{
-"text": "keeps",
-"start": 25.707,
-"end": 26.487
-},
-{
-"text": "a",
-"start": 26.487,
-"end": 26.707
-},
-{
-"text": "checklist",
-"start": 26.707,
-"end": 27.127
-},
-{
-"text": "of",
-"start": 27.127,
-"end": 27.527
-},
-{
-"text": "every",
-"start": 27.527,
-"end": 27.947
-},
-{
-"text": "document",
-"start": 27.947,
-"end": 28.407
-},
-{
-"text": "a",
-"start": 28.407,
-"end": 28.627
-},
-{
-"text": "bid",
-"start": 28.627,
-"end": 28.827
-},
-{
-"text": "asks",
-"start": 28.827,
-"end": 29.287
-},
-{
-"text": "for",
-"start": 29.287,
-"end": 29.927
-},
-{
-"text": "and",
-"start": 29.927,
-"end": 30.327
-},
-{
-"text": "reminds",
-"start": 30.327,
-"end": 30.687
-},
-{
-"text": "you",
-"start": 30.687,
-"end": 30.947
-},
-{
-"text": "before",
-"start": 30.947,
-"end": 31.267
-},
-{
-"text": "anything",
-"start": 31.267,
-"end": 31.827
-},
-{
-"text": "expires.",
-"start": 31.827,
-"end": 32.447
-},
-{
-"text": "So",
-"start": 33.527,
-"end": 33.727
-},
-{
-"text": "when",
-"start": 33.727,
-"end": 33.887
+"text": "Then",
+"start": 8.043,
+"end": 8.403
 },
 {
 "text": "the",
-"start": 33.887,
-"end": 34.047
+"start": 8.403,
+"end": 8.603
 },
 {
-"text": "right",
-"start": 34.047,
-"end": 34.267
+"text": "letter",
+"start": 8.603,
+"end": 8.923
 },
 {
-"text": "tender",
-"start": 34.267,
-"end": 34.607
+"text": "came,",
+"start": 8.923,
+"end": 9.463
 },
 {
-"text": "opens,",
-"start": 34.607,
-"end": 35.207
+"text": "disqualified.",
+"start": 10.263,
+"end": 11.043
 },
 {
-"text": "you're",
-"start": 35.707,
-"end": 36.627
+"text": "Her",
+"start": 12.645,
+"end": 12.865
 },
 {
-"text": "ready.",
-"start": 36.627,
-"end": 36.787
+"text": "Koida",
+"start": 12.865,
+"end": 13.345
 },
 {
-"text": "See",
-"start": 37.747,
-"end": 37.987
+"text": "letter",
+"start": 13.345,
+"end": 13.665
+},
+{
+"text": "of",
+"start": 13.665,
+"end": 13.905
+},
+{
+"text": "good",
+"start": 13.905,
+"end": 14.085
+},
+{
+"text": "standing",
+"start": 14.085,
+"end": 14.605
+},
+{
+"text": "had",
+"start": 14.605,
+"end": 14.905
+},
+{
+"text": "expired",
+"start": 14.905,
+"end": 15.365
+},
+{
+"text": "two",
+"start": 15.365,
+"end": 15.785
+},
+{
+"text": "weeks",
+"start": 15.785,
+"end": 16.065
+},
+{
+"text": "before",
+"start": 16.065,
+"end": 16.405
+},
+{
+"text": "closing.",
+"start": 16.405,
+"end": 17.025
+},
+{
+"text": "One",
+"start": 18.005,
+"end": 18.665
+},
+{
+"text": "document",
+"start": 18.665,
+"end": 19.205
+},
+{
+"text": "and",
+"start": 19.205,
+"end": 19.505
 },
 {
 "text": "a",
-"start": 37.987,
-"end": 38.167
+"start": 19.505,
+"end": 19.625
+},
+{
+"text": "three",
+"start": 19.625,
+"end": 19.825
+},
+{
+"text": "-year",
+"start": 19.825,
+"end": 20.025
+},
+{
+"text": "contract",
+"start": 20.025,
+"end": 20.585
+},
+{
+"text": "was",
+"start": 20.585,
+"end": 20.965
+},
+{
+"text": "gone.",
+"start": 20.965,
+"end": 21.365
+},
+{
+"text": "Duly",
+"start": 22.654,
+"end": 23.014
+},
+{
+"text": "Qualified",
+"start": 23.014,
+"end": 23.534
+},
+{
+"text": "keeps",
+"start": 23.534,
+"end": 23.794
+},
+{
+"text": "a",
+"start": 23.794,
+"end": 23.994
+},
+{
+"text": "checklist",
+"start": 23.994,
+"end": 24.334
+},
+{
+"text": "of",
+"start": 24.334,
+"end": 24.594
+},
+{
+"text": "every",
+"start": 24.594,
+"end": 24.974
+},
+{
+"text": "document",
+"start": 24.974,
+"end": 25.434
+},
+{
+"text": "a",
+"start": 25.434,
+"end": 25.634
+},
+{
+"text": "bid",
+"start": 25.634,
+"end": 25.774
+},
+{
+"text": "asks",
+"start": 25.774,
+"end": 26.114
+},
+{
+"text": "for",
+"start": 26.114,
+"end": 26.554
+},
+{
+"text": "and",
+"start": 26.554,
+"end": 26.954
+},
+{
+"text": "reminds",
+"start": 26.954,
+"end": 27.334
+},
+{
+"text": "you",
+"start": 27.334,
+"end": 27.614
+},
+{
+"text": "before",
+"start": 27.614,
+"end": 27.954
+},
+{
+"text": "anything",
+"start": 27.954,
+"end": 28.434
+},
+{
+"text": "expires.",
+"start": 28.434,
+"end": 28.994
+},
+{
+"text": "So",
+"start": 29.634,
+"end": 29.714
+},
+{
+"text": "when",
+"start": 29.714,
+"end": 29.894
+},
+{
+"text": "the",
+"start": 29.894,
+"end": 30.054
+},
+{
+"text": "right",
+"start": 30.054,
+"end": 30.254
+},
+{
+"text": "tender",
+"start": 30.254,
+"end": 30.554
+},
+{
+"text": "opens,",
+"start": 30.554,
+"end": 31.114
+},
+{
+"text": "you're",
+"start": 31.374,
+"end": 31.714
+},
+{
+"text": "ready.",
+"start": 31.714,
+"end": 31.954
+},
+{
+"text": "See",
+"start": 33.192,
+"end": 33.452
+},
+{
+"text": "a",
+"start": 33.452,
+"end": 33.592
 },
 {
 "text": "sample",
-"start": 38.167,
-"end": 38.567
+"start": 33.592,
+"end": 33.912
 },
 {
 "text": "at",
-"start": 38.567,
-"end": 39.327
+"start": 33.912,
+"end": 34.252
 },
 {
-"text": "dulyqualified",
-"start": 39.327,
-"end": 40.267
+"text": "dulyqualify",
+"start": 34.252,
+"end": 35.072
 },
 {
 "text": ".co",
-"start": 40.267,
-"end": 41.507
+"start": 35.072,
+"end": 35.732
 },
 {
 "text": ".za",
-"start": 41.507,
-"end": 43.307
+"start": 35.732,
+"end": 36.152
 }
 ]

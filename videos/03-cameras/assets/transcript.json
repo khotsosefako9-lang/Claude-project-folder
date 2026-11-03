@@ -1,407 +1,412 @@
 [
 {
-"text": "CIPO",
+"text": "CPO",
 "start": 0.0,
-"end": 0.7
+"end": 0.46
 },
 {
 "text": "installs",
-"start": 0.7,
-"end": 1.86
+"start": 0.46,
+"end": 0.84
 },
 {
 "text": "CCTV",
-"start": 1.86,
-"end": 2.6
+"start": 0.84,
+"end": 1.44
 },
 {
 "text": "and",
-"start": 2.6,
-"end": 3.52
+"start": 1.44,
+"end": 2.06
 },
 {
 "text": "access",
-"start": 3.52,
-"end": 3.92
+"start": 2.06,
+"end": 2.42
 },
 {
 "text": "control",
-"start": 3.92,
-"end": 4.4
+"start": 2.42,
+"end": 2.8
 },
 {
 "text": "in",
-"start": 4.4,
-"end": 4.82
+"start": 2.8,
+"end": 3.0
 },
 {
 "text": "the",
-"start": 4.82,
-"end": 4.92
+"start": 3.0,
+"end": 3.12
 },
 {
 "text": "bay.",
-"start": 4.92,
-"end": 5.14
+"start": 3.12,
+"end": 3.3
 },
 {
 "text": "Driving",
-"start": 6.111,
-"end": 6.691
+"start": 4.339,
+"end": 4.699
 },
 {
 "text": "home,",
-"start": 6.691,
-"end": 7.091
+"start": 4.699,
+"end": 5.059
 },
 {
 "text": "he",
-"start": 7.631,
-"end": 7.731
+"start": 5.219,
+"end": 5.279
 },
 {
 "text": "passes",
-"start": 7.731,
-"end": 8.031
+"start": 5.279,
+"end": 5.599
 },
 {
 "text": "a",
-"start": 8.031,
-"end": 8.311
+"start": 5.599,
+"end": 5.859
 },
 {
 "text": "brand",
-"start": 8.311,
-"end": 8.531
+"start": 5.859,
+"end": 6.059
 },
 {
-"text": "-new",
-"start": 8.531,
-"end": 8.891
+"text": "new",
+"start": 6.059,
+"end": 6.259
 },
 {
 "text": "shopping",
-"start": 8.891,
-"end": 9.211
+"start": 6.259,
+"end": 6.639
 },
 {
-"text": "centre.",
-"start": 9.211,
-"end": 9.731
+"text": "center,",
+"start": 6.639,
+"end": 7.159
 },
 {
-"text": "Cameras",
-"start": 10.711,
-"end": 11.011
+"text": "cameras",
+"start": 7.479,
+"end": 7.739
 },
 {
 "text": "on",
-"start": 11.011,
-"end": 11.171
+"start": 7.739,
+"end": 8.039
 },
 {
 "text": "every",
-"start": 11.171,
-"end": 11.411
+"start": 8.039,
+"end": 8.419
 },
 {
-"text": "corner.",
-"start": 11.411,
-"end": 11.811
+"text": "corner,",
+"start": 8.419,
+"end": 8.819
 },
 {
-"text": "Gate",
-"start": 12.831,
-"end": 12.831
+"text": "gate",
+"start": 9.199,
+"end": 9.359
 },
 {
 "text": "access",
-"start": 12.831,
-"end": 13.271
+"start": 9.359,
+"end": 9.819
 },
 {
 "text": "at",
-"start": 13.271,
-"end": 13.511
+"start": 9.819,
+"end": 10.119
 },
 {
 "text": "every",
-"start": 13.511,
-"end": 13.751
+"start": 10.119,
+"end": 10.459
 },
 {
 "text": "entrance.",
-"start": 13.751,
-"end": 14.191
+"start": 10.459,
+"end": 10.979
 },
 {
 "text": "Another",
-"start": 15.231,
-"end": 15.571
+"start": 11.559,
+"end": 11.879
 },
 {
 "text": "installer",
-"start": 15.571,
-"end": 16.011
+"start": 11.879,
+"end": 12.279
 },
 {
 "text": "got",
-"start": 16.011,
-"end": 16.311
+"start": 12.279,
+"end": 12.619
 },
 {
 "text": "that",
-"start": 16.311,
-"end": 16.551
+"start": 12.619,
+"end": 12.859
 },
 {
-"text": "job.",
-"start": 16.551,
-"end": 16.831
+"text": "job,",
+"start": 12.859,
+"end": 13.119
 },
 {
-"text": "And",
-"start": 17.931,
-"end": 18.051
+"text": "and",
+"start": 13.339,
+"end": 13.439
 },
 {
-"text": "Cipo",
-"start": 18.051,
-"end": 18.491
+"text": "Cifo",
+"start": 13.439,
+"end": 13.759
 },
 {
 "text": "never",
-"start": 18.491,
-"end": 18.771
+"start": 13.759,
+"end": 14.079
 },
 {
 "text": "knew",
-"start": 18.771,
-"end": 19.051
+"start": 14.079,
+"end": 14.359
 },
 {
 "text": "it",
-"start": 19.051,
-"end": 19.191
+"start": 14.359,
+"end": 14.499
 },
 {
 "text": "was",
-"start": 19.191,
-"end": 19.351
+"start": 14.499,
+"end": 14.639
 },
 {
 "text": "coming.",
-"start": 19.351,
-"end": 19.591
+"start": 14.639,
+"end": 14.939
 },
 {
 "text": "New",
-"start": 20.412,
-"end": 21.052
+"start": 16.258,
+"end": 16.518
 },
 {
 "text": "buildings",
-"start": 21.052,
-"end": 21.412
+"start": 16.518,
+"end": 16.918
 },
 {
 "text": "go",
-"start": 21.412,
-"end": 21.712
+"start": 16.918,
+"end": 17.198
 },
 {
 "text": "up",
-"start": 21.712,
-"end": 21.892
+"start": 17.198,
+"end": 17.418
 },
 {
 "text": "across",
-"start": 21.892,
-"end": 22.152
+"start": 17.418,
+"end": 17.738
 },
 {
 "text": "the",
-"start": 22.152,
-"end": 22.352
+"start": 17.738,
+"end": 17.978
 },
 {
-"text": "Metro",
-"start": 22.352,
-"end": 22.692
+"text": "metro",
+"start": 17.978,
+"end": 18.318
 },
 {
 "text": "every",
-"start": 22.692,
-"end": 23.092
+"start": 18.318,
+"end": 18.718
 },
 {
-"text": "year,",
-"start": 23.092,
-"end": 23.512
+"text": "year",
+"start": 18.718,
+"end": 19.078
 },
 {
 "text": "and",
-"start": 23.772,
-"end": 24.232
+"start": 19.078,
+"end": 19.338
 },
 {
 "text": "each",
-"start": 24.232,
-"end": 24.392
+"start": 19.338,
+"end": 19.578
 },
 {
 "text": "one",
-"start": 24.392,
-"end": 24.672
+"start": 19.578,
+"end": 19.898
 },
 {
 "text": "needs",
-"start": 24.672,
-"end": 24.952
+"start": 19.898,
+"end": 20.138
 },
 {
 "text": "security",
-"start": 24.952,
-"end": 25.412
+"start": 20.138,
+"end": 20.558
 },
 {
 "text": "systems",
-"start": 25.412,
-"end": 26.072
+"start": 20.558,
+"end": 21.138
 },
 {
 "text": "fitted.",
-"start": 26.072,
-"end": 26.372
+"start": 21.138,
+"end": 21.518
 },
 {
-"text": "Julie",
-"start": 27.361,
-"end": 27.561
+"text": "Do",
+"start": 22.757,
+"end": 23.037
+},
+{
+"text": "The",
+"start": 23.037,
+"end": 23.197
 },
 {
 "text": "Qualified",
-"start": 27.561,
-"end": 28.101
+"start": 23.197,
+"end": 23.717
 },
 {
 "text": "finds",
-"start": 28.101,
-"end": 28.361
+"start": 23.717,
+"end": 24.117
 },
 {
 "text": "those",
-"start": 28.361,
-"end": 28.581
+"start": 24.117,
+"end": 24.377
 },
 {
 "text": "sites",
-"start": 28.581,
-"end": 28.861
+"start": 24.377,
+"end": 24.737
 },
 {
 "text": "before",
-"start": 28.861,
-"end": 29.181
+"start": 24.737,
+"end": 25.117
 },
 {
 "text": "they",
-"start": 29.181,
-"end": 29.321
+"start": 25.117,
+"end": 25.317
 },
 {
 "text": "open",
-"start": 29.321,
-"end": 29.581
+"start": 25.317,
+"end": 25.717
 },
 {
 "text": "with",
-"start": 29.581,
-"end": 30.201
+"start": 25.717,
+"end": 26.197
 },
 {
 "text": "who",
-"start": 30.201,
-"end": 30.341
+"start": 26.197,
+"end": 26.397
 },
 {
 "text": "to",
-"start": 30.341,
-"end": 30.501
+"start": 26.397,
+"end": 26.497
 },
 {
 "text": "contact",
-"start": 30.501,
-"end": 30.921
+"start": 26.497,
+"end": 27.017
 },
 {
 "text": "and",
-"start": 30.921,
-"end": 31.521
+"start": 27.017,
+"end": 27.357
 },
 {
-"text": "a",
-"start": 31.521,
-"end": 31.641
+"text": "the",
+"start": 27.357,
+"end": 27.477
 },
 {
 "text": "first",
-"start": 31.641,
-"end": 31.941
+"start": 27.477,
+"end": 27.737
 },
 {
 "text": "message",
-"start": 31.941,
-"end": 32.321
+"start": 27.737,
+"end": 28.197
 },
 {
 "text": "ready.",
-"start": 32.321,
-"end": 32.561
+"start": 28.197,
+"end": 28.517
 },
 {
 "text": "See",
-"start": 33.502,
-"end": 33.922
+"start": 29.891,
+"end": 30.131
 },
 {
 "text": "this",
-"start": 33.922,
-"end": 34.262
+"start": 30.131,
+"end": 30.371
 },
 {
 "text": "month's",
-"start": 34.262,
-"end": 34.722
+"start": 30.371,
+"end": 30.751
 },
 {
 "text": "installer",
-"start": 34.722,
-"end": 35.102
+"start": 30.751,
+"end": 31.071
 },
 {
 "text": "sample",
-"start": 35.102,
-"end": 35.702
+"start": 31.071,
+"end": 31.631
 },
 {
 "text": "at",
-"start": 35.702,
-"end": 36.342
+"start": 31.631,
+"end": 31.931
 },
 {
 "text": "dulyqualified",
-"start": 36.342,
-"end": 37.162
+"start": 31.931,
+"end": 32.671
 },
 {
 "text": ".co",
-"start": 37.162,
-"end": 38.162
+"start": 32.671,
+"end": 33.391
 },
 {
 "text": ".za",
-"start": 38.162,
-"end": 38.962
+"start": 33.391,
+"end": 33.891
 }
 ]
