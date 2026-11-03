@@ -10,7 +10,7 @@ Expected voiceover files (MP3 from ElevenLabs): `videos/01-tender/assets/voice.m
 ## 1. The tender we never saw (security)
 
 ```
-Thabo runs a guarding firm in Gqeberha. Twelve guards, good clients, always busy.
+Thabo runs a guarding firm in Port Elizabeth. Twelve guards, good clients, always busy.
 
 On Monday, another owner mentions a two-year guarding contract for a government office in the city. It closed on Friday. Thabo never saw it.
 
@@ -24,7 +24,7 @@ See this month's sample at dulyqualified.co.za.
 ## 2. Disqualified on a technicality (cleaning)
 
 ```
-Nomsa's cleaning company spent a week on a tender for a Gqeberha office. Good price. Good references.
+Nomsa's cleaning company spent a week on a tender for a Port Elizabeth office. Good price. Good references.
 
 Then the letter came. Disqualified.
 
