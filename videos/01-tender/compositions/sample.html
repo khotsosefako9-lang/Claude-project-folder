@@ -36,7 +36,7 @@
     </div>
   </div>
   <script>
-    const T = { page: 1.0, tenders: 2.6, dates: 3.9, twenty: 5.2 };
+    const T = { page: 1.76, tenders: 3.5, dates: 5.07, twenty: 5.99 };
     // a small shopfront: awning, window, door
     const SHOP = `<svg viewBox="0 0 52 52"><path d="M4 8h44l-3 12H7z" fill="#14213D"/><path d="M7 20h38v28H7z" fill="#F2F1EC" stroke="#14213D" stroke-width="3"/><path d="M12 26h14v10H12z" fill="#14213D" opacity=".35"/><path d="M31 28h9v20h-9z" fill="#14213D"/></svg>`;
     const g = document.querySelector("#s-bizgrid");
@@ -45,7 +45,7 @@
     // the name lands per letter as the voice says it
     tl.fromTo("#s-title", { opacity: 0, filter: "blur(10px)", scale: 1.06 }, { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.35, ease: "expo.out" }, 0.05);
     // the sample page slides up from under the title
-    tl.fromTo("#s-page", { y: 900, rotation: 4 }, { y: 0, rotation: -1, duration: 0.7, ease: "expo.out" }, T.page);
+    tl.fromTo("#s-page", { y: 900, rotation: 4, opacity: 0 }, { y: 0, rotation: -1, opacity: 1, duration: 0.7, ease: "expo.out" }, T.page);
     tl.fromTo([".t-row"], { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.3, stagger: 0.18, ease: "expo.out" }, T.tenders);
     tl.fromTo(".t-date u", { scaleX: 0 }, { scaleX: 1, duration: 0.3, stagger: 0.12, ease: "power2.inOut" }, T.dates);
     tl.fromTo(".b-dot", { scale: 0 }, { scale: 1, duration: 0.18, stagger: 0.04, ease: "back.out(1.6)" }, T.twenty);

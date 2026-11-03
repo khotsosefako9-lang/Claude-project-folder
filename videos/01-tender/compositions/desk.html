@@ -28,8 +28,8 @@
     #d-who { font-weight: 700; font-size: 38px; }
     #d-who small { display: block; font-weight: 400; font-size: 30px; opacity: .7; }
     #d-day { text-align: center; font-size: 30px; opacity: .65; margin: 34px 0 10px; }
-    .bubble { position: relative; margin: 18px 36px 0; max-width: 600px; background: #FFFFFF; border-radius: 0 28px 28px 28px;
-      padding: 22px 28px; font-size: 40px; line-height: 1.25; box-shadow: 0 2px 0 rgba(20,33,61,.12); }
+    .bubble { position: relative; margin: 18px 36px 0; max-width: 660px; background: #FFFFFF; border-radius: 0 28px 28px 28px;
+      padding: 26px 32px; font-size: 54px; line-height: 1.2; box-shadow: 0 2px 0 rgba(20,33,61,.12); }
     #d-strike { position: absolute; left: 0; top: 52%; height: 6px; width: 100%; background: #C8372D; transform-origin: 0 50%; }
     #d-friday { position: relative; display: inline-block; }
 
@@ -76,8 +76,8 @@
   </div>
   <script>
     // ---- timing anchors (seconds from the start of the voice) — set from the transcript ----
-    const T = { phoneOut: 1.7, guards: 3.0, clients: 3.9, busy: 4.6,
-                monday: 5.9, contract: 7.6, office: 9.2, closed: 11.4, neverSaw: 12.9, end: 14.6 };
+    const T = { phoneOut: 1.5, guards: 2.79, clients: 3.62, busy: 4.41,
+                monday: 4.95, contract: 7.40, office: 9.04, closed: 10.62, neverSaw: 11.90, end: 13.2 };
 
     // build roster rows (static markup derived once, deterministic)
     const guards = ["Lwazi","Anele","Pieter","Bongani","Xola","Riaan","Themba","Siya","Kagiso","Lindo","Mzi","Ayanda"];
@@ -93,8 +93,8 @@
 
     const tl = gsap.timeline({ paused: true });
     // frame 0: phone already on screen with the first message; the second lands, "Friday" struck in red
-    tl.fromTo("#d-b2", { opacity: 0, scale: 0.9, transformOrigin: "0% 0%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "expo.out" }, 0.25);
-    tl.fromTo("#d-strike", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.inOut" }, 0.75);
+    tl.set("#d-b2", { opacity: 1 }, 0);
+    tl.fromTo("#d-strike", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.inOut" }, 0.35);
     // the phone slides off the bottom, revealing the roster under it
     tl.fromTo("#d-phone", { y: 0, rotation: 0 }, { y: 1800, rotation: 6, duration: 0.45, ease: "power3.in" }, T.phoneOut);
     tl.set("#d-notice", { opacity: 0 }, 0);

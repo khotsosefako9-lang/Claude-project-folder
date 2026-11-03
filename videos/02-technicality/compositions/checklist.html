@@ -46,7 +46,7 @@
     const T = { page: 0.9, rows: 1.6, remind: 3.8, ready: 6.4 };
     const tl = gsap.timeline({ paused: true });
     tl.fromTo("#k-title", { opacity: 0, filter: "blur(10px)", scale: 1.06 }, { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.35, ease: "expo.out" }, 0.05);
-    tl.fromTo("#k-page", { y: 900, rotation: 4 }, { y: 0, rotation: -1, duration: 0.7, ease: "expo.out" }, T.page);
+    tl.fromTo("#k-page", { y: 900, rotation: 4, opacity: 0 }, { y: 0, rotation: -1, opacity: 1, duration: 0.7, ease: "expo.out" }, T.page);
     // "a checklist of every document a bid asks for": the rows print in, unticked
     tl.fromTo(".k-row", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.3, stagger: 0.14, ease: "expo.out" }, T.rows);
     tl.set(".k-v", { strokeDasharray: 60, strokeDashoffset: 60 }, 0);

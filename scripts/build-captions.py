@@ -27,8 +27,11 @@ def main():
     times = [None] * len(words)
     for blk in difflib.SequenceMatcher(None, a, b, autojunk=False).get_opcodes():
         tag, i1, i2, j1, j2 = blk
-        if tag in ("equal", "replace") and i2 - i1 and j2 - j1:
-            # spread the matched transcript span across the script span
+        if tag in ("equal", "replace") and i2 - i1 == j2 - j1:
+            for k in range(i2 - i1):
+                times[i1 + k] = (tr[j1 + k]["start"], tr[j1 + k]["end"])
+        elif tag == "replace" and i2 - i1 and j2 - j1:
+            # unequal spans: spread the matched transcript span across the script span
             s, e = tr[j1]["start"], tr[j2 - 1]["end"]
             n = i2 - i1
             for k in range(n):
@@ -54,7 +57,13 @@ def main():
         cur.append((w, s, e))
         nxt_gap = (times[i + 1][0] - e) if i + 1 < len(times) else 1
         end_sentence = w.endswith((".", "?", "!", ":"))
-        if len(cur) >= 5 or end_sentence or (nxt_gap >= 0.15 and len(cur) >= 3) or (i + 1 < len(words) and words[i + 1][1] != pi):
+        # break at sentence ends and commas; cap at 5 words (6 if the sentence ends on the next word);
+        # break at a pause only when it would not leave the sentence's last word alone
+        next_ends = i + 1 < len(words) and words[i + 1][0].endswith((".", "?", "!", ":")) and words[i + 1][1] == pi
+        comma = w.endswith(",") and len(cur) >= 2
+        para_end = i + 1 < len(words) and words[i + 1][1] != pi
+        if (end_sentence or comma or para_end or (len(cur) >= 5 and not (next_ends and len(cur) < 6))
+                or (nxt_gap >= 0.15 and len(cur) >= 3 and not next_ends)):
             groups.append(cur); cur = []
     if cur: groups.append(cur)
     items = []

@@ -24,7 +24,7 @@
   </div>
   <script>
     // timing anchors, seconds from this scene's start
-    const T = { opens: 0.9, closes: 2.0, busy: 4.4 };
+    const T = { opens: 1.5, closes: 2.04, busy: 4.9 };
     const grid = document.querySelector("#m-grid");
     const tenderDays = [2, 5, 8, 11, 15, 17, 22, 24, 29, 31];
     for (let i = 0; i < 35; i++) {
@@ -37,7 +37,7 @@
     }
     const tl = gsap.timeline({ paused: true });
     // pull back from the week to the month
-    tl.fromTo("#m-cal", { scale: 1.5, filter: "blur(10px)", opacity: 0 }, { scale: 1, filter: "blur(0px)", opacity: 1, duration: 0.7, ease: "power2.inOut" }, 0);
+    tl.fromTo("#m-cal", { scale: 1.25, filter: "blur(6px)" }, { scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 0);
     tl.set(".job", { scaleX: 0 }, 0);
     // tenders open on day after day…
     tl.fromTo(".slip", { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.25, stagger: 0.11, ease: "expo.out" }, T.opens);
