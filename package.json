@@ -1,0 +1,24 @@
+{
+  "name": "claude-project-folder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khotsosefako9-lang/Claude-project-folder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khotsosefako9-lang/Claude-project-folder/issues"
+  },
+  "homepage": "https://github.com/khotsosefako9-lang/Claude-project-folder#readme",
+  "dependencies": {
+    "@mojs/core": "1.7.1",
+    "three": "0.187.0"
+  }
+}
