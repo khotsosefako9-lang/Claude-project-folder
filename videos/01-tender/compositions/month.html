@@ -2,17 +2,18 @@
 <template>
   <style>
     #root { position: absolute; inset: 0; font-family: Inter, sans-serif; color: #14213D; }
-    #m-cal { position: absolute; left: 70px; top: 230px; width: 940px; height: 900px; background: #FFFFFF;
-      border: 2px solid rgba(20,33,61,.12); box-shadow: 0 18px 40px rgba(20,33,61,.18); padding: 44px 40px; }
-    #m-title { font-family: Outfit, sans-serif; font-weight: 800; font-size: 76px; letter-spacing: -0.02em; line-height: 1; }
-    #m-sub { font-size: 34px; margin-top: 10px; }
-    #m-dow { display: grid; grid-template-columns: repeat(7, 1fr); margin-top: 30px; font-weight: 700; font-size: 30px; text-align: center; }
-    #m-grid { display: grid; grid-template-columns: repeat(7, 1fr); grid-auto-rows: 118px; gap: 6px; margin-top: 10px; }
-    .day { position: relative; border: 2px solid rgba(20,33,61,.14); font-size: 28px; padding: 6px 10px; }
-    .job { position: absolute; left: 6px; right: 6px; bottom: 6px; height: 30px; background: #14213D; transform-origin: 0 50%; }
-    .slip { position: absolute; left: 8px; top: 38px; width: 110px; height: 44px; background: #F2F1EC; border: 2px solid #14213D;
-      font-weight: 700; font-size: 28px; line-height: 40px; text-align: center; }
-    .slip b { position: absolute; left: -4px; right: -4px; top: 46%; height: 5px; background: #C8372D; transform-origin: 0 50%; }
+    #m-cal { position: absolute; left: 340px; top: 180px; width: 690px; height: 650px; background: #FFFFFF;
+      border: 2px solid rgba(20,33,61,.12); box-shadow: 0 18px 40px rgba(20,33,61,.18); padding: 34px 32px; }
+    #m-title { font-family: Outfit, sans-serif; font-weight: 800; font-size: 64px; letter-spacing: -0.02em; line-height: 1; }
+    #m-sub { font-size: 30px; margin-top: 8px; }
+    #m-dow { display: grid; grid-template-columns: repeat(7, 1fr); margin-top: 18px; font-weight: 700; font-size: 28px; text-align: center; }
+    #m-grid { display: grid; grid-template-columns: repeat(7, 1fr); grid-auto-rows: 82px; gap: 5px; margin-top: 8px; }
+    .day { position: relative; border: 2px solid rgba(20,33,61,.14); font-size: 28px; padding: 2px 8px; }
+    .job { position: absolute; left: 5px; right: 5px; bottom: 5px; height: 16px; background: #14213D; transform-origin: 0 50%; }
+    .slip { position: absolute; right: 8px; top: 8px; width: 40px; height: 50px; background: #FFFFFF; border: 3px solid #14213D;
+      background-image: linear-gradient(#14213D 0 0), linear-gradient(#14213D 0 0), linear-gradient(#14213D 0 0);
+      background-size: 22px 3px, 22px 3px, 14px 3px; background-position: 6px 10px, 6px 20px, 6px 30px; background-repeat: no-repeat; }
+    .slip b { position: absolute; left: -10px; right: -10px; top: 46%; height: 6px; background: #C8372D; transform-origin: 0 50%; }
   </style>
   <div id="root" data-composition-id="month" data-width="1080" data-height="1920">
     <div id="m-cal">
@@ -24,28 +25,28 @@
   </div>
   <script>
     // timing anchors, seconds from this scene's start
-    const T = { opens: 1.5, closes: 2.04, busy: 4.9 };
+    const T = { opens: 1.5, closes: 2.6, busy: 5.4 };
     const grid = document.querySelector("#m-grid");
     const tenderDays = [2, 5, 8, 11, 15, 17, 22, 24, 29, 31];
     for (let i = 0; i < 35; i++) {
       const d = i - 1, cell = document.createElement("div"); cell.className = "day";
       if (d >= 1 && d <= 30) {
-        cell.innerHTML = `<span>${d}</span>` + (tenderDays.includes(d) ? `<div class="slip" id="m-slip${d}">Tender<b></b></div>` : "") +
+        cell.innerHTML = `<span>${d}</span>` + (tenderDays.includes(d) ? `<div class="slip" id="m-slip${d}"><b></b></div>` : "") +
           (d % 7 !== 6 && d % 7 !== 0 ? `<div class="job"></div>` : "");
       }
       grid.appendChild(cell);
     }
     const tl = gsap.timeline({ paused: true });
     // pull back from the week to the month
-    tl.fromTo("#m-cal", { scale: 1.25, filter: "blur(6px)" }, { scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 0);
+    tl.fromTo("#m-cal", { scale: 1.25, filter: "blur(6px)" }, { scale: 1, filter: "blur(0px)", duration: 0.8, ease: "expo.out" }, 0);
     tl.set(".job", { scaleX: 0 }, 0);
     // tenders open on day after day…
-    tl.fromTo(".slip", { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.25, stagger: 0.11, ease: "expo.out" }, T.opens);
+    tl.fromTo(".slip", { opacity: 0, scale: 1.4 }, { opacity: 1, scale: 1, duration: 0.25, stagger: 0.16, ease: "expo.out" }, T.opens);
     // …and close, struck through, one by one
-    tl.fromTo(".slip b", { scaleX: 0 }, { scaleX: 1, duration: 0.18, stagger: 0.11, ease: "power2.inOut" }, T.closes);
-    tl.to(".slip", { opacity: 0.35, duration: 0.2, stagger: 0.11, ease: "power2.out" }, T.closes + 0.2);
+    tl.fromTo(".slip b", { scaleX: 0 }, { scaleX: 1, duration: 0.25, stagger: 0.16, ease: "power2.inOut" }, T.closes);
+    tl.to(".slip", { opacity: 0.35, duration: 0.3, stagger: 0.16, ease: "power2.out" }, T.closes + 0.3);
     // "busy running jobs": the working days fill with jobs and cover them
-    tl.fromTo(".job", { scaleX: 0 }, { scaleX: 1, duration: 0.12, stagger: 0.025, ease: "power2.out", immediateRender: false }, T.busy);
+    tl.fromTo(".job", { scaleX: 0 }, { scaleX: 1, duration: 0.18, stagger: 0.04, ease: "power2.out", immediateRender: false }, T.busy);
     window.__timelines["month"] = tl;
   </script>
 </template>

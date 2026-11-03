@@ -7,3 +7,4 @@ node_modules/
 # HyperFrames working artifacts and renders
 .hyperframes/
 renders/
+scripts/__pycache__/
