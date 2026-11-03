@@ -48,3 +48,18 @@ Duly Qualified finds those sites before they open, with who to contact and a fir
 
 See this month's installer sample at dulyqualified.co.za.
 ```
+
+## Recorded voiceovers
+
+The three voiceovers are human recordings (phone, Nov 2026), cleaned with
+`scripts/clean-voice.sh` (denoise, gentle gate and compression, -16 LUFS):
+
+| Video | File | Length | Source |
+|---|---|---|---|
+| 1. Tender | `videos/01-tender/assets/voice.mp3` | 35.2 s | IMG_3850.MOV |
+| 2. Technicality | `videos/02-technicality/assets/voice.mp3` | 36.5 s | IMG_3852.MOV |
+| 3. Cameras | `videos/03-cameras/assets/voice.mp3` | 34.7 s | IMG_3853.MOV |
+
+The recordings say "Gqeberha" in videos 1 and 2; the script text above says
+"Port Elizabeth" (changed for synthetic voices). On-screen text should match
+whichever the final audio uses.
