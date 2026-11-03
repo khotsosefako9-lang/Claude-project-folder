@@ -25,6 +25,28 @@ PEOPLE = {
 }
 
 
+def arms(p, top, sk, sh):
+    """Arm poses drawn over the body: one group per pose, hidden until a scene shows it."""
+    def arm(pts, hand, extra=""):
+        d = "M" + " L".join(f"{x} {y}" for x, y in pts)
+        hx, hy = hand
+        return (f'<path d="{d}" fill="none" stroke="{top}" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/>'
+                f'<circle cx="{hx}" cy="{hy}" r="30" fill="{sk}"/>{extra}')
+    poses = {
+        "phone": arm([(400, 470), (490, 580), (440, 372)], (436, 352),
+                     f'<g transform="translate(34 6) rotate(-12 380 290)"><rect x="354" y="236" width="56" height="100" rx="10" fill="{NAVY}"/><rect x="362" y="246" width="40" height="72" rx="4" fill="#DDE3EA"/></g>'
+                     f'<circle cx="436" cy="352" r="30" fill="{sk}"/>'),
+        "point": arm([(400, 470), (505, 425), (588, 300)], (596, 290),
+                     f'<path d="M600 284 L632 246" stroke="{sk}" stroke-width="16" stroke-linecap="round"/>'),
+        "despair": arm([(200, 470), (118, 380), (200, 252)], (206, 246)) + arm([(400, 470), (482, 380), (400, 252)], (394, 246)),
+        "fist": arm([(400, 470), (474, 330), (452, 172)], (452, 150),
+                    f'<path d="M434 138 h36" stroke="{sh}" stroke-width="6" stroke-linecap="round"/>'),
+        "thumb": arm([(400, 470), (472, 604), (344, 566)], (334, 560),
+                     f'<path d="M330 546 L330 500" stroke="{sk}" stroke-width="18" stroke-linecap="round"/>'),
+    }
+    return "".join(f'<g id="{p}-pose-{k}" class="pose" opacity="0">{v}</g>' for k, v in poses.items())
+
+
 def svg(name, p):
     c = PEOPLE[name]
     sk, sh, hr, top, col = c["skin"], c["shade"], c["hair"], c["top"], c["collar"]
@@ -82,6 +104,7 @@ def svg(name, p):
     <path id="{p}-m-sad" d="M266 354 C282 338 318 338 334 354" fill="none" stroke="{NAVY}" stroke-width="8" stroke-linecap="round" opacity="0"/>
     <path id="{p}-m-open" d="M260 334 C276 372 324 372 340 334 Z" fill="{NAVY}" opacity="0"/>
   </g>
+  {arms(p, top, sk, sh)}
 </svg>'''
 
 

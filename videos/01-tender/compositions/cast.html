@@ -38,11 +38,12 @@
     <path id="th-m-sad" d="M266 354 C282 338 318 338 334 354" fill="none" stroke="#14213D" stroke-width="8" stroke-linecap="round" opacity="0"/>
     <path id="th-m-open" d="M260 334 C276 372 324 372 340 334 Z" fill="#14213D" opacity="0"/>
   </g>
+  <g id="th-pose-phone" class="pose" opacity="0"><path d="M400 470 L490 580 L440 372" fill="none" stroke="#14213D" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/><circle cx="436" cy="352" r="30" fill="#7A4A2A"/><g transform="translate(34 6) rotate(-12 380 290)"><rect x="354" y="236" width="56" height="100" rx="10" fill="#14213D"/><rect x="362" y="246" width="40" height="72" rx="4" fill="#DDE3EA"/></g><circle cx="436" cy="352" r="30" fill="#7A4A2A"/></g><g id="th-pose-point" class="pose" opacity="0"><path d="M400 470 L505 425 L588 300" fill="none" stroke="#14213D" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/><circle cx="596" cy="290" r="30" fill="#7A4A2A"/><path d="M600 284 L632 246" stroke="#7A4A2A" stroke-width="16" stroke-linecap="round"/></g><g id="th-pose-despair" class="pose" opacity="0"><path d="M200 470 L118 380 L200 252" fill="none" stroke="#14213D" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/><circle cx="206" cy="246" r="30" fill="#7A4A2A"/><path d="M400 470 L482 380 L400 252" fill="none" stroke="#14213D" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/><circle cx="394" cy="246" r="30" fill="#7A4A2A"/></g><g id="th-pose-fist" class="pose" opacity="0"><path d="M400 470 L474 330 L452 172" fill="none" stroke="#14213D" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/><circle cx="452" cy="150" r="30" fill="#7A4A2A"/><path d="M434 138 h36" stroke="#64391F" stroke-width="6" stroke-linecap="round"/></g><g id="th-pose-thumb" class="pose" opacity="0"><path d="M400 470 L472 604 L344 566" fill="none" stroke="#14213D" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/><circle cx="334" cy="560" r="30" fill="#7A4A2A"/><path d="M330 546 L330 500" stroke="#7A4A2A" stroke-width="18" stroke-linecap="round"/></g>
 </svg>
     </div>
   </div>
   <script>
-    const A = {"box": [10, 700, 530], "enter": 0, "duration": 37.8, "moods": [[0, "sad", 6], [2.0, "smile", 0], [8.6, "neutral", 5], [16.0, "shock", 4], [17.0, "sad", -4], [18.4, "sad", -8], [21.0, "neutral", -6], [24.9, "sad", -3], [27.7, "smile", 0], [34.8, "delight", -3]], "nods": [4.7, 7.1, 32.2], "blinks": [1.4, 3.9, 6.3, 10.0, 12.6, 14.8, 19.4, 22.6, 26.1, 29.8, 31.4, 36.2], "moves": [[27.3, 520, 1.0, 70]]};
+    const A = {"box": [10, 700, 530], "enter": 0, "duration": 34.3, "moods": [[0, "sad", 6], [1.6, "smile", 0], [6.85, "neutral", 6], [12.7, "shock", 3], [14.7, "sad", -6], [16.9, "neutral", -6], [20.6, "sad", -3], [24.0, "smile", 0], [30.5, "delight", -3]], "poses": [[0, "phone"], [1.5, "none"], [3.7, "thumb"], [5.4, "none"], [6.85, "phone"], [9.0, "none"], [10.6, "point"], [12.4, "none"], [12.75, "despair"], [15.6, "none"], [25.8, "fist"], [27.2, "none"], [31.4, "thumb"]], "nods": [2.9, 4.75, 28.0], "jumps": [30.45], "slumps": [14.7], "blinks": [1.2, 3.4, 6.2, 8.4, 11.0, 16.2, 18.6, 21.8, 24.6, 29.2, 32.8], "moves": [[23.6, 520, 1.0, 70]]};
     const P = "th";
     const tl = gsap.timeline({ paused: true });
     const MOUTH = { smile: "smile", neutral: "neutral", sad: "sad", shock: "open", delight: "open" };
@@ -75,6 +76,31 @@
       tl.to(q("eyes"), { scaleY: 0.1, duration: 0.06, ease: "power2.in" }, t);
       tl.to(q("eyes"), { scaleY: 1, duration: 0.09, ease: "power2.out" }, t + 0.06);
     });
+    // arm poses: each one swings up from the shoulder through a take
+    const POSES = ["phone","point","despair","fist","thumb"];
+    (A.poses || []).forEach(([t, pose]) => {
+      POSES.forEach(k => {
+        const el = q("pose-" + k);
+        if (k === pose) tl.fromTo(el, { opacity: 0, rotation: k === "despair" ? 0 : 25, svgOrigin: "400 470" },
+          { opacity: 1, rotation: 0, svgOrigin: "400 470", duration: 0.45, ease: "back.out(1.8)", immediateRender: false }, t);
+        else tl.to(el, { opacity: 0, duration: 0.12, ease: "power1.in" }, t);
+      });
+    });
+    // hops: anticipation squash, stretch on the way up, land and settle
+    (A.jumps || []).forEach(t => {
+      tl.to(`#${P}-wrap`, { keyframes: { y: [0, 14, -70, 0, 6, 0], scaleY: [1, 0.94, 1.05, 0.97, 1.01, 1], scaleX: [1, 1.04, 0.97, 1.02, 1, 1] },
+        duration: 0.85, ease: "power1.inOut", transformOrigin: "50% 100%" }, t);
+    });
+    (A.slumps || []).forEach(t => {
+      tl.to(q("body"), { scaleY: 0.96, duration: 0.5, ease: "power2.out" }, t);
+      tl.to(q("head"), { y: 18, duration: 0.5, ease: "power2.out" }, t + 0.05);
+      tl.to([q("body"), q("head")], { scaleY: 1, y: 0, duration: 0.6, ease: "power2.inOut" }, t + 2.2);
+    });
+    if (A.walkin) {
+      const [t, fx] = A.walkin;
+      tl.fromTo(`#${P}-wrap`, { x: fx }, { x: 0, duration: 1.3, ease: "power2.out", immediateRender: true }, t);
+      tl.fromTo(`#${P}-wrap`, { y: 0 }, { keyframes: { y: [0, -14, 0, -14, 0, -10, 0] }, duration: 1.3, ease: "none", immediateRender: false }, t);
+    }
     // slides along the floor
     (A.moves || []).forEach(([t, dx, d, dy]) => tl.to(`#${P}-wrap`, { x: dx, y: dy || 0, duration: d, ease: "power2.inOut" }, t));
     // breath: a slow, finite rise and fall of the shoulders

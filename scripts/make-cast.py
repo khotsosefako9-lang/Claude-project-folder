@@ -10,6 +10,10 @@ ACTING.json: {
   "moves": [[t, x_offset_px, duration], ...] # slides along the floor (optional)
   "blinks": [t, ...],
   "nods": [t, ...],
+  "poses": [[t, "phone"|"point"|"despair"|"fist"|"thumb"|"none"], ...],
+  "jumps": [t, ...],                        # a happy hop with squash and stretch
+  "slumps": [t, ...],                       # shoulders drop, then hold
+  "walkin": [t, from_x],                    # walks in from off-screen with a step bob
   "duration": total seconds
 }
 Moods change through a take: a small dip (anticipation), the new face, then a settle.
@@ -74,6 +78,31 @@ html = f'''<html>
       tl.to(q("eyes"), {{ scaleY: 0.1, duration: 0.06, ease: "power2.in" }}, t);
       tl.to(q("eyes"), {{ scaleY: 1, duration: 0.09, ease: "power2.out" }}, t + 0.06);
     }});
+    // arm poses: each one swings up from the shoulder through a take
+    const POSES = ["phone","point","despair","fist","thumb"];
+    (A.poses || []).forEach(([t, pose]) => {{
+      POSES.forEach(k => {{
+        const el = q("pose-" + k);
+        if (k === pose) tl.fromTo(el, {{ opacity: 0, rotation: k === "despair" ? 0 : 25, svgOrigin: "400 470" }},
+          {{ opacity: 1, rotation: 0, svgOrigin: "400 470", duration: 0.45, ease: "back.out(1.8)", immediateRender: false }}, t);
+        else tl.to(el, {{ opacity: 0, duration: 0.12, ease: "power1.in" }}, t);
+      }});
+    }});
+    // hops: anticipation squash, stretch on the way up, land and settle
+    (A.jumps || []).forEach(t => {{
+      tl.to(`#${{P}}-wrap`, {{ keyframes: {{ y: [0, 14, -70, 0, 6, 0], scaleY: [1, 0.94, 1.05, 0.97, 1.01, 1], scaleX: [1, 1.04, 0.97, 1.02, 1, 1] }},
+        duration: 0.85, ease: "power1.inOut", transformOrigin: "50% 100%" }}, t);
+    }});
+    (A.slumps || []).forEach(t => {{
+      tl.to(q("body"), {{ scaleY: 0.96, duration: 0.5, ease: "power2.out" }}, t);
+      tl.to(q("head"), {{ y: 18, duration: 0.5, ease: "power2.out" }}, t + 0.05);
+      tl.to([q("body"), q("head")], {{ scaleY: 1, y: 0, duration: 0.6, ease: "power2.inOut" }}, t + 2.2);
+    }});
+    if (A.walkin) {{
+      const [t, fx] = A.walkin;
+      tl.fromTo(`#${{P}}-wrap`, {{ x: fx }}, {{ x: 0, duration: 1.3, ease: "power2.out", immediateRender: true }}, t);
+      tl.fromTo(`#${{P}}-wrap`, {{ y: 0 }}, {{ keyframes: {{ y: [0, -14, 0, -14, 0, -10, 0] }}, duration: 1.3, ease: "none", immediateRender: false }}, t);
+    }}
     // slides along the floor
     (A.moves || []).forEach(([t, dx, d, dy]) => tl.to(`#${{P}}-wrap`, {{ x: dx, y: dy || 0, duration: d, ease: "power2.inOut" }}, t));
     // breath: a slow, finite rise and fall of the shoulders

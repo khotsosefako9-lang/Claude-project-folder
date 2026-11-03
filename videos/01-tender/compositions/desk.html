@@ -43,7 +43,7 @@
       font-family: Outfit, sans-serif; font-weight: 800; font-size: 96px; letter-spacing: .04em; line-height: 1; }
   </style>
   <div id="root" data-composition-id="desk" data-width="1080" data-height="1920">
-    <div id="d-world">
+    <div id="d-cam"><div id="d-world">
       <div id="d-notice" class="paper" data-layout-allow-overlap>
         <div class="kicker">REQUEST FOR BID</div>
         <div class="title">Guarding services</div>
@@ -96,12 +96,12 @@
           <div id="d-b2" class="bubble">Closed <span id="d-friday">Friday.<span id="d-strike"></span></span></div>
         </div>
       </div>
-    </div>
+    </div></div>
   </div>
   <script>
     // ---- timing anchors (seconds from the start of the voice) — set from the transcript ----
-    const T = { phoneOut: 2.0, guards: 4.62, clients: 5.82, busy: 6.98,
-                monday: 8.51, contract: 11.27, office: 13.45, closed: 15.85, neverSaw: 18.17, end: 20.02 };
+    const T = { phoneOut: 1.6, guards: 2.84, clients: 3.78, busy: 4.70,
+                monday: 6.79, contract: 9.01, office: 10.61, closed: 12.63, neverSaw: 14.67, end: 16.71 };
 
     const guards = ["Lwazi","Anele","Pieter","Bongani","Xola","Riaan","Themba","Siya","Kagiso","Lindo","Mzi","Ayanda"];
     const sites  = ["Walmer clinic","Newton Park","North End depot","Humewood flats","Greenacres","Korsten school",
@@ -138,13 +138,18 @@
     tl.set("#d-roster", { y: -1300, opacity: 1 }, T.contract + 0.4);
     tl.fromTo("#d-l-period", { opacity: 0.15 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, T.contract + 0.6);
     tl.fromTo("#d-l-office", { opacity: 0.15 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, T.office);
+    // camera: push in on the closing date as it is said, hold, and reset behind the type beat
+    tl.fromTo("#d-cam", { scale: 1, x: 0, y: 0 }, { scale: 1.55, x: -90, y: -227, duration: 0.7, ease: "power2.inOut", transformOrigin: "50% 50%" }, T.closed - 0.45);
+    tl.set("#d-cam", { scale: 1, x: 0, y: 0 }, T.closed + 1.0);
     // "It closed on Friday": strike, then the one stamp of the film
     tl.fromTo("#d-close-strike", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power2.inOut" }, T.closed);
-    tl.fromTo("#d-stamp", { opacity: 0, scale: 1.6, rotation: -12 }, { opacity: 1, scale: 1, rotation: -12, duration: 0.16, ease: "power4.out" }, T.closed + 0.5);
-    tl.fromTo("#d-world", { x: 0 }, { keyframes: { x: [0, -6, 5, -3, 0] }, duration: 0.16, ease: "none" }, T.closed + 0.66);
+    tl.fromTo("#d-stamp", { opacity: 0, scale: 1.6, rotation: -12 }, { opacity: 1, scale: 1, rotation: -12, duration: 0.16, ease: "power4.out" }, T.closed + 0.22);
+    tl.fromTo("#d-world", { x: 0 }, { keyframes: { x: [0, -6, 5, -3, 0] }, duration: 0.16, ease: "none" }, T.closed + 0.38);
     // "Thabo never saw it": the roster drops back on top and buries the notice
     tl.to("#d-roster", { y: 70, rotation: -3, duration: 0.9, ease: "expo.out" }, T.neverSaw);
     tl.to("#d-notice", { y: -30, x: 20, rotation: 4, duration: 0.9, ease: "expo.out" }, T.neverSaw);
+    // whip-pan out to the month: the desk smears off to the left
+    tl.to("#d-world", { x: -1250, filter: "blur(14px)", duration: 0.32, ease: "power3.in" }, T.end - 0.32);
     window.__timelines["desk"] = tl;
   </script>
 </template>
