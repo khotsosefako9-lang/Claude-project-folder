@@ -3,6 +3,7 @@
   <style>
     #root { position: absolute; inset: 0; font-family: Inter, sans-serif; color: #14213D; }
     #k-title { position: absolute; left: 0; width: 1080px; top: 170px; text-align: center; font-family: Outfit, sans-serif; font-weight: 800; font-size: 120px; letter-spacing: -0.02em; line-height: 1; }
+    #k-title .ch { display: inline-block; }
     #k-page { position: absolute; left: 60px; top: 310px; width: 960px; height: 560px; background: #FFFFFF; border: 2px solid rgba(20,33,61,.12); box-shadow: 0 18px 40px rgba(20,33,61,.18); padding: 28px 40px; }
     #k-head { display: flex; align-items: center; gap: 22px; padding-bottom: 20px; border-bottom: 3px solid #14213D; }
     #k-head img { width: 96px; height: 74px; }
@@ -21,7 +22,7 @@
     #k-remind span { font-size: 34px; }
   </style>
   <div id="root" data-composition-id="checklist" data-width="1080" data-height="1920">
-    <div id="k-title">Duly Qualified</div>
+    <div id="k-title"><span class="ch">D</span><span class="ch">u</span><span class="ch">l</span><span class="ch">y</span> <span class="ch">Q</span><span class="ch">u</span><span class="ch">a</span><span class="ch">l</span><span class="ch">i</span><span class="ch">f</span><span class="ch">i</span><span class="ch">e</span><span class="ch">d</span></div>
     <div id="k-page" data-hold data-layout-allow-occlusion data-layout-allow-overlap>
       <div id="k-head"><img src="assets/dq-monogram-colour-transparent.png" alt="" />
         <div><b>Bid documents · checklist</b><span>Nomsa’s Cleaning Services · illustrative example</span></div></div>
@@ -39,9 +40,10 @@
   </div>
   <script>
     // timing anchors, seconds from this scene's start
-    const T = { page: 2.38, rows: 3.38, remind: 7.0, ready: 12.38 };
+    const T = { page: 0.96, rows: 1.44, remind: 4.74, ready: 10.3 };
     const tl = gsap.timeline({ paused: true });
-    tl.fromTo("#k-title", { opacity: 0, filter: "blur(10px)", scale: 1.06 }, { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.35, ease: "expo.out" }, 0.05);
+    // whip in: the name lands letter by letter
+    tl.fromTo("#k-title .ch", { opacity: 0, x: 120, filter: "blur(8px)" }, { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.35, stagger: 0.03, ease: "expo.out" }, 0.0);
     tl.fromTo("#k-page", { y: 900, rotation: 4, opacity: 0 }, { y: 0, rotation: -1, opacity: 1, duration: 0.7, ease: "expo.out" }, T.page);
     // "a checklist of every document a bid asks for": the rows print in, unticked
     tl.fromTo(".k-row", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.3, stagger: 0.14, ease: "expo.out" }, T.rows);
@@ -54,6 +56,9 @@
     tl.to(".k-v", { strokeDashoffset: 0, duration: 0.2, stagger: 0.12, ease: "power2.out" }, T.ready);
     tl.to(".k-row em", { opacity: 1, duration: 0.15, stagger: 0.12, ease: "power2.out" }, T.ready + 0.1);
     tl.fromTo("#k-ready", { opacity: 0, scaleX: 0.6 }, { opacity: 1, scaleX: 1, duration: 0.4, ease: "expo.out", immediateRender: false }, T.ready + 0.8);
+    // camera: lean in on the reminder as it lands, back out for "you're ready"
+    tl.to("#k-page", { scale: 1.08, duration: 0.6, ease: "power2.inOut" }, T.remind);
+    tl.to("#k-page", { scale: 1, duration: 0.6, ease: "power2.inOut" }, T.ready - 0.6);
     window.__timelines["checklist"] = tl;
   </script>
 </template>

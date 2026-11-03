@@ -50,7 +50,7 @@
   </div>
   <script>
     // timing anchors, seconds from this scene's start
-    const T = { expired: 3.62, before: 4.4, oneDoc: 6.76, gone: 9.86 };
+    const T = { expired: 2.38, before: 3.3, oneDoc: 5.76, gone: 9.42, end: 10.8 };
     const tl = gsap.timeline({ paused: true });
     // the letter is pulled from the bid pile
     tl.fromTo("#c-doc", { y: 900, rotation: 5 }, { y: 0, rotation: -1, duration: 0.7, ease: "expo.out" }, 0);
@@ -67,6 +67,11 @@
     tl.fromTo("#c-contract", { opacity: 0, scale: 1.08 }, { opacity: 1, scale: 1, duration: 0.5, ease: "expo.out", immediateRender: false }, T.oneDoc + 0.35);
     // "…was gone": the contract is pulled out of frame, leaving its empty outline
     tl.to("#c-contract", { x: 1300, rotation: 8, duration: 0.55, ease: "power3.in" }, T.gone);
+    // camera: push in on the expiry date, then pull back for the timeline
+    tl.fromTo("#c-doc", { scale: 1 }, { scale: 1.3, duration: 0.6, ease: "power2.inOut", transformOrigin: "30% 80%" }, T.expired - 0.4);
+    tl.to("#c-doc", { scale: 1, duration: 0.6, ease: "power2.inOut" }, T.before - 0.5);
+    // whip-pan out to the checklist
+    tl.to(["#c-outline", "#c-contract"], { x: "-=1250", filter: "blur(14px)", duration: 0.32, ease: "power3.in" }, T.end - 0.32);
     window.__timelines["coida"] = tl;
   </script>
 </template>

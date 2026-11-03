@@ -1,0 +1,20 @@
+<html>
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #f-kerb { position: absolute; left: 0; right: 0; top: 1330px; height: 26px; background: #B8B3A6; }
+    #f-road { position: absolute; left: 0; right: 0; top: 1356px; bottom: 0; background: #4A5568; }
+    #f-line { position: absolute; left: 0; right: 0; top: 1600px; height: 16px;
+      background: repeating-linear-gradient(90deg, #F2F1EC 0 120px, transparent 120px 220px); opacity: .7; }
+  </style>
+  <div id="root" data-composition-id="front" data-width="1080" data-height="1920">
+    <div id="f-kerb" data-layout-ignore></div><div id="f-road" data-layout-ignore></div><div id="f-line" data-layout-ignore></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // road markings slide past while he is "driving home"
+    tl.fromTo("#f-line", { backgroundPositionX: "0px" }, { backgroundPositionX: "-880px", duration: 3.2, ease: "power1.inOut" }, 4.8);
+    window.__timelines["front"] = tl;
+  </script>
+</template>
+</html>

@@ -1,467 +1,467 @@
 [
 {
-"text": "Tabo",
+"text": "TABO",
 "start": 0.0,
-"end": 0.38
+"end": 0.48
 },
 {
 "text": "runs",
-"start": 0.38,
-"end": 0.62
+"start": 0.48,
+"end": 0.74
 },
 {
 "text": "a",
-"start": 0.62,
-"end": 0.78
-},
-{
-"text": "garden",
-"start": 0.78,
+"start": 0.74,
 "end": 0.98
 },
 {
-"text": "firm",
+"text": "guarding",
 "start": 0.98,
-"end": 1.36
+"end": 1.28
+},
+{
+"text": "firm",
+"start": 1.28,
+"end": 1.68
 },
 {
 "text": "in",
-"start": 1.36,
-"end": 1.58
+"start": 1.68,
+"end": 1.92
 },
 {
 "text": "Port",
-"start": 1.58,
-"end": 1.78
+"start": 1.92,
+"end": 2.12
 },
 {
 "text": "Elizabeth,",
-"start": 1.78,
-"end": 2.28
+"start": 2.12,
+"end": 2.58
 },
 {
 "text": "12",
-"start": 2.84,
-"end": 3.02
+"start": 3.44,
+"end": 3.68
 },
 {
 "text": "guards,",
-"start": 3.02,
-"end": 3.5
+"start": 3.68,
+"end": 4.06
 },
 {
 "text": "good",
-"start": 3.78,
-"end": 3.9
+"start": 4.58,
+"end": 4.68
 },
 {
 "text": "clients,",
-"start": 3.9,
-"end": 4.42
+"start": 4.68,
+"end": 5.2
 },
 {
 "text": "always",
-"start": 4.7,
-"end": 4.96
+"start": 5.76,
+"end": 6.02
 },
 {
 "text": "busy.",
-"start": 4.96,
-"end": 5.4
+"start": 6.02,
+"end": 6.38
 },
 {
 "text": "On",
-"start": 6.792,
-"end": 6.992
+"start": 7.46,
+"end": 7.64
 },
 {
 "text": "Monday,",
-"start": 6.992,
-"end": 7.452
+"start": 7.64,
+"end": 8.04
 },
 {
 "text": "another",
-"start": 7.752,
-"end": 7.912
+"start": 8.4,
+"end": 8.58
 },
 {
 "text": "owner",
-"start": 7.912,
-"end": 8.372
+"start": 8.58,
+"end": 8.94
 },
 {
 "text": "mentions",
-"start": 8.372,
-"end": 8.752
+"start": 8.94,
+"end": 9.32
 },
 {
 "text": "a",
-"start": 8.752,
-"end": 9.012
+"start": 9.32,
+"end": 9.58
 },
 {
 "text": "two",
-"start": 9.012,
-"end": 9.212
+"start": 9.58,
+"end": 9.82
 },
 {
 "text": "-year",
-"start": 9.212,
-"end": 9.412
+"start": 9.82,
+"end": 10.08
 },
 {
 "text": "guarding",
-"start": 9.412,
-"end": 9.772
+"start": 10.08,
+"end": 10.5
 },
 {
 "text": "contract",
-"start": 9.772,
-"end": 10.232
+"start": 10.5,
+"end": 11.02
 },
 {
 "text": "for",
-"start": 10.232,
-"end": 10.452
+"start": 11.02,
+"end": 11.3
 },
 {
 "text": "a",
-"start": 10.452,
-"end": 10.612
+"start": 11.3,
+"end": 11.44
 },
 {
 "text": "government",
-"start": 10.612,
-"end": 10.912
+"start": 11.44,
+"end": 11.68
 },
 {
 "text": "office",
-"start": 10.912,
-"end": 11.312
+"start": 11.68,
+"end": 12.1
 },
 {
 "text": "in",
-"start": 11.312,
-"end": 11.532
+"start": 12.1,
+"end": 12.34
 },
 {
 "text": "the",
-"start": 11.532,
-"end": 11.652
+"start": 12.34,
+"end": 12.46
 },
 {
 "text": "city.",
-"start": 11.652,
-"end": 11.952
+"start": 12.46,
+"end": 12.72
 },
 {
 "text": "It",
-"start": 12.512,
-"end": 12.632
+"start": 13.98,
+"end": 14.1
 },
 {
 "text": "closed",
-"start": 12.632,
-"end": 12.912
+"start": 14.1,
+"end": 14.4
 },
 {
 "text": "on",
-"start": 12.912,
-"end": 13.152
+"start": 14.4,
+"end": 14.68
 },
 {
 "text": "Friday.",
-"start": 13.152,
-"end": 13.552
+"start": 14.68,
+"end": 15.1
 },
 {
-"text": "Tabbo",
-"start": 14.672,
-"end": 14.872
+"text": "Tabo",
+"start": 16.14,
+"end": 16.34
 },
 {
 "text": "never",
-"start": 14.872,
-"end": 15.012
+"start": 16.34,
+"end": 16.5
 },
 {
 "text": "saw",
-"start": 15.012,
-"end": 15.352
+"start": 16.5,
+"end": 16.82
 },
 {
 "text": "it.",
-"start": 15.352,
-"end": 15.592
+"start": 16.82,
+"end": 17.06
 },
 {
 "text": "Tenders",
-"start": 16.707,
-"end": 17.047
+"start": 17.998,
+"end": 18.358
 },
 {
 "text": "like",
-"start": 17.047,
-"end": 17.307
+"start": 18.358,
+"end": 18.598
 },
 {
 "text": "this",
-"start": 17.307,
-"end": 17.527
+"start": 18.598,
+"end": 18.938
 },
 {
 "text": "open",
-"start": 17.527,
-"end": 17.947
+"start": 18.938,
+"end": 19.338
 },
 {
 "text": "and",
-"start": 17.947,
-"end": 18.147
+"start": 19.338,
+"end": 19.518
 },
 {
 "text": "close",
-"start": 18.147,
-"end": 18.447
+"start": 19.518,
+"end": 19.858
 },
 {
 "text": "across",
-"start": 18.447,
-"end": 18.827
+"start": 19.858,
+"end": 20.138
 },
 {
 "text": "the",
-"start": 18.827,
-"end": 19.027
+"start": 20.138,
+"end": 20.378
 },
 {
 "text": "bay",
-"start": 19.027,
-"end": 19.227
+"start": 20.378,
+"end": 20.638
 },
 {
 "text": "every",
-"start": 19.227,
-"end": 19.527
+"start": 20.638,
+"end": 21.118
 },
 {
 "text": "month",
-"start": 19.527,
-"end": 19.887
+"start": 21.118,
+"end": 21.418
 },
 {
 "text": "and",
-"start": 19.887,
-"end": 20.347
+"start": 21.858,
+"end": 22.118
 },
 {
 "text": "they're",
-"start": 20.347,
-"end": 20.547
+"start": 22.118,
+"end": 22.298
 },
 {
 "text": "easy",
-"start": 20.547,
-"end": 20.767
+"start": 22.298,
+"end": 22.498
 },
 {
 "text": "to",
-"start": 20.767,
-"end": 21.007
+"start": 22.498,
+"end": 22.758
 },
 {
 "text": "miss",
-"start": 21.007,
-"end": 21.227
+"start": 22.758,
+"end": 22.978
 },
 {
 "text": "when",
-"start": 21.227,
-"end": 21.447
+"start": 22.978,
+"end": 23.238
 },
 {
 "text": "you're",
-"start": 21.447,
-"end": 21.707
+"start": 23.238,
+"end": 23.458
 },
 {
 "text": "busy",
-"start": 21.707,
-"end": 21.907
+"start": 23.458,
+"end": 23.618
 },
 {
 "text": "running",
-"start": 21.907,
-"end": 22.307
+"start": 23.618,
+"end": 23.938
 },
 {
 "text": "jobs.",
-"start": 22.307,
-"end": 22.727
+"start": 23.938,
+"end": 24.298
 },
 {
 "text": "Duly",
-"start": 23.893,
-"end": 24.433
+"start": 25.412,
+"end": 25.792
 },
 {
-"text": "qualified",
-"start": 24.433,
-"end": 24.993
+"text": "Qualified",
+"start": 25.792,
+"end": 26.452
 },
 {
 "text": "finds",
-"start": 24.993,
-"end": 25.553
+"start": 26.452,
+"end": 26.952
 },
 {
 "text": "them",
-"start": 25.553,
-"end": 25.773
+"start": 26.952,
+"end": 27.272
 },
 {
 "text": "for",
-"start": 25.773,
-"end": 25.933
+"start": 27.272,
+"end": 27.532
 },
 {
 "text": "you.",
-"start": 25.933,
-"end": 26.353
+"start": 27.532,
+"end": 27.972
 },
 {
 "text": "Every",
-"start": 26.693,
-"end": 26.933
+"start": 28.452,
+"end": 28.652
 },
 {
 "text": "month",
-"start": 26.933,
-"end": 27.293
+"start": 28.652,
+"end": 28.972
 },
 {
 "text": "the",
-"start": 27.293,
-"end": 27.613
+"start": 28.972,
+"end": 29.312
 },
 {
 "text": "tenders",
-"start": 27.613,
-"end": 28.033
+"start": 29.312,
+"end": 29.752
 },
 {
 "text": "you",
-"start": 28.033,
-"end": 28.173
+"start": 29.752,
+"end": 29.912
 },
 {
 "text": "can",
-"start": 28.173,
-"end": 28.353
+"start": 29.912,
+"end": 30.052
 },
 {
 "text": "quote",
-"start": 28.353,
-"end": 28.633
+"start": 30.052,
+"end": 30.272
 },
 {
 "text": "on",
-"start": 28.633,
-"end": 28.913
+"start": 30.272,
+"end": 30.532
 },
 {
 "text": "with",
-"start": 28.913,
-"end": 29.193
+"start": 30.532,
+"end": 30.832
 },
 {
 "text": "closing",
-"start": 29.193,
-"end": 29.573
+"start": 30.832,
+"end": 31.212
 },
 {
 "text": "dates",
-"start": 29.573,
-"end": 29.953
+"start": 31.212,
+"end": 31.512
 },
 {
 "text": "and",
-"start": 29.953,
-"end": 30.473
+"start": 31.512,
+"end": 32.132
 },
 {
 "text": "20",
-"start": 30.473,
-"end": 30.813
+"start": 32.132,
+"end": 32.672
 },
 {
 "text": "local",
-"start": 30.813,
-"end": 31.213
+"start": 32.672,
+"end": 33.092
 },
 {
 "text": "businesses",
-"start": 31.213,
-"end": 31.633
+"start": 33.092,
+"end": 33.592
 },
 {
 "text": "likely",
-"start": 31.633,
-"end": 32.053
+"start": 33.592,
+"end": 34.032
 },
 {
 "text": "to",
-"start": 32.053,
-"end": 32.353
+"start": 34.032,
+"end": 34.332
 },
 {
 "text": "need",
-"start": 32.353,
-"end": 32.533
+"start": 34.332,
+"end": 34.612
 },
 {
 "text": "guarding.",
-"start": 32.533,
-"end": 32.973
+"start": 34.612,
+"end": 34.992
 },
 {
 "text": "See",
-"start": 34.282,
-"end": 34.522
+"start": 36.205,
+"end": 36.485
 },
 {
 "text": "this",
-"start": 34.522,
-"end": 34.742
+"start": 36.485,
+"end": 36.745
 },
 {
-"text": "man's",
-"start": 34.742,
-"end": 35.122
+"text": "month's",
+"start": 36.745,
+"end": 37.165
 },
 {
 "text": "sample",
-"start": 35.122,
-"end": 35.322
+"start": 37.165,
+"end": 37.505
 },
 {
 "text": "at",
-"start": 35.322,
-"end": 35.562
+"start": 37.505,
+"end": 37.985
 },
 {
-"text": "jellyqualified",
-"start": 35.562,
-"end": 36.282
+"text": "dulyqualified",
+"start": 37.985,
+"end": 38.805
 },
 {
 "text": ".co",
-"start": 36.282,
-"end": 36.862
+"start": 38.805,
+"end": 39.585
 },
 {
 "text": ".za",
-"start": 36.862,
-"end": 37.402
+"start": 39.585,
+"end": 39.965
 }
 ]

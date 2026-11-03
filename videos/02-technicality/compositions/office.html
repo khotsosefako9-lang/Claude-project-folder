@@ -1,0 +1,51 @@
+<html>
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #n-room { position: absolute; inset: 0; }
+    #n-lower { position: absolute; left: 0; right: 0; top: 1060px; bottom: 0; background: #E7E3D8; }
+    #n-rail { position: absolute; left: 0; right: 0; top: 1052px; height: 10px; background: #14213D; opacity: .18; }
+    #n-shelf { position: absolute; left: 30px; top: 200px; width: 320px; height: 520px; }
+    #n-shelf svg, #n-mop svg, #n-plan svg { width: 100%; height: 100%; display: block; overflow: visible; }
+    #n-plan { position: absolute; left: 60px; top: 760px; width: 240px; height: 160px; }
+  </style>
+  <div id="root" data-composition-id="office" data-width="1080" data-height="1920">
+    <div id="n-room" data-layout-ignore>
+      <div id="n-lower"></div>
+      <div id="n-rail"></div>
+      <!-- a shelf of cleaning supplies -->
+      <div id="n-shelf">
+        <svg viewBox="0 0 320 520">
+          <g fill="#9C7A57"><rect x="0" y="150" width="320" height="14"/><rect x="0" y="320" width="320" height="14"/><rect x="0" y="490" width="320" height="14"/></g>
+          <g id="n-bottles">
+            <g transform="translate(20 40)"><rect x="0" y="30" width="54" height="80" rx="8" fill="#5B6F8F"/><rect x="12" y="0" width="30" height="34" fill="#14213D"/><rect x="38" y="6" width="24" height="10" fill="#14213D"/></g>
+            <g transform="translate(96 54)"><rect x="0" y="20" width="60" height="76" rx="10" fill="#D9A441"/><rect x="16" y="0" width="28" height="22" fill="#14213D"/></g>
+            <g transform="translate(180 40)"><rect x="0" y="30" width="54" height="80" rx="8" fill="#F2F1EC" stroke="#14213D" stroke-width="4"/><rect x="12" y="0" width="30" height="34" fill="#14213D"/><rect x="38" y="6" width="24" height="10" fill="#14213D"/></g>
+            <g transform="translate(250 60)"><rect x="0" y="10" width="50" height="80" rx="6" fill="#5B6F8F"/></g>
+            <g transform="translate(24 214)"><rect x="0" y="0" width="120" height="96" rx="6" fill="#F2F1EC" stroke="#14213D" stroke-width="4"/><rect x="14" y="30" width="92" height="12" fill="#5B6F8F"/></g>
+            <g transform="translate(170 200)"><rect x="0" y="10" width="64" height="110" rx="8" fill="#D9A441"/><rect x="18" y="0" width="28" height="14" fill="#14213D"/></g>
+            <g transform="translate(246 236)"><circle cx="30" cy="40" r="34" fill="#F2F1EC" stroke="#14213D" stroke-width="4"/><circle cx="30" cy="40" r="12" fill="#14213D"/></g>
+            <g transform="translate(30 376)"><rect x="0" y="0" width="130" height="110" rx="6" fill="#5B6F8F"/><rect x="0" y="40" width="130" height="14" fill="#14213D"/></g>
+            <g transform="translate(184 390)"><rect x="0" y="0" width="110" height="96" rx="6" fill="#F2F1EC" stroke="#14213D" stroke-width="4"/></g>
+          </g>
+        </svg>
+      </div>
+      <!-- a wall planner with jobs on it -->
+      <div id="n-plan">
+        <svg viewBox="0 0 240 160">
+          <rect x="0" y="0" width="240" height="160" fill="#FFFFFF" stroke="#14213D" stroke-width="5"/>
+          <rect x="0" y="0" width="240" height="30" fill="#14213D"/>
+          <g fill="#5B6F8F"><rect x="16" y="46" width="60" height="18"/><rect x="92" y="78" width="80" height="18"/><rect x="40" y="110" width="110" height="18"/><rect x="170" y="46" width="52" height="18"/></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // the room drifts a little with each camera move between beats
+    tl.fromTo("#n-room", { x: 0 }, { x: -24, duration: 0.6, ease: "power2.inOut" }, 12.3);
+    tl.to("#n-room", { x: -48, duration: 0.6, ease: "power2.inOut" }, 23.1);
+    window.__timelines["office"] = tl;
+  </script>
+</template>
+</html>

@@ -54,11 +54,11 @@
     // clouds drift across the Bay at a constant speed
     tl.fromTo("#o-clouds", { x: 0 }, { x: -150, duration: 40, ease: "none" }, 0);
     // the clock runs fast through the busy week, then settles to real time once Duly Qualified arrives
-    tl.fromTo("#o-min", { rotation: 0, svgOrigin: "75 75" }, { rotation: 360 * 9, svgOrigin: "75 75", duration: 23.9, ease: "power1.in" }, 0);
-    tl.fromTo("#o-hour", { rotation: 40, svgOrigin: "75 75" }, { rotation: 40 + 270, svgOrigin: "75 75", duration: 23.9, ease: "power1.in" }, 0);
+    tl.fromTo("#o-min", { rotation: 0, svgOrigin: "75 75" }, { rotation: 360 * 9, svgOrigin: "75 75", duration: 25.4, ease: "power1.in" }, 0);
+    tl.fromTo("#o-hour", { rotation: 40, svgOrigin: "75 75" }, { rotation: 40 + 270, svgOrigin: "75 75", duration: 25.4, ease: "power1.in" }, 0);
     // a slight drift of the room as the camera moves between beats (parallax under the papers)
-    tl.fromTo("#o-room", { x: 0 }, { x: -24, duration: 0.6, ease: "power2.inOut" }, 16.5);
-    tl.to("#o-room", { x: -48, duration: 0.6, ease: "power2.inOut" }, 23.7);
+    tl.fromTo("#o-room", { x: 0 }, { x: -24, duration: 0.6, ease: "power2.inOut" }, 17.8);
+    tl.to("#o-room", { x: -48, duration: 0.6, ease: "power2.inOut" }, 25.2);
     window.__timelines["office"] = tl;
   </script>
 </template>

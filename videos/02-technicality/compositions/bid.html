@@ -27,7 +27,7 @@
     #b-stamp { left: 40px; top: 330px; }
   </style>
   <div id="root" data-composition-id="bid" data-width="1080" data-height="1920">
-    <div id="b-world">
+    <div id="b-cam"><div id="b-world">
       <div id="b-stack3" class="paper"></div>
       <div id="b-stack2" class="paper"></div>
       <div id="b-stack1" class="paper"></div>
@@ -50,11 +50,11 @@
         <div class="line">Your bid did not meet<br />the requirements.</div>
         <div id="b-stamp" class="stamp">DISQUALIFIED</div>
       </div>
-    </div>
+    </div></div>
   </div>
   <script>
     // timing anchors (seconds from the voice start) — set from the transcript
-    const T = { lift: 1.0, week: 1.5, price: 5.52, refs: 6.96, letter: 8.58, disq: 10.44, end: 12.01 };
+    const T = { lift: 1.0, week: 1.6, price: 5.12, refs: 6.06, letter: 8.34, disq: 10.82, end: 12.46 };
     const tl = gsap.timeline({ paused: true });
     // frame 0: the finished bid already stamped (the thumbnail); the stamp lifts away — a week earlier
     tl.fromTo("#b-stamp0", { opacity: 1, scale: 1, rotation: -11 }, { opacity: 0, scale: 1.25, rotation: -11, duration: 0.3, ease: "power3.in" }, T.lift);
@@ -77,6 +77,8 @@
     // "Disqualified." — the one stamp of the film
     tl.fromTo("#b-stamp", { opacity: 0, scale: 1.6, rotation: -10 }, { opacity: 1, scale: 1, rotation: -10, duration: 0.14, ease: "power4.out" }, T.disq);
     tl.fromTo("#b-world", { x: 0 }, { keyframes: { x: [0, -6, 5, -3, 0] }, duration: 0.14, ease: "none" }, T.disq + 0.14);
+    // camera: push in on the letter as the verdict lands
+    tl.fromTo("#b-cam", { scale: 1, x: 0, y: 0 }, { scale: 1.35, x: -10, y: 180, duration: 0.7, ease: "power2.inOut" }, T.disq - 0.5);
     window.__timelines["bid"] = tl;
   </script>
 </template>
