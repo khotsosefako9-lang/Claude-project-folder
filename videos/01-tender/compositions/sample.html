@@ -1,0 +1,57 @@
+<html>
+<template>
+  <style>
+    #root { position: absolute; inset: 0; font-family: Inter, sans-serif; color: #14213D; }
+    #s-title { position: absolute; left: 0; width: 1080px; top: 190px; text-align: center;
+      font-family: Outfit, sans-serif; font-weight: 800; font-size: 120px; letter-spacing: -0.02em; line-height: 1; }
+    #s-page { position: absolute; left: 80px; top: 360px; width: 920px; height: 780px; background: #FFFFFF;
+      border: 2px solid rgba(20,33,61,.12); box-shadow: 0 18px 40px rgba(20,33,61,.18); padding: 40px 48px; }
+    #s-head { display: flex; align-items: center; gap: 22px; padding-bottom: 20px; border-bottom: 3px solid #14213D; }
+    #s-head img { width: 96px; height: 74px; }
+    #s-head b { font-size: 36px; display: block; }
+    #s-head span { font-size: 30px; }
+    .s-h2 { font-weight: 700; font-size: 34px; margin: 26px 0 8px; }
+    .t-row { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0; border-bottom: 1px solid rgba(20,33,61,.15); font-size: 32px; }
+    .t-date { font-weight: 700; white-space: nowrap; padding: 0 4px; position: relative; }
+    .t-date u { position: absolute; left: 0; right: 0; bottom: -4px; height: 5px; background: #14213D; transform-origin: 0 50%; }
+    #s-biz { display: flex; align-items: center; gap: 26px; margin-top: 6px; }
+    #s-count { font-family: Outfit, sans-serif; font-weight: 800; font-size: 120px; line-height: 1; width: 160px; }
+    #s-bizgrid { display: grid; grid-template-columns: repeat(10, 52px); gap: 8px; }
+    .b-dot { width: 52px; height: 52px; }
+    .b-dot svg { width: 52px; height: 52px; display: block; }
+    #s-note { position: absolute; right: 48px; bottom: 22px; font-size: 28px; opacity: .6; }
+  </style>
+  <div id="root" data-composition-id="sample" data-width="1080" data-height="1920">
+    <div id="s-title">Duly Qualified</div>
+    <div id="s-page" data-hold>
+      <div id="s-head"><img src="assets/dq-monogram-colour-transparent.png" alt="" />
+        <div><b>Monthly sample · Guarding</b><span>Nelson Mandela Bay</span></div></div>
+      <div class="s-h2">Tenders you can quote on</div>
+      <div class="t-row" id="s-t1"><span>Guarding · provincial office</span><span class="t-date">Closes Thu 13<u></u></span></div>
+      <div class="t-row" id="s-t2"><span>Guarding · public clinic</span><span class="t-date">Closes Tue 18<u></u></span></div>
+      <div class="t-row" id="s-t3"><span>Event security · municipal hall</span><span class="t-date">Closes Fri 21<u></u></span></div>
+      <div class="s-h2">Local businesses likely to need guarding</div>
+      <div id="s-biz"><div id="s-count">0</div><div id="s-bizgrid"></div></div>
+      <div id="s-note">Illustrative example</div>
+    </div>
+  </div>
+  <script>
+    const T = { page: 1.0, tenders: 2.6, dates: 3.9, twenty: 5.2 };
+    // a small shopfront: awning, window, door
+    const SHOP = `<svg viewBox="0 0 52 52"><path d="M4 8h44l-3 12H7z" fill="#14213D"/><path d="M7 20h38v28H7z" fill="#F2F1EC" stroke="#14213D" stroke-width="3"/><path d="M12 26h14v10H12z" fill="#14213D" opacity=".35"/><path d="M31 28h9v20h-9z" fill="#14213D"/></svg>`;
+    const g = document.querySelector("#s-bizgrid");
+    for (let i = 0; i < 20; i++) { const d = document.createElement("div"); d.className = "b-dot"; d.innerHTML = SHOP; g.appendChild(d); }
+    const tl = gsap.timeline({ paused: true });
+    // the name lands per letter as the voice says it
+    tl.fromTo("#s-title", { opacity: 0, filter: "blur(10px)", scale: 1.06 }, { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.35, ease: "expo.out" }, 0.05);
+    // the sample page slides up from under the title
+    tl.fromTo("#s-page", { y: 900, rotation: 4 }, { y: 0, rotation: -1, duration: 0.7, ease: "expo.out" }, T.page);
+    tl.fromTo([".t-row"], { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.3, stagger: 0.18, ease: "expo.out" }, T.tenders);
+    tl.fromTo(".t-date u", { scaleX: 0 }, { scaleX: 1, duration: 0.3, stagger: 0.12, ease: "power2.inOut" }, T.dates);
+    tl.fromTo(".b-dot", { scale: 0 }, { scale: 1, duration: 0.18, stagger: 0.04, ease: "back.out(1.6)" }, T.twenty);
+    const c = { v: 0 };
+    tl.fromTo(c, { v: 0 }, { v: 20, duration: 0.8, ease: "none", onUpdate: () => { document.querySelector("#s-count").textContent = Math.round(c.v); } }, T.twenty);
+    window.__timelines["sample"] = tl;
+  </script>
+</template>
+</html>

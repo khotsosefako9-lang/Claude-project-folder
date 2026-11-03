@@ -1,0 +1,88 @@
+<html>
+<template>
+  <style>
+    #root { position: absolute; inset: 0; font-family: Inter, sans-serif; color: #14213D; }
+    .paper { position: absolute; background: #FFFFFF; border: 2px solid rgba(20,33,61,.12); box-shadow: 0 18px 40px rgba(20,33,61,.18); }
+    #b-cover { left: 110px; top: 230px; width: 860px; height: 900px; padding: 64px 64px; }
+    #b-cover .kicker { font-weight: 700; font-size: 32px; letter-spacing: .06em; }
+    #b-cover .title { font-family: Outfit, sans-serif; font-weight: 800; font-size: 100px; line-height: 1; letter-spacing: -0.02em; margin-top: 22px; }
+    #b-cover .line { font-size: 38px; margin-top: 24px; }
+    #b-cover .rule { height: 3px; background: #14213D; margin: 44px 0 30px; }
+    .tick-row { display: flex; align-items: center; gap: 22px; font-size: 42px; font-weight: 700; margin-top: 22px; }
+    .tick { width: 56px; height: 56px; border: 4px solid #14213D; position: relative; flex: none; }
+    .tick svg { position: absolute; inset: 4px; }
+    #b-stack1, #b-stack2, #b-stack3 { left: 110px; top: 230px; width: 860px; height: 900px; }
+    #b-days { position: absolute; left: 110px; top: 1150px; width: 860px; display: flex; justify-content: space-between; font-size: 34px; font-weight: 700; opacity: 0; }
+    #b-days span { position: relative; }
+    #b-days span i { position: absolute; left: -4px; right: -4px; bottom: -8px; height: 5px; background: #14213D; transform-origin: 0 50%; }
+
+    #b-env { left: 130px; top: 600px; width: 820px; height: 520px; background: #E7E3D8; border: 2px solid rgba(20,33,61,.18); }
+    #b-env::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 260px;
+      background: linear-gradient(to bottom right, transparent 49.6%, rgba(20,33,61,.18) 50%, transparent 50.4%),
+                  linear-gradient(to bottom left, transparent 49.6%, rgba(20,33,61,.18) 50%, transparent 50.4%); }
+    #b-letter { left: 150px; top: 250px; width: 780px; height: 860px; padding: 60px 60px; }
+    #b-letter .kicker { font-weight: 700; font-size: 32px; letter-spacing: .06em; }
+    #b-letter .title { font-family: Outfit, sans-serif; font-weight: 800; font-size: 76px; line-height: 1.05; margin-top: 20px; letter-spacing: -0.02em; }
+    #b-letter .line { font-size: 36px; margin-top: 26px; line-height: 1.35; }
+    .stamp { position: absolute; padding: 10px 30px; border: 10px solid #C8372D; color: #C8372D; font-family: Outfit, sans-serif;
+      font-weight: 800; font-size: 80px; letter-spacing: .03em; line-height: 1; }
+    #b-stamp0 { left: 60px; top: 560px; }
+    #b-stamp { left: 30px; top: 560px; }
+  </style>
+  <div id="root" data-composition-id="bid" data-width="1080" data-height="1920">
+    <div id="b-world">
+      <div id="b-stack3" class="paper"></div>
+      <div id="b-stack2" class="paper"></div>
+      <div id="b-stack1" class="paper"></div>
+      <div id="b-cover" class="paper" data-layout-allow-overlap>
+        <div class="kicker">TENDER SUBMISSION</div>
+        <div class="title">Office cleaning</div>
+        <div class="line">Office building · Port Elizabeth</div>
+        <div class="line">Nomsa’s Cleaning Services</div>
+        <div class="rule"></div>
+        <div class="tick-row" id="b-price"><span class="tick"><svg viewBox="0 0 40 40"><path id="b-pricev" d="M6 21l9 9 19-21" fill="none" stroke="#14213D" stroke-width="6"/></svg></span>Pricing schedule</div>
+        <div class="tick-row" id="b-refs"><span class="tick"><svg viewBox="0 0 40 40"><path id="b-refsv" d="M6 21l9 9 19-21" fill="none" stroke="#14213D" stroke-width="6"/></svg></span>Client references</div>
+        <div id="b-stamp0" class="stamp">DISQUALIFIED</div>
+      </div>
+      <div id="b-days"><span>Mon<i></i></span><span>Tue<i></i></span><span>Wed<i></i></span><span>Thu<i></i></span><span>Fri<i></i></span><span>Sat<i></i></span><span>Sun<i></i></span></div>
+
+      <div id="b-env" class="paper" data-layout-allow-occlusion></div>
+      <div id="b-letter" class="paper" data-layout-allow-overlap data-layout-allow-overflow>
+        <div class="kicker">OUTCOME OF YOUR BID</div>
+        <div class="title">Office cleaning tender</div>
+        <div class="line">Dear Nomsa’s Cleaning Services,<br />your bid did not meet the mandatory requirements.</div>
+        <div id="b-stamp" class="stamp">DISQUALIFIED</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // timing anchors (seconds from the voice start) — set from the transcript
+    const T = { lift: 0.9, week: 1.6, price: 4.4, refs: 5.4, letter: 6.8, disq: 8.3, end: 9.6 };
+    const tl = gsap.timeline({ paused: true });
+    // frame 0: the finished bid already stamped (the thumbnail); the stamp lifts away — a week earlier
+    tl.set(["#b-env", "#b-letter"], { y: 1700 }, 0);
+    tl.set(["#b-stack1", "#b-stack2", "#b-stack3"], { opacity: 0 }, 0);
+    tl.fromTo("#b-stamp0", { opacity: 1, scale: 1, rotation: -11 }, { opacity: 0, scale: 1.25, rotation: -11, duration: 0.3, ease: "power3.in" }, T.lift);
+    tl.fromTo("#b-cover", { rotation: 0 }, { rotation: -1, duration: 0.6, ease: "expo.out" }, T.lift);
+    // "spent a week": the days tick by under the bid while pages stack up behind it
+    tl.fromTo("#b-days", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power2.out" }, T.week);
+    tl.fromTo("#b-days i", { scaleX: 0 }, { scaleX: 1, duration: 0.12, stagger: 0.22, ease: "power2.out" }, T.week + 0.1);
+    tl.fromTo("#b-stack1", { opacity: 0, rotation: 0, x: 0, y: 0 }, { opacity: 1, rotation: 2.5, x: 14, y: 10, duration: 0.4, ease: "expo.out" }, T.week + 0.4);
+    tl.fromTo("#b-stack2", { opacity: 0, rotation: 0, x: 0, y: 0 }, { opacity: 1, rotation: -3, x: -16, y: 14, duration: 0.4, ease: "expo.out" }, T.week + 0.9);
+    tl.fromTo("#b-stack3", { opacity: 0, rotation: 0, x: 0, y: 0 }, { opacity: 1, rotation: 4, x: 22, y: 20, duration: 0.4, ease: "expo.out" }, T.week + 1.4);
+    // "Good price. Good references." — each box is ticked as it is said
+    tl.fromTo("#b-pricev", { strokeDasharray: 60, strokeDashoffset: 60 }, { strokeDashoffset: 0, duration: 0.25, ease: "power2.out" }, T.price);
+    tl.fromTo("#b-refsv", { strokeDasharray: 60, strokeDashoffset: 60 }, { strokeDashoffset: 0, duration: 0.25, ease: "power2.out" }, T.refs);
+    // "Then the letter came.": the bid drops away, the envelope arrives and the letter rises out of it
+    tl.to("#b-days", { opacity: 0, duration: 0.2, ease: "power2.in" }, T.letter);
+    tl.to(["#b-cover", "#b-stack1", "#b-stack2", "#b-stack3"], { y: -1500, rotation: -6, duration: 0.5, ease: "power3.in", stagger: 0.03 }, T.letter);
+    tl.fromTo("#b-env", { y: 1700 }, { y: 0, duration: 0.6, ease: "expo.out", immediateRender: false }, T.letter + 0.2);
+    tl.fromTo("#b-letter", { y: 700, rotation: 0 }, { y: 0, rotation: 1, duration: 0.7, ease: "expo.out", immediateRender: false }, T.letter + 0.7);
+    tl.to("#b-env", { y: 1700, duration: 0.5, ease: "power3.in" }, T.letter + 0.9);
+    // "Disqualified." — the one stamp of the film
+    tl.fromTo("#b-stamp", { opacity: 0, scale: 1.6, rotation: -10 }, { opacity: 1, scale: 1, rotation: -10, duration: 0.14, ease: "power4.out" }, T.disq);
+    tl.fromTo("#b-world", { x: 0 }, { keyframes: { x: [0, -6, 5, -3, 0] }, duration: 0.14, ease: "none" }, T.disq + 0.14);
+    window.__timelines["bid"] = tl;
+  </script>
+</template>
+</html>

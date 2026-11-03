@@ -1,0 +1,41 @@
+<html data-composition-variables='[{"id":"cta","type":"string","label":"Call to action","default":"See this month’s sample"},{"id":"url","type":"string","label":"Website","default":"dulyqualified.co.za"}]'>
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #end-paper { position: absolute; inset: 0; background: var(--ivory, #F2F1EC); }
+    #end-mark { position: absolute; left: 230px; top: 330px; width: 620px; height: 477px; }
+    #end-mark img { position: absolute; left: 0; top: 0; width: 620px; height: 477px; }
+    #end-name { position: absolute; left: 0; width: 1080px; top: 870px; text-align: center;
+      font-family: Outfit, sans-serif; font-weight: 800; font-size: 92px; letter-spacing: -0.02em; color: #14213D; }
+    #end-cta { position: absolute; left: 0; width: 1080px; top: 985px; text-align: center;
+      font-family: Inter, sans-serif; font-weight: 400; font-size: 44px; color: #14213D; }
+    #end-url { position: absolute; left: 0; width: 1080px; top: 1050px; text-align: center;
+      font-family: Inter, sans-serif; font-weight: 700; font-size: 52px; color: #14213D; }
+    #end-rule { position: absolute; left: 340px; top: 1135px; width: 400px; height: 6px; background: #14213D; transform-origin: 0 50%; }
+  </style>
+  <div id="root" data-composition-id="endcard" data-width="1080" data-height="1920">
+    <div id="end-paper"></div>
+    <div id="end-mark">
+      <img id="end-navy" src="assets/dq-monogram-navy-part.png" alt="DQ monogram" />
+      <img id="end-tail" src="assets/dq-monogram-tail-part.png" alt="" />
+    </div>
+    <div id="end-name">Duly Qualified</div>
+    <div id="end-cta" data-var-text="cta">See this month’s sample</div>
+    <div id="end-url" data-var-text="url">dulyqualified.co.za</div>
+    <div id="end-rule"></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // navy D+Q wiped in left to right, then the red tail drawn along its diagonal
+    tl.fromTo("#end-navy", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.7, ease: "power2.inOut" }, 0.05);
+    tl.fromTo("#end-mark", { scale: 0.92 }, { scale: 1, duration: 0.9, ease: "expo.out" }, 0.05);
+    tl.fromTo("#end-tail", { clipPath: "polygon(61% 60%, 61% 60%, 61% 60%, 61% 60%)" },
+      { clipPath: "polygon(55% 55%, 100% 55%, 100% 100%, 55% 100%)", duration: 0.32, ease: "power4.out" }, 0.72);
+    tl.fromTo("#end-name", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 0.95);
+    tl.fromTo("#end-cta", { opacity: 0 }, { opacity: 1, duration: 0.25, ease: "power2.out" }, 1.2);
+    tl.fromTo("#end-url", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 1.35);
+    tl.fromTo("#end-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "expo.out" }, 1.5);
+    window.__timelines["endcard"] = tl;
+  </script>
+</template>
+</html>

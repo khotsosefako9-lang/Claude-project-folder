@@ -1,0 +1,131 @@
+<html>
+<template>
+  <style>
+    #root { position: absolute; inset: 0; font-family: Inter, sans-serif; color: #14213D; }
+    .paper { position: absolute; background: #FFFFFF; border: 2px solid rgba(20,33,61,.12);
+      box-shadow: 0 18px 40px rgba(20,33,61,.18); }
+
+    /* duty roster */
+    #d-roster { left: 100px; top: 220px; width: 880px; height: 900px; padding: 48px 52px; }
+    #d-roster .biz { font-family: Outfit, sans-serif; font-weight: 800; font-size: 64px; letter-spacing: -0.02em; line-height: 1; }
+    #d-roster .sub { font-size: 34px; margin-top: 12px; }
+    #d-roster .head { display: flex; margin-top: 34px; padding-bottom: 10px; border-bottom: 3px solid #14213D;
+      font-weight: 700; font-size: 30px; }
+    .r-row { display: flex; align-items: center; height: 46px; border-bottom: 1px solid rgba(20,33,61,.15); font-size: 30px; }
+    .c-name { width: 170px; font-weight: 700; }
+    .c-site { width: 330px; }
+    .c-days { display: flex; gap: 6px; }
+    .cell { width: 34px; height: 26px; border: 2px solid rgba(20,33,61,.35); }
+    .cell i { display: block; width: 100%; height: 100%; background: #14213D; transform-origin: 0 50%; }
+
+    /* phone */
+    #d-phone { position: absolute; left: 160px; top: 230px; width: 760px; height: 960px; border-radius: 56px;
+      background: #14213D; padding: 18px; box-shadow: 0 30px 60px rgba(20,33,61,.30); }
+    #d-screen { position: relative; width: 100%; height: 100%; border-radius: 40px; background: #E7E3D8; overflow: hidden; }
+    #d-chathead { height: 132px; background: #FFFFFF; display: flex; align-items: center; padding: 0 36px; gap: 22px; }
+    #d-avatar { width: 76px; height: 76px; border-radius: 50%; background: #14213D; color: #F2F1EC;
+      font-family: Outfit, sans-serif; font-weight: 800; font-size: 36px; display: flex; align-items: center; justify-content: center; }
+    #d-who { font-weight: 700; font-size: 38px; }
+    #d-who small { display: block; font-weight: 400; font-size: 30px; opacity: .7; }
+    #d-day { text-align: center; font-size: 30px; opacity: .65; margin: 34px 0 10px; }
+    .bubble { position: relative; margin: 18px 36px 0; max-width: 600px; background: #FFFFFF; border-radius: 0 28px 28px 28px;
+      padding: 22px 28px; font-size: 40px; line-height: 1.25; box-shadow: 0 2px 0 rgba(20,33,61,.12); }
+    #d-strike { position: absolute; left: 0; top: 52%; height: 6px; width: 100%; background: #C8372D; transform-origin: 0 50%; }
+    #d-friday { position: relative; display: inline-block; }
+
+    /* tender notice */
+    #d-notice { left: 90px; top: 210px; width: 900px; height: 920px; padding: 56px 60px; }
+    #d-notice .kicker { font-weight: 700; font-size: 32px; letter-spacing: .06em; }
+    #d-notice .title { font-family: Outfit, sans-serif; font-weight: 800; font-size: 92px; line-height: 1.0; letter-spacing: -0.02em; margin-top: 18px; }
+    #d-notice .line { font-size: 38px; margin-top: 22px; }
+    #d-notice .rule { height: 3px; background: #14213D; margin: 40px 0 34px; }
+    #d-close { position: relative; display: inline-block; font-weight: 700; font-size: 54px; }
+    #d-close-strike { position: absolute; left: -6px; right: -6px; top: 52%; height: 8px; background: #C8372D; transform-origin: 0 50%; }
+    #d-stamp { position: absolute; left: 300px; top: 610px; padding: 10px 34px; border: 10px solid #C8372D; color: #C8372D;
+      font-family: Outfit, sans-serif; font-weight: 800; font-size: 120px; letter-spacing: .04em; line-height: 1; }
+  </style>
+  <div id="root" data-composition-id="desk" data-width="1080" data-height="1920">
+    <div id="d-world">
+      <div id="d-notice" class="paper" data-layout-allow-overlap>
+        <div class="kicker">REQUEST FOR BID</div>
+        <div class="title">Guarding services</div>
+        <div class="line n-line" id="d-l-office">Government office · Port Elizabeth CBD</div>
+        <div class="line n-line" id="d-l-period">Contract period: 24 months</div>
+        <div class="rule"></div>
+        <div class="line">Closing date</div>
+        <div id="d-close">Friday, 11:00<span id="d-close-strike"></span></div>
+        <div id="d-stamp">CLOSED</div>
+      </div>
+
+      <div id="d-roster" class="paper" data-layout-allow-occlusion data-layout-allow-overlap data-layout-allow-overflow>
+        <div class="biz">Thabo’s Guarding</div>
+        <div class="sub">Port Elizabeth · duty roster, this week</div>
+        <div class="head"><span class="c-name">Guard</span><span class="c-site">Client site</span><span>M T W T F S S</span></div>
+        <div id="d-rows"></div>
+      </div>
+
+      <div id="d-phone" data-layout-allow-occlusion data-layout-allow-overflow>
+        <div id="d-screen">
+          <div id="d-chathead"><div id="d-avatar">S</div><div id="d-who">Sizwe<small>Bay Security</small></div></div>
+          <div id="d-day">Monday</div>
+          <div id="d-b1" class="bubble">Did you see the guarding tender?</div>
+          <div id="d-b2" class="bubble">Closed <span id="d-friday">Friday.<span id="d-strike"></span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // ---- timing anchors (seconds from the start of the voice) — set from the transcript ----
+    const T = { phoneOut: 1.7, guards: 3.0, clients: 3.9, busy: 4.6,
+                monday: 5.9, contract: 7.6, office: 9.2, closed: 11.4, neverSaw: 12.9, end: 14.6 };
+
+    // build roster rows (static markup derived once, deterministic)
+    const guards = ["Lwazi","Anele","Pieter","Bongani","Xola","Riaan","Themba","Siya","Kagiso","Lindo","Mzi","Ayanda"];
+    const sites  = ["Walmer clinic","Newton Park offices","North End depot","Humewood flats","Greenacres store","Korsten school",
+                    "Summerstrand hotel","Mill Park complex","Struandale yard","Central bank branch","Walmer school","Baakens offices"];
+    const rows = document.querySelector("#d-rows");
+    guards.forEach((g, i) => {
+      const r = document.createElement("div"); r.className = "r-row"; r.id = "d-row" + i;
+      r.innerHTML = `<span class="c-name">${g}</span><span class="c-site">${sites[i]}</span><span class="c-days">` +
+        [0,1,2,3,4,5,6].map(d => `<span class="cell"><i></i></span>`).join("") + `</span>`;
+      rows.appendChild(r);
+    });
+
+    const tl = gsap.timeline({ paused: true });
+    // frame 0: phone already on screen with the first message; the second lands, "Friday" struck in red
+    tl.fromTo("#d-b2", { opacity: 0, scale: 0.9, transformOrigin: "0% 0%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "expo.out" }, 0.25);
+    tl.fromTo("#d-strike", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.inOut" }, 0.75);
+    // the phone slides off the bottom, revealing the roster under it
+    tl.fromTo("#d-phone", { y: 0, rotation: 0 }, { y: 1800, rotation: 6, duration: 0.45, ease: "power3.in" }, T.phoneOut);
+    tl.set("#d-notice", { opacity: 0 }, 0);
+    tl.fromTo("#d-roster", { rotation: -1.5, scale: 1.04 }, { rotation: -1.5, scale: 1, duration: 0.8, ease: "expo.out" }, T.phoneOut + 0.2);
+    // "Twelve guards": rows tick in, a frame apart
+    tl.fromTo(".r-row", { opacity: 0.12 }, { opacity: 1, duration: 0.12, stagger: 0.05, ease: "power2.out" }, T.guards);
+    tl.fromTo(".c-site", { opacity: 0 }, { opacity: 1, duration: 0.15, stagger: 0.04, ease: "power2.out" }, T.clients);
+    // "always busy": every shift cell fills
+    tl.fromTo(".cell i", { scaleX: 0 }, { scaleX: 1, duration: 0.08, stagger: { each: 0.008, from: "start" }, ease: "power2.out" }, T.busy);
+
+    // "On Monday, another owner mentions…": the phone comes back up over the roster
+    tl.set("#d-b2", { opacity: 0 }, T.monday - 0.05);
+    tl.fromTo("#d-phone", { y: 1800, rotation: -4 }, { y: 0, rotation: 0, duration: 0.6, ease: "expo.out", immediateRender: false }, T.monday);
+    // "…a two-year guarding contract": the message grows into the tender notice
+    tl.set("#d-notice", { opacity: 1 }, T.contract - 0.01);
+    tl.fromTo("#d-notice", { scale: 0.42, x: -60, y: -250, rotation: 0, transformOrigin: "50% 30%" },
+      { scale: 1, x: 0, y: 0, rotation: 1, duration: 0.65, ease: "power2.inOut", immediateRender: false }, T.contract);
+    tl.to("#d-phone", { y: 1800, rotation: 5, duration: 0.4, ease: "power3.in" }, T.contract);
+    tl.to("#d-roster", { opacity: 0, duration: 0.2, ease: "power2.in" }, T.contract);
+    tl.set("#d-roster", { y: -1400, opacity: 1 }, T.contract + 0.3);
+    // "…for a government office in the city": the notice's lines print in as they are said
+    tl.fromTo("#d-l-period", { opacity: 0.15 }, { opacity: 1, duration: 0.2, ease: "power2.out" }, T.contract + 0.5);
+    tl.fromTo("#d-l-office", { opacity: 0.15 }, { opacity: 1, duration: 0.2, ease: "power2.out" }, T.office);
+    // "It closed on Friday": strike, then the one stamp of the film
+    tl.fromTo("#d-close-strike", { scaleX: 0 }, { scaleX: 1, duration: 0.25, ease: "power2.inOut" }, T.closed);
+    tl.fromTo("#d-stamp", { opacity: 0, scale: 1.6, rotation: -12 }, { opacity: 1, scale: 1, rotation: -12, duration: 0.14, ease: "power4.out" }, T.closed + 0.35);
+    tl.fromTo("#d-world", { x: 0 }, { keyframes: { x: [0, -6, 5, -3, 0] }, duration: 0.14, ease: "none" }, T.closed + 0.49);
+    // "Thabo never saw it": the roster drops back on top and buries the notice
+    tl.to("#d-roster", { y: 120, rotation: -3, duration: 0.6, ease: "expo.out" }, T.neverSaw);
+    tl.to("#d-notice", { y: -60, x: 40, rotation: 4, duration: 0.6, ease: "expo.out" }, T.neverSaw);
+    window.__timelines["desk"] = tl;
+  </script>
+</template>
+</html>

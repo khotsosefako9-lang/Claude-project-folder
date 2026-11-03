@@ -1,0 +1,97 @@
+<html>
+<template>
+  <style>
+    #root { position: absolute; inset: 0; font-family: Inter, sans-serif; color: #14213D; }
+    #x-centre { position: absolute; left: 40px; top: 300px; width: 1000px; height: 760px; }
+    #x-centre svg { position: absolute; inset: 0; overflow: visible; }
+    .cam, .reader { transform-box: fill-box; transform-origin: 50% 50%; }
+    #x-banner { position: absolute; left: 250px; top: 220px; width: 580px; height: 84px; background: #F2F1EC; border: 4px solid #14213D;
+      font-family: Outfit, sans-serif; font-weight: 800; font-size: 50px; text-align: center; line-height: 76px; }
+    #x-tag { position: absolute; left: 600px; top: 40px; width: 380px; padding: 18px 24px; background: #FFFFFF; border: 5px solid #C8372D;
+      color: #C8372D; font-weight: 700; font-size: 34px; line-height: 1.2; transform-origin: 50% 0%; }
+    #x-tag::before { content: ""; position: absolute; left: 60px; top: -46px; width: 4px; height: 46px; background: #C8372D; }
+
+    #x-card { position: absolute; left: 110px; top: 330px; width: 860px; height: 620px; background: #FFFFFF;
+      border: 2px solid rgba(20,33,61,.12); box-shadow: 0 18px 40px rgba(20,33,61,.18); padding: 60px 64px; }
+    #x-card .big { font-family: Outfit, sans-serif; font-weight: 800; font-size: 104px; line-height: 1; letter-spacing: -0.02em; }
+    #x-card .line { font-size: 42px; margin-top: 26px; }
+    #x-card .rule { height: 3px; background: #14213D; margin: 40px 0 28px; }
+    #x-card .svc { display: flex; gap: 40px; font-weight: 700; font-size: 44px; }
+  </style>
+  <div id="root" data-composition-id="site" data-width="1080" data-height="1920">
+    <div id="x-card">
+      <div class="big">Sipho’s Security</div>
+      <div class="line">Installer · Nelson Mandela Bay</div>
+      <div class="rule"></div>
+      <div class="svc"><span>CCTV</span><span>Access control</span></div>
+    </div>
+
+    <div id="x-centre" data-layout-allow-overflow data-layout-allow-overlap>
+      <svg viewBox="0 0 1000 760">
+        <!-- ground line and car park -->
+        <rect x="0" y="690" width="1000" height="70" fill="#14213D" opacity=".12"/>
+        <!-- main block -->
+        <rect x="70" y="190" width="860" height="500" fill="#FFFFFF" stroke="#14213D" stroke-width="6"/>
+        <rect x="40" y="160" width="920" height="40" fill="#14213D"/>
+        <!-- side wings -->
+        <rect x="70" y="330" width="170" height="360" fill="#E7E3D8" stroke="#14213D" stroke-width="5"/>
+        <rect x="760" y="330" width="170" height="360" fill="#E7E3D8" stroke="#14213D" stroke-width="5"/>
+        <!-- shop windows -->
+        <g fill="#14213D" opacity=".18">
+          <rect x="270" y="420" width="140" height="150"/><rect x="590" y="420" width="140" height="150"/>
+          <rect x="100" y="400" width="110" height="110"/><rect x="790" y="400" width="110" height="110"/>
+        </g>
+        <!-- entrances -->
+        <g fill="#14213D">
+          <rect x="440" y="470" width="120" height="220" opacity=".85"/>
+          <rect x="120" y="560" width="70" height="130" opacity=".85"/>
+          <rect x="810" y="560" width="70" height="130" opacity=".85"/>
+        </g>
+        <line x1="500" y1="470" x2="500" y2="690" stroke="#F2F1EC" stroke-width="4"/>
+        <!-- cameras: body + mount, one on every corner -->
+        <g fill="#14213D">
+          <g class="cam" id="x-cam1"><rect x="48" y="198" width="54" height="26" rx="4"/><rect x="40" y="206" width="12" height="10"/></g>
+          <g class="cam" id="x-cam2"><rect x="898" y="198" width="54" height="26" rx="4"/><rect x="948" y="206" width="12" height="10"/></g>
+          <g class="cam" id="x-cam3"><rect x="48" y="338" width="54" height="26" rx="4"/><rect x="40" y="346" width="12" height="10"/></g>
+          <g class="cam" id="x-cam4"><rect x="898" y="338" width="54" height="26" rx="4"/><rect x="948" y="346" width="12" height="10"/></g>
+          <g class="cam" id="x-cam5"><rect x="230" y="198" width="54" height="26" rx="4"/></g>
+          <g class="cam" id="x-cam6"><rect x="716" y="198" width="54" height="26" rx="4"/></g>
+        </g>
+        <!-- access readers beside every entrance -->
+        <g fill="#14213D">
+          <g class="reader" id="x-rd1"><rect x="574" y="540" width="26" height="40" rx="4"/></g>
+          <g class="reader" id="x-rd2"><rect x="200" y="590" width="22" height="34" rx="4"/></g>
+          <g class="reader" id="x-rd3"><rect x="778" y="590" width="22" height="34" rx="4"/></g>
+        </g>
+      </svg>
+      <div id="x-banner">Opening Saturday</div>
+      <div id="x-tag">Installed by another installer</div>
+    </div>
+  </div>
+  <script>
+    // timing anchors (seconds from the voice start) — set from the transcript
+    const T = { cardIn: 1.6, driving: 4.4, corners: 7.4, gates: 8.8, another: 10.6, never: 12.4, end: 14.2 };
+    const tl = gsap.timeline({ paused: true });
+    // frame 0: the finished centre with its cameras; the red tag already hangs on it
+    tl.set("#x-card", { x: 1200 }, 0);
+    tl.fromTo(".cam", { scale: 0 }, { scale: 1, duration: 0.22, stagger: 0.07, ease: "back.out(1.8)" }, 0.05);
+    tl.fromTo("#x-tag", { rotation: 0, opacity: 1 }, { keyframes: { rotation: [0, 5, -3, 0] }, duration: 0.8, ease: "power2.out" }, 0.4);
+    // "Sipho installs CCTV and access control": the centre slides off, his card slides in
+    tl.to("#x-centre", { x: -1200, duration: 0.5, ease: "power3.in" }, T.cardIn);
+    tl.fromTo("#x-card", { x: 1200, rotation: 0 }, { x: 0, rotation: -1, duration: 0.6, ease: "expo.out", immediateRender: false }, T.cardIn + 0.3);
+    // "Driving home, he passes a brand-new shopping centre": the card leaves, the centre drives into view
+    tl.to("#x-card", { x: -1200, duration: 0.45, ease: "power3.in" }, T.driving);
+    tl.set(["#x-tag"], { opacity: 0 }, T.driving);
+    tl.set(".cam, .reader", { scale: 0 }, T.driving);
+    tl.fromTo("#x-centre", { x: 1300 }, { x: 0, duration: 0.9, ease: "power2.out", immediateRender: false }, T.driving + 0.2);
+    // "Cameras on every corner." "Gate access at every entrance."
+    tl.to(".cam", { scale: 1, duration: 0.22, stagger: 0.12, ease: "back.out(1.8)" }, T.corners);
+    tl.to(".reader", { scale: 1, duration: 0.22, stagger: 0.14, ease: "back.out(1.8)" }, T.gates);
+    // "Another installer got that job": the red tag drops onto the centre
+    tl.fromTo("#x-tag", { opacity: 0, y: -60 }, { opacity: 1, y: 0, duration: 0.35, ease: "expo.out", immediateRender: false }, T.another);
+    // "…and Sipho never knew it was coming": the centre carries on past and out of view
+    tl.to("#x-centre", { x: -1300, duration: 1.2, ease: "power2.in" }, T.never);
+    window.__timelines["site"] = tl;
+  </script>
+</template>
+</html>
