@@ -3,3 +3,7 @@ node_modules/
 /.env.local
 .env
 .env.*
+
+# HyperFrames working artifacts and renders
+.hyperframes/
+renders/
