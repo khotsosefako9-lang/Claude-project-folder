@@ -53,11 +53,11 @@ function BuyerRing() {
           >
             <div
               className={`flex aspect-[3/4] flex-col justify-between rounded-xl border p-3 sm:p-4 ${
-                b.sector === 'Security' ? 'border-[#FF8A4C]/25 bg-gradient-to-b from-[#2a130a] to-[#0b0807]' : 'border-sky-300/20 bg-gradient-to-b from-[#0b1a26] to-[#07090b]'
+                b.sector === 'Security' ? 'border-moss/25 bg-gradient-to-b from-sand/50 to-card' : 'border-sage/30 bg-gradient-to-b from-sage/25 to-card'
               }`}
             >
-              <Mono className={b.sector === 'Security' ? 'text-[#FF8A4C]' : 'text-sky-200'}>{b.sector}</Mono>
-              <p className="text-[13px] font-light leading-snug text-white sm:text-[17px]">{b.name}</p>
+              <Mono className={b.sector === 'Security' ? 'text-moss' : 'text-info'}>{b.sector}</Mono>
+              <p className="text-[13px] font-light leading-snug text-ink sm:text-[17px]">{b.name}</p>
             </div>
           </div>
         ))}
@@ -68,13 +68,13 @@ function BuyerRing() {
 
 const icons = [Shield, Sparkles];
 const cardBlobs = [
-  ['-top-24 -left-24 h-48 w-48 bg-navy opacity-40'],
-  ['-top-24 -left-24 h-48 w-48 bg-ember opacity-30', '-bottom-24 -right-24 h-48 w-48 bg-[#F5D547] opacity-20'],
+  ['-top-24 -left-24 h-48 w-48 bg-sage opacity-40'],
+  ['-top-24 -left-24 h-48 w-48 bg-moss opacity-30', '-bottom-24 -right-24 h-48 w-48 bg-sand opacity-20'],
 ];
 
 export default function WhoFor() {
   return (
-    <section id="who" className="relative w-full bg-black px-4 py-20 sm:px-6 sm:py-28 md:px-10">
+    <section id="who" className="relative w-full bg-paper px-4 py-20 sm:px-6 sm:py-28 md:px-10">
       <div className="mx-auto max-w-[1400px]">
         <div className="grid gap-8 md:grid-cols-2 md:items-end">
           <Reveal>
@@ -82,7 +82,7 @@ export default function WhoFor() {
             <SectionHeading>Built for firms that sell on contract.</SectionHeading>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="max-w-md text-[15px] font-light leading-relaxed text-white/65 sm:text-[17px] md:ml-auto">
+            <p className="max-w-md text-[15px] font-light leading-relaxed text-ink/65 sm:text-[17px] md:ml-auto">
               Established firms, usually three years or more and twenty-odd staff, that win work through quotes, contracts and tenders.
             </p>
           </Reveal>
@@ -97,18 +97,18 @@ export default function WhoFor() {
             const Icon = icons[i];
             return (
               <Reveal key={s.title} delay={i * 0.1}>
-                <article className="relative h-full overflow-hidden rounded-2xl bg-neutral-950 p-6 ring-1 ring-white/5 sm:p-10">
+                <article className="relative h-full overflow-hidden rounded-2xl bg-card p-6 ring-1 ring-ink/5 sm:p-10">
                   {cardBlobs[i].map((b) => (
                     <Blob key={b} className={b} />
                   ))}
                   <div className="relative">
-                    <Icon className="h-8 w-8 text-white" strokeWidth={1.25} />
-                    <h3 className="tight mt-8 text-2xl font-medium text-white sm:text-3xl">{s.title}</h3>
-                    <p className="mt-2 text-[14px] font-light text-white/60">{s.body}</p>
-                    <p className="mt-8 text-xs uppercase tracking-[0.18em] text-white/40">Who we find for you</p>
+                    <Icon className="h-8 w-8 text-ink" strokeWidth={1.25} />
+                    <h3 className="tight mt-8 text-2xl font-medium text-ink sm:text-3xl">{s.title}</h3>
+                    <p className="mt-2 text-[14px] font-light text-ink/60">{s.body}</p>
+                    <p className="mt-8 text-xs uppercase tracking-[0.18em] text-ink/40">Who we find for you</p>
                     <ul className="mt-3 divide-y divide-white/5">
                       {s.buyers.map((b) => (
-                        <li key={b} className="py-3 text-[14px] font-light text-white/85">{b}</li>
+                        <li key={b} className="py-3 text-[14px] font-light text-ink/85">{b}</li>
                       ))}
                     </ul>
                   </div>
@@ -121,14 +121,14 @@ export default function WhoFor() {
         <div className="mt-3 grid grid-cols-2 gap-3 sm:mt-4 sm:gap-4 md:grid-cols-4">
           {cities.map((c, i) => (
             <Reveal key={c.name} delay={i * 0.06}>
-              <div className="relative flex h-24 items-center justify-center overflow-hidden rounded-2xl bg-neutral-950 ring-1 ring-white/5 sm:h-32">
-                {c.status === 'now' && <Blob className="-bottom-20 -left-16 h-40 w-40 bg-ember opacity-30" />}
+              <div className="relative flex h-24 items-center justify-center overflow-hidden rounded-2xl bg-card ring-1 ring-ink/5 sm:h-32">
+                {c.status === 'now' && <Blob className="-bottom-20 -left-16 h-40 w-40 bg-moss opacity-30" />}
                 <div className="relative text-center">
-                  <p className="inline-flex items-center gap-2 text-lg font-medium text-white sm:text-2xl">
-                    <MapPin className={`h-4 w-4 sm:h-5 sm:w-5 ${c.status === 'now' ? 'text-ember' : 'text-white/40'}`} />
+                  <p className="inline-flex items-center gap-2 text-lg font-medium text-ink sm:text-2xl">
+                    <MapPin className={`h-4 w-4 sm:h-5 sm:w-5 ${c.status === 'now' ? 'text-moss' : 'text-ink/40'}`} />
                     {c.name}
                   </p>
-                  <p className={`mt-1 text-[11px] uppercase tracking-[0.18em] ${c.status === 'now' ? 'text-ember' : 'text-white/40'}`}>
+                  <p className={`mt-1 text-[11px] uppercase tracking-[0.18em] ${c.status === 'now' ? 'text-moss' : 'text-ink/40'}`}>
                     {c.status === 'now' ? 'Now · incl. Nelson Mandela Bay' : 'Next'}
                   </p>
                 </div>
@@ -139,8 +139,8 @@ export default function WhoFor() {
 
         <Reveal className="mt-16 flex flex-col items-start justify-between gap-6 sm:mt-24 md:ml-auto md:w-[70%] md:flex-row md:items-center">
           <div className="max-w-md">
-            <p className="text-lg text-white">One firm per service, per city.</p>
-            <p className="mt-2 text-[14px] font-light leading-relaxed text-white/65 sm:text-[16px]">
+            <p className="text-lg text-ink">One firm per service, per city.</p>
+            <p className="mt-2 text-[14px] font-light leading-relaxed text-ink/65 sm:text-[16px]">
               When we work with a security firm in Gqeberha, we don’t take on its competitor. Your leads and your tender pipeline stay yours.
             </p>
           </div>

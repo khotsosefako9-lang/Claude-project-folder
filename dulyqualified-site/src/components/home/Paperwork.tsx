@@ -24,9 +24,9 @@ const docs: Doc[] = [
 ];
 
 const stamp: Record<Doc['status'], string> = {
-  'In place': 'border-emerald-700 text-emerald-700',
-  'Renew in 12 days': 'border-[#d4541c] text-[#d4541c]',
-  Missing: 'border-rose-400 text-rose-300',
+  'In place': 'border-ok text-ok',
+  'Renew in 12 days': 'border-warn text-warn',
+  Missing: 'border-bad text-bad',
 };
 
 function Certificate({ d, progress }: { d: Doc; progress: MotionValue<number> }) {
@@ -35,20 +35,20 @@ function Certificate({ d, progress }: { d: Doc; progress: MotionValue<number> })
   return (
     <motion.div style={{ y, rotate: d.rot }} className={`absolute ${d.pos} ${d.front ? 'z-20' : 'z-0'} w-[150px] sm:w-[210px]`}>
       {missing ? (
-        <div className="rounded-lg border-2 border-dashed border-white/25 bg-black/40 p-3 backdrop-blur-sm sm:p-4">
-          <p className="text-[11px] text-white/80 sm:text-sm">{d.title}</p>
-          <p className="mt-1 text-[9px] text-white/40 sm:text-[11px]">{d.detail}</p>
+        <div className="rounded-lg border-2 border-dashed border-ink/25 bg-paper/70 p-3 backdrop-blur-sm sm:p-4">
+          <p className="text-[11px] text-ink/80 sm:text-sm">{d.title}</p>
+          <p className="mt-1 text-[9px] text-ink/40 sm:text-[11px]">{d.detail}</p>
           <div className="mt-6 h-10 sm:mt-10" />
           <span className={`inline-block -rotate-6 rounded border-2 px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest sm:text-[11px] ${stamp[d.status]}`}>{d.status}</span>
         </div>
       ) : (
-        <div className="rounded-lg bg-[#f4efe6] p-3 text-[#1c1712] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] sm:p-4">
+        <div className="rounded-lg bg-card p-3 text-ink ring-1 ring-ink/10 shadow-[0_24px_50px_-20px_rgba(37,38,31,0.35)] sm:p-4">
           <p className="text-[11px] font-medium sm:text-sm">{d.title}</p>
-          <p className="mt-1 text-[9px] text-black/50 sm:text-[11px]">{d.detail}</p>
+          <p className="mt-1 text-[9px] text-ink/50 sm:text-[11px]">{d.detail}</p>
           <div className="mt-3 space-y-1.5" aria-hidden="true">
-            <div className="h-1 w-full rounded bg-black/10" />
-            <div className="h-1 w-4/5 rounded bg-black/10" />
-            <div className="h-1 w-3/5 rounded bg-black/10" />
+            <div className="h-1 w-full rounded bg-ink/10" />
+            <div className="h-1 w-4/5 rounded bg-ink/10" />
+            <div className="h-1 w-3/5 rounded bg-ink/10" />
           </div>
           <span className={`mt-4 inline-block -rotate-6 rounded border-2 px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest sm:text-[11px] ${stamp[d.status]}`}>{d.status}</span>
         </div>
@@ -63,13 +63,13 @@ export default function Paperwork() {
   const wordX = useTransform(scrollYProgress, [0, 1], ['2%', '-2%']);
 
   return (
-    <section id="paperwork" className="relative w-full overflow-hidden bg-black py-20 sm:py-28">
+    <section id="paperwork" className="relative w-full overflow-hidden bg-paper py-20 sm:py-28">
       <Reveal className="mx-auto max-w-3xl px-4 text-center sm:px-6">
         <Eyebrow>Tenders and compliance</Eyebrow>
         <SectionHeading className="[text-wrap:balance]">
           Most firms lose tenders on paperwork, <span className="ember-text">not price.</span>
         </SectionHeading>
-        <p className="mx-auto mt-5 max-w-lg text-[15px] font-light leading-relaxed text-white/60">
+        <p className="mx-auto mt-5 max-w-lg text-[15px] font-light leading-relaxed text-ink/60">
           A missing letter of good standing gets a bid thrown out before anyone looks at your rate.
         </p>
       </Reveal>
@@ -81,7 +81,7 @@ export default function Paperwork() {
         <motion.p
           style={{ x: wordX }}
           aria-hidden="true"
-          className="hero-title pointer-events-none absolute inset-x-0 top-1/2 z-10 -translate-y-1/2 select-none whitespace-nowrap text-center text-[14.5vw] font-medium uppercase text-transparent [-webkit-background-clip:text] [background-clip:text] [background-image:linear-gradient(180deg,#fff_10%,rgba(255,255,255,0.15)_95%)] 2xl:text-[290px]"
+          className="hero-title pointer-events-none absolute inset-x-0 top-1/2 z-10 -translate-y-1/2 select-none whitespace-nowrap text-center text-[14.5vw] font-medium uppercase text-transparent [-webkit-background-clip:text] [background-clip:text] [background-image:linear-gradient(180deg,#25261f_10%,rgba(37,38,31,0.12)_95%)] 2xl:text-[290px]"
         >
           Paperwork
         </motion.p>
@@ -93,14 +93,14 @@ export default function Paperwork() {
             <Eyebrow>Ready on the day it opens</Eyebrow>
             <SectionHeading>Your papers, kept current. Your bids, ready to sign.</SectionHeading>
           </Reveal>
-          <Reveal delay={0.1} className="mt-8 space-y-5 text-[15px] font-light leading-relaxed text-white/70 sm:text-[17px]">
+          <Reveal delay={0.1} className="mt-8 space-y-5 text-[15px] font-light leading-relaxed text-ink/70 sm:text-[17px]">
             <p>
               Government tenders come with a long list of returnable documents, and every certificate has to be valid on the closing date. One lapsed letter and the bid is non-responsive.
             </p>
             <p>
               We keep your folder current, tell you what’s about to expire, and help you get what’s missing, starting with the free ones: a CSD number, a tax compliance PIN and a B-BBEE affidavit.
             </p>
-            <p className="text-white">Then, when a tender fits, you’re ready to bid on the day it opens, not scrambling the week it closes.</p>
+            <p className="text-ink">Then, when a tender fits, you’re ready to bid on the day it opens, not scrambling the week it closes.</p>
           </Reveal>
         </div>
         <Reveal delay={0.1}>

@@ -44,7 +44,7 @@ export default function EmberSparks({ top, className = '' }: { top: number; clas
 
     const draw = () => {
       ctx.clearRect(0, 0, w, h);
-      ctx.globalCompositeOperation = 'lighter';
+      ctx.globalCompositeOperation = 'source-over';
       for (const p of ps) {
         p.life++;
         p.x += p.vx + Math.sin((p.life + p.y) * 0.02) * 0.2;
@@ -53,9 +53,9 @@ export default function EmberSparks({ top, className = '' }: { top: number; clas
         if (t >= 1) Object.assign(p, spawn());
         const a = Math.sin(Math.PI * Math.min(t, 1)) * 0.9;
         const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 4);
-        g.addColorStop(0, `rgba(255, 214, 180, ${a})`);
-        g.addColorStop(0.35, `rgba(255, 122, 51, ${a * 0.7})`);
-        g.addColorStop(1, 'rgba(255, 90, 31, 0)');
+        g.addColorStop(0, `rgba(78, 93, 59, ${a * 0.55})`);
+        g.addColorStop(0.4, `rgba(138, 154, 114, ${a * 0.3})`);
+        g.addColorStop(1, 'rgba(138, 154, 114, 0)');
         ctx.fillStyle = g;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r * 4, 0, Math.PI * 2);

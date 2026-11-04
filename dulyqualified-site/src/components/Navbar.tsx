@@ -24,16 +24,16 @@ export default function Navbar() {
         <Link
           to="/"
           className={`flex items-center gap-2.5 rounded-full py-2.5 pl-3 pr-4 backdrop-blur transition-colors sm:py-3 sm:pl-4 sm:pr-6 ${
-            scrolled ? 'bg-neutral-900/95' : 'bg-neutral-900/80'
+            scrolled ? 'bg-card/95' : 'bg-card/80'
           }`}
         >
           <LogoMark className="h-5 w-5" />
-          <span className="text-xs text-white sm:text-sm">duly qualified</span>
+          <span className="text-xs text-ink sm:text-sm">duly qualified</span>
         </Link>
 
-        <div className="hidden items-center rounded-full bg-neutral-900/80 px-2 py-1.5 backdrop-blur lg:flex">
+        <div className="hidden items-center rounded-full bg-card/80 px-2 py-1.5 backdrop-blur lg:flex">
           {navLinks.map((l) => (
-            <Link key={l.href} to={l.href} className="rounded-full px-4 py-2 text-sm text-neutral-300 transition-colors hover:bg-white/5 hover:text-white xl:px-5">
+            <Link key={l.href} to={l.href} className="rounded-full px-4 py-2 text-sm text-ink/70 transition-colors hover:bg-ink/5 hover:text-ink xl:px-5">
               {l.label}
             </Link>
           ))}
@@ -42,14 +42,14 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <Link
             to="/#call"
-            className="rounded-full bg-white px-4 py-2.5 text-xs text-black transition-colors hover:bg-neutral-200 sm:px-6 sm:py-3 sm:text-sm"
+            className="rounded-full bg-ink px-4 py-2.5 text-xs text-paper transition-colors hover:bg-ink/85 sm:px-6 sm:py-3 sm:text-sm"
           >
             book a call
           </Link>
           <button
             type="button"
             onClick={() => setOpen((o) => !o)}
-            className="grid h-10 w-10 place-items-center rounded-full bg-neutral-900/80 text-white backdrop-blur sm:h-11 sm:w-11 lg:hidden"
+            className="grid h-10 w-10 place-items-center rounded-full bg-card/80 text-ink backdrop-blur sm:h-11 sm:w-11 lg:hidden"
             aria-expanded={open}
             aria-label={open ? 'Close menu' : 'Open menu'}
           >
@@ -65,10 +65,10 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="mx-auto mt-3 max-w-[1400px] rounded-3xl bg-neutral-900/95 p-3 backdrop-blur lg:hidden"
+            className="mx-auto mt-3 max-w-[1400px] rounded-3xl bg-card/95 p-3 backdrop-blur lg:hidden"
           >
             {navLinks.map((l) => (
-              <Link key={l.href} to={l.href} className="block rounded-2xl px-4 py-3 text-base text-neutral-200 hover:bg-white/5">
+              <Link key={l.href} to={l.href} className="block rounded-2xl px-4 py-3 text-base text-ink/70 hover:bg-ink/5">
                 {l.label}
               </Link>
             ))}

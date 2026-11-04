@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 export function LogoMark({ className = 'h-5 w-5' }: { className?: string }) {
   return (
     <svg viewBox="0 0 32 32" className={className} aria-hidden="true">
-      <rect x="1" y="1" width="30" height="30" rx="9" fill="#fff" />
-      <path d="M9 16.5l4.5 4.5L23 11.5" fill="none" stroke="#000" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="1" y="1" width="30" height="30" rx="9" fill="#4E5D3B" />
+      <path d="M9 16.5l4.5 4.5L23 11.5" fill="none" stroke="#F4F3EE" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -29,7 +29,7 @@ export function HudFrame({ inset = 'inset-3 sm:inset-6', className = '' }: { ins
 
 /** Small monospaced HUD caption. */
 export function Mono({ children, className = '' }: { children: ReactNode; className?: string }) {
-  return <span className={`font-mono text-[10px] uppercase tracking-[0.16em] text-white/50 sm:text-[11px] ${className}`}>{children}</span>;
+  return <span className={`font-mono text-[10px] uppercase tracking-[0.16em] text-ink/50 sm:text-[11px] ${className}`}>{children}</span>;
 }
 
 export function Blob({ className }: { className: string }) {
@@ -75,7 +75,7 @@ export function EmberButton({ to, children, className = '' }: BtnProps) {
   return (
     <Smart
       to={to}
-      className={`ember-gradient inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-sm font-normal text-black transition-[filter,transform] hover:brightness-110 active:scale-[0.98] ${className}`}
+      className={`ember-gradient inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-sm font-normal text-paper transition-[filter,transform] hover:brightness-110 active:scale-[0.98] ${className}`}
     >
       {children}
     </Smart>
@@ -86,7 +86,7 @@ export function EmberButton({ to, children, className = '' }: BtnProps) {
 export function OutlineButton({ to, children, className = '' }: BtnProps) {
   return (
     <Smart to={to} className={`ember-gradient group relative inline-flex rounded-full p-[1.5px] ${className}`}>
-      <span className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-black px-8 py-2.5 text-sm text-white transition-colors group-hover:bg-neutral-900 sm:px-10 sm:py-3">
+      <span className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-paper px-8 py-2.5 text-sm text-ink transition-colors group-hover:bg-card sm:px-10 sm:py-3">
         {children}
       </span>
     </Smart>
@@ -97,7 +97,7 @@ export function GhostButton({ to, children, className = '' }: BtnProps) {
   return (
     <Smart
       to={to}
-      className={`inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-sm text-white/90 transition-colors hover:text-white ${className}`}
+      className={`inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-sm text-ink/90 transition-colors hover:text-ink ${className}`}
     >
       {children}
     </Smart>
@@ -106,7 +106,7 @@ export function GhostButton({ to, children, className = '' }: BtnProps) {
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <p className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-white/50">
+    <p className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-ink/50">
       <span className="h-1.5 w-1.5 rounded-full ember-gradient" />
       {children}
     </p>
@@ -114,5 +114,5 @@ export function Eyebrow({ children }: { children: ReactNode }) {
 }
 
 export function SectionHeading({ children, className = '' }: { children: ReactNode; className?: string }) {
-  return <h2 className={`tight text-3xl font-light leading-[1.05] text-white sm:text-4xl md:text-5xl ${className}`}>{children}</h2>;
+  return <h2 className={`tight text-3xl font-light leading-[1.05] text-ink sm:text-4xl md:text-5xl ${className}`}>{children}</h2>;
 }

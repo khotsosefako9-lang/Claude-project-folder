@@ -11,7 +11,7 @@ const css = readFileSync(join(dir, cssPath), 'utf8').replace(/<\/style/gi, '<\\/
 
 const out = `<title>Duly Qualified</title>
 <meta name="description" content="20 qualified prospects every month, plus the government tenders you can win, with your compliance papers in order.">
-<style>:root{color-scheme:dark}html,body{background:#000}${css}</style>
+<style>:root{color-scheme:light}html,body{background:#ECEBE6}${css}</style>
 <div id="root"></div>
 <script type="module">${js}</script>
 `;

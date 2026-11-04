@@ -95,7 +95,7 @@ function PointCloud({ progress }: { progress: React.MutableRefObject<number> }) 
       ctx.clearRect(0, 0, w, h);
 
       // faint map grid
-      ctx.strokeStyle = 'rgba(255,255,255,0.04)';
+      ctx.strokeStyle = 'rgba(37,38,31,0.06)';
       ctx.lineWidth = 1;
       for (let gx = 0; gx <= w; gx += 48) {
         ctx.beginPath();
@@ -129,27 +129,27 @@ function PointCloud({ progress }: { progress: React.MutableRefObject<number> }) 
 
         if (hot > 0) {
           const glow = ctx.createRadialGradient(x, y, 0, x, y, size * 6);
-          glow.addColorStop(0, `rgba(255,122,51,${0.55 * hot})`);
-          glow.addColorStop(1, 'rgba(255,90,31,0)');
+          glow.addColorStop(0, `rgba(138,154,114,${0.45 * hot})`);
+          glow.addColorStop(1, 'rgba(138,154,114,0)');
           ctx.fillStyle = glow;
           ctx.beginPath();
           ctx.arc(x, y, size * 6, 0, Math.PI * 2);
           ctx.fill();
         }
-        ctx.fillStyle = hot > 0 ? `rgba(255,${Math.round(255 - 120 * hot)},${Math.round(255 - 190 * hot)},${a})` : `rgba(255,255,255,${a})`;
+        ctx.fillStyle = hot > 0 ? `rgba(${Math.round(37 + 41 * hot)},${Math.round(38 + 55 * hot)},${Math.round(31 + 28 * hot)},${a})` : `rgba(37,38,31,${a * 0.75})`;
         ctx.beginPath();
         ctx.arc(x, y, size, 0, Math.PI * 2);
         ctx.fill();
 
         if (checked && ringOn > 0) {
-          ctx.strokeStyle = `rgba(255,255,255,${0.5 * ringOn})`;
+          ctx.strokeStyle = `rgba(78,93,59,${0.6 * ringOn})`;
           ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.arc(x, y, 7 + Math.sin(t * 3 + pt.tw) * 1.5, 0, Math.PI * 2);
           ctx.stroke();
         }
         if (ready && g > 0.6) {
-          ctx.fillStyle = `rgba(255,255,255,${(g - 0.6) * 2})`;
+          ctx.fillStyle = `rgba(37,38,31,${(g - 0.6) * 2})`;
           ctx.font = '10px "Space Mono", monospace';
           ctx.fillText(String(pt.rank + 1).padStart(2, '0'), x + 10, y + 4);
         }
@@ -169,11 +169,11 @@ function PointCloud({ progress }: { progress: React.MutableRefObject<number> }) 
 function Heading() {
   return (
     <>
-      <p className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-white/50">
+      <p className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-ink/50">
         <span className="ember-gradient h-1.5 w-1.5 rounded-full" />
         How it works
       </p>
-      <h2 className="tight text-3xl font-light leading-[1.05] text-white [text-wrap:balance] sm:text-4xl md:text-5xl">
+      <h2 className="tight text-3xl font-light leading-[1.05] text-ink [text-wrap:balance] sm:text-4xl md:text-5xl">
         From every business in your city to the <span className="ember-text">twenty</span> worth calling.
       </h2>
     </>
@@ -195,7 +195,7 @@ export default function HowItWorks() {
   const step = steps[current.step];
 
   return (
-    <section id="how" ref={ref} className="relative w-full bg-black" style={{ height: '480vh' }}>
+    <section id="how" ref={ref} className="relative w-full bg-paper" style={{ height: '480vh' }}>
       <div className="px-4 pt-20 sm:px-6 lg:hidden">
         <Heading />
       </div>
@@ -215,48 +215,48 @@ export default function HowItWorks() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -12 }}
                   transition={{ duration: 0.25 }}
-                  className={`font-dot text-6xl font-black leading-none sm:text-8xl ${phase >= 3 ? 'text-[#FF8A4C]' : 'text-white'}`}
+                  className={`font-dot text-6xl font-black leading-none sm:text-8xl ${phase >= 3 ? 'text-moss' : 'text-ink'}`}
                   style={{ fontVariantNumeric: 'tabular-nums' }}
                 >
                   {current.count}
                 </motion.span>
               </AnimatePresence>
-              <p className="max-w-[200px] pb-1 text-xs font-light leading-snug text-white/55 sm:text-sm">{current.label}</p>
+              <p className="max-w-[200px] pb-1 text-xs font-light leading-snug text-ink/55 sm:text-sm">{current.label}</p>
             </div>
 
             {/* step copy */}
             <div className="relative mt-3 min-h-[150px] sm:mt-6 lg:mt-8">
               <AnimatePresence mode="wait">
                 <motion.div key={step.n} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 10 }} transition={{ duration: 0.3 }}>
-                  <Mono className="text-[#FF8A4C]">Step {step.n} / 04</Mono>
-                  <h3 className="mt-2 text-xl font-light text-white sm:text-2xl">{step.title}</h3>
-                  <p className="mt-2 line-clamp-4 max-w-md text-[13px] font-light leading-relaxed text-white/60 sm:line-clamp-none sm:text-[15px]">{step.body}</p>
+                  <Mono className="text-moss">Step {step.n} / 04</Mono>
+                  <h3 className="mt-2 text-xl font-light text-ink sm:text-2xl">{step.title}</h3>
+                  <p className="mt-2 line-clamp-4 max-w-md text-[13px] font-light leading-relaxed text-ink/60 sm:line-clamp-none sm:text-[15px]">{step.body}</p>
                 </motion.div>
               </AnimatePresence>
             </div>
 
             <div className="mt-4 hidden gap-2 sm:flex" aria-hidden="true">
               {steps.map((s, i) => (
-                <span key={s.n} className={`h-1 flex-1 rounded-full transition-colors duration-500 ${i <= current.step ? 'bg-gradient-to-r from-fire to-blush' : 'bg-white/10'}`} />
+                <span key={s.n} className={`h-1 flex-1 rounded-full transition-colors duration-500 ${i <= current.step ? 'bg-gradient-to-r from-moss to-sage' : 'bg-ink/10'}`} />
               ))}
             </div>
           </div>
 
-          <div className="relative order-1 min-h-[34svh] overflow-hidden rounded-2xl bg-[#060505] lg:order-2">
+          <div className="relative order-1 min-h-[34svh] overflow-hidden rounded-2xl bg-card lg:order-2">
             <HudFrame inset="inset-2" />
             <div className="absolute left-4 top-4 z-10 flex gap-3">
               <Mono>Nelson Mandela Bay</Mono>
-              <Mono className="hidden text-white/30 sm:inline">Market map</Mono>
+              <Mono className="hidden text-ink/30 sm:inline">Market map</Mono>
             </div>
             <div className="absolute bottom-4 right-4 z-10">
-              <Mono className="text-white/30">Sample report · Oct 2026</Mono>
+              <Mono className="text-ink/30">Sample report · Oct 2026</Mono>
             </div>
             <div className="absolute inset-4 sm:inset-8">
               <PointCloud progress={progress} />
             </div>
           </div>
         </div>
-        <p className="mx-auto mt-3 hidden w-full max-w-[1400px] text-[11px] font-light text-white/35 sm:block">
+        <p className="mx-auto mt-3 hidden w-full max-w-[1400px] text-[11px] font-light text-ink/35 sm:block">
           Our first pilot, for a Gqeberha design studio in October 2026: 368 businesses found, 201 tested, 27 checked by hand, 12 ready to contact.
         </p>
       </div>

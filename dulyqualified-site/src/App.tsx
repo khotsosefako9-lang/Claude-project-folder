@@ -37,8 +37,8 @@ function ScrollManager() {
 
 export default function App() {
   return (
-    <div className="flex min-h-screen w-full flex-col overflow-x-clip bg-black text-white">
-      <a href="#main" className="sr-only z-[60] rounded-full bg-white px-4 py-2 text-black focus:not-sr-only focus:fixed focus:left-4 focus:top-4">
+    <div className="flex min-h-screen w-full flex-col overflow-x-clip bg-paper text-ink">
+      <a href="#main" className="sr-only z-[60] rounded-full bg-ink px-4 py-2 text-paper focus:not-sr-only focus:fixed focus:left-4 focus:top-4">
         Skip to content
       </a>
       <ScrollManager />

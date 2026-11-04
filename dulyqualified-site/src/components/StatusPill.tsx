@@ -1,10 +1,10 @@
 import type { DocStatus } from '../data/site';
 
 const styles: Record<DocStatus, string> = {
-  'In place': 'bg-emerald-400/10 text-emerald-300 ring-emerald-400/20',
-  'Renew in 12 days': 'bg-ember/10 text-ember ring-ember/30',
-  Missing: 'bg-rose-500/10 text-rose-300 ring-rose-400/20',
-  Check: 'bg-sky-400/10 text-sky-300 ring-sky-400/20',
+  'In place': 'bg-ok/10 text-ok ring-ok/25',
+  'Renew in 12 days': 'bg-moss/10 text-moss ring-moss/30',
+  Missing: 'bg-bad/10 text-bad ring-bad/20',
+  Check: 'bg-info/10 text-info ring-info/20',
 };
 
 export default function StatusPill({ status }: { status: DocStatus }) {

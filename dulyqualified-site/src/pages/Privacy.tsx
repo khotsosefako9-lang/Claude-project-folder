@@ -3,33 +3,33 @@ import { contact } from '../data/site';
 import { Blob } from '../components/ui';
 
 const Mail = () => (
-  <a href={`mailto:${contact.email}`} className="text-ember underline-offset-4 hover:underline">
+  <a href={`mailto:${contact.email}`} className="text-moss underline-offset-4 hover:underline">
     {contact.email}
   </a>
 );
 
 export default function Privacy() {
   return (
-    <section className="relative w-full overflow-hidden bg-black px-4 pb-24 pt-36 sm:px-6 sm:pt-44 md:px-10">
-      <Blob className="-left-40 top-20 h-[420px] w-[420px] bg-navy opacity-30" />
+    <section className="relative w-full overflow-hidden bg-paper px-4 pb-24 pt-36 sm:px-6 sm:pt-44 md:px-10">
+      <Blob className="-left-40 top-20 h-[420px] w-[420px] bg-sage opacity-30" />
       <article className="relative mx-auto max-w-2xl">
-        <Link to="/" className="text-sm text-white/50 hover:text-white">← Back to the site</Link>
-        <h1 className="tight mt-8 text-5xl font-light text-white sm:text-6xl">Privacy</h1>
-        <p className="mt-3 text-sm text-white/45">Last updated 24 October 2026</p>
+        <Link to="/" className="text-sm text-ink/50 hover:text-ink">← Back to the site</Link>
+        <h1 className="tight mt-8 text-5xl font-light text-ink sm:text-6xl">Privacy</h1>
+        <p className="mt-3 text-sm text-ink/45">Last updated 24 October 2026</p>
 
-        <div className="mt-10 rounded-2xl bg-neutral-950 p-6 ring-1 ring-ember/30 sm:p-8">
-          <h2 className="text-lg text-white">Don’t want to hear from us or our clients?</h2>
-          <p className="mt-3 text-[15px] font-light leading-relaxed text-white/70">
+        <div className="mt-10 rounded-2xl bg-card p-6 ring-1 ring-moss/30 sm:p-8">
+          <h2 className="text-lg text-ink">Don’t want to hear from us or our clients?</h2>
+          <p className="mt-3 text-[15px] font-light leading-relaxed text-ink/70">
             Email <Mail /> with “remove me” and the business name. We’ll remove your details and add you to our do-not-contact list, so no client of ours contacts you through us again.
           </p>
         </div>
 
-        <div className="mt-12 space-y-10 text-[15px] font-light leading-relaxed text-white/70 [&_h2]:mb-3 [&_h2]:text-xl [&_h2]:font-light [&_h2]:text-white">
+        <div className="mt-12 space-y-10 text-[15px] font-light leading-relaxed text-ink/70 [&_h2]:mb-3 [&_h2]:text-xl [&_h2]:font-light [&_h2]:text-ink">
           <div>
             <h2>Who we are</h2>
             <p>
               Duly Qualified is based in Gqeberha, South Africa. We help businesses find new customers and government tenders. You can reach us at <Mail />, or call or WhatsApp{' '}
-              <a href={contact.phoneHref} className="text-white hover:text-ember">{contact.phoneDisplay}</a>.
+              <a href={contact.phoneHref} className="text-ink hover:text-moss">{contact.phoneDisplay}</a>.
             </p>
           </div>
           <div>
@@ -48,7 +48,7 @@ export default function Privacy() {
           </div>
           <div>
             <h2>How first contact works</h2>
-            <ul className="list-disc space-y-2 pl-5 marker:text-ember">
+            <ul className="list-disc space-y-2 pl-5 marker:text-moss">
               <li>Every first message asks permission before it pitches, says who it’s from and makes it easy to say no.</li>
               <li>Anyone who says no, or doesn’t want to be contacted, goes on a do-not-contact list and is never contacted again through us.</li>
               <li>Messages are sent by our clients, from their own email or phone, after they approve them.</li>
@@ -67,7 +67,7 @@ export default function Privacy() {
             </p>
             <p className="mt-4">
               If you’re not happy with how we’ve handled your information, you can complain to the Information Regulator at{' '}
-              <a href="https://inforegulator.org.za" target="_blank" rel="noopener noreferrer" className="text-white hover:text-ember">inforegulator.org.za</a>.
+              <a href="https://inforegulator.org.za" target="_blank" rel="noopener noreferrer" className="text-ink hover:text-moss">inforegulator.org.za</a>.
             </p>
           </div>
         </div>

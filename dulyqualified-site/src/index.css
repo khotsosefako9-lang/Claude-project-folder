@@ -13,18 +13,18 @@ html, body, #root { min-height: 100%; }
 html { scroll-behavior: smooth; }
 body {
   font-family: 'Readex Pro', system-ui, -apple-system, sans-serif;
-  background-color: #000;
-  color: #fff;
+  background-color: #ECEBE6;
+  color: #25261F;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-::selection { background: #FA8453; color: #000; }
+::selection { background: #4E5D3B; color: #F4F3EE; }
 
 .hero-title { letter-spacing: -0.04em; line-height: 0.95; }
 .tight { letter-spacing: -0.04em; }
-.ember-gradient { background: linear-gradient(90deg, #FA8453 0%, #F8C9B2 100%); }
+.ember-gradient { background: #4E5D3B; color: #F4F3EE; }
 .ember-text {
-  background: linear-gradient(90deg, #FA8453 0%, #F8C9B2 100%);
+  background: linear-gradient(90deg, #4E5D3B 0%, #7D6A4F 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -32,24 +32,20 @@ body {
 section[id] { scroll-margin-top: 96px; }
 
 /* HUD frame corners (Nothing-style technical framing) */
-.hud-corner { position: absolute; width: 7px; height: 7px; background: rgba(255,255,255,0.55); }
-.dashed-x { background-image: linear-gradient(to right, rgba(255,255,255,0.18) 50%, transparent 0); background-size: 8px 1px; background-repeat: repeat-x; height: 1px; }
-.dashed-y { background-image: linear-gradient(to bottom, rgba(255,255,255,0.18) 50%, transparent 0); background-size: 1px 8px; background-repeat: repeat-y; width: 1px; }
+.hud-corner { position: absolute; width: 7px; height: 7px; background: rgba(37,38,31,0.45); }
+.dashed-x { background-image: linear-gradient(to right, rgba(37,38,31,0.18) 50%, transparent 0); background-size: 8px 1px; background-repeat: repeat-x; height: 1px; }
+.dashed-y { background-image: linear-gradient(to bottom, rgba(37,38,31,0.18) 50%, transparent 0); background-size: 1px 8px; background-repeat: repeat-y; width: 1px; }
 
 /* Ember horizon */
 .horizon {
   position: absolute; left: 50%; width: 190vw; aspect-ratio: 1; border-radius: 9999px; transform: translateX(-50%);
-  background: radial-gradient(closest-side, #000 96%, rgba(255,90,31,0.25) 99%, transparent 100%);
+  background: radial-gradient(closest-side, #E3E1D8 92%, #D9D5C7 100%);
   box-shadow:
-    0 -1px 0 1px #ffe2cc,
-    0 -6px 24px 4px #ff7a33,
-    0 -30px 90px 20px rgba(255, 90, 31, 0.65),
-    0 -90px 220px 60px rgba(255, 70, 20, 0.28),
-    inset 0 18px 60px rgba(255, 106, 43, 0.55);
-  animation: flicker 5s ease-in-out infinite;
+    0 -1px 0 1px rgba(78, 93, 59, 0.35),
+    0 -24px 70px 10px rgba(205, 191, 165, 0.55),
+    0 -80px 180px 40px rgba(138, 154, 114, 0.18);
 }
 @media (min-width: 1024px) { .horizon { width: 150vw; } }
-@keyframes flicker { 0%,100% { filter: brightness(1); } 40% { filter: brightness(1.12); } 55% { filter: brightness(0.94); } 70% { filter: brightness(1.06); } }
 
 /* Curved carousel */
 .ring-stage { perspective: 1600px; }

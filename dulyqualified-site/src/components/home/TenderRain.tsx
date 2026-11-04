@@ -48,7 +48,7 @@ function RefRain() {
           if (yy < -size || yy > h + size) continue;
           const head = j === 0;
           const fade = 1 - j / c.text.length;
-          ctx.fillStyle = head ? (c.hot ? 'rgba(255,170,120,0.95)' : 'rgba(255,255,255,0.55)') : c.hot ? `rgba(255,106,43,${0.6 * fade})` : `rgba(255,255,255,${0.2 * fade})`;
+          ctx.fillStyle = head ? (c.hot ? 'rgba(78,93,59,0.9)' : 'rgba(37,38,31,0.45)') : c.hot ? `rgba(78,93,59,${0.45 * fade})` : `rgba(37,38,31,${0.14 * fade})`;
           ctx.fillText(c.text[c.text.length - 1 - j], x, yy);
         }
         c.y += c.speed;
@@ -71,21 +71,21 @@ function RefRain() {
 
 export default function TenderRain() {
   return (
-    <section id="tenders" className="relative w-full overflow-hidden bg-black px-4 py-24 sm:px-6 sm:py-32 md:px-10">
+    <section id="tenders" className="relative w-full overflow-hidden bg-paper px-4 py-24 sm:px-6 sm:py-32 md:px-10">
       <RefRain />
       {/* legibility mask + ember ground glow */}
-      <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.88)_22%,rgba(0,0,0,0.4)_60%,rgba(0,0,0,0.05)_100%)]" />
-      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-1/2 bg-[radial-gradient(ellipse_at_50%_120%,rgba(255,90,31,0.45),transparent_60%)]" />
-      <div aria-hidden="true" className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black to-transparent" />
+      <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(236,235,230,0.94)_25%,rgba(236,235,230,0.55)_62%,rgba(236,235,230,0.1)_100%)]" />
+      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-1/2 bg-[radial-gradient(ellipse_at_50%_120%,rgba(138,154,114,0.35),transparent_60%)]" />
+      <div aria-hidden="true" className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-paper to-transparent" />
       <HudFrame inset="inset-3 sm:inset-6" />
 
       <div className="relative mx-auto max-w-5xl">
         <Reveal className="text-center">
           <Eyebrow>Tenders</Eyebrow>
-          <h2 className="tight text-3xl font-light leading-[1.05] text-white [text-wrap:balance] sm:text-5xl">
+          <h2 className="tight text-3xl font-light leading-[1.05] text-ink [text-wrap:balance] sm:text-5xl">
             Thirteen security tenders since September. <span className="ember-text">Three still open.</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-[15px] font-light leading-relaxed text-white/65">
+          <p className="mx-auto mt-5 max-w-xl text-[15px] font-light leading-relaxed text-ink/65">
             We read every public tender in your province, keep the ones that fit your service and size, and grade them, so you only open the ones worth your time.
           </p>
         </Reveal>
@@ -93,23 +93,23 @@ export default function TenderRain() {
         <div className="mt-12 grid gap-3 md:grid-cols-3">
           {openTenders.map((t, i) => (
             <Reveal key={t.ref} delay={i * 0.08}>
-              <article className="relative h-full rounded-2xl border border-white/10 bg-black/60 p-5 backdrop-blur-md">
+              <article className="relative h-full rounded-2xl border border-ink/10 bg-card/80 p-5 backdrop-blur-md">
                 <div className="flex items-start justify-between">
                   <div>
-                    <p className="font-dot text-4xl font-black leading-none text-white">{t.date.split(' ')[0]}</p>
+                    <p className="font-dot text-4xl font-black leading-none text-ink">{t.date.split(' ')[0]}</p>
                     <Mono className="mt-1 block">{t.date.split(' ')[1]} · {t.time}</Mono>
                   </div>
-                  <span className="rotate-[5deg] rounded-full border border-[#FF8A4C]/50 px-3 py-1 text-[11px] text-[#FF8A4C]">Matched</span>
+                  <span className="rotate-[5deg] rounded-full border border-moss/50 px-3 py-1 text-[11px] text-moss">Matched</span>
                 </div>
-                <p className="mt-6 text-[15px] font-light text-white">{t.title}</p>
-                <p className="mt-3 break-all font-mono text-[10px] text-white/40">{t.ref}</p>
+                <p className="mt-6 text-[15px] font-light text-ink">{t.title}</p>
+                <p className="mt-3 break-all font-mono text-[10px] text-ink/40">{t.ref}</p>
               </article>
             </Reveal>
           ))}
         </div>
 
         <Reveal className="mt-6 flex flex-col items-center gap-6 text-center">
-          <p className="max-w-2xl text-[13px] font-light leading-relaxed text-white/55">
+          <p className="max-w-2xl text-[13px] font-light leading-relaxed text-ink/55">
             From the October sample report for Nelson Mandela Bay and the Sarah Baartman district. Short contracts like these come round again and again. With your papers in order, you can quote on every round instead of watching them close.
           </p>
           <OutlineButton to="/sample#tenders-list">
