@@ -26,10 +26,8 @@ export default function BookCall() {
       .filter(Boolean)
       .join('\n');
 
-  const onSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    window.open(whatsappLink(message()), '_blank', 'noopener,noreferrer');
-  };
+  const ready = form.name.trim() !== '' && form.firm.trim() !== '' && form.city.trim() !== '';
+  const onSubmit = (e: FormEvent) => e.preventDefault();
   const mailto = () => `mailto:${contact.email}?subject=${encodeURIComponent(`Book a call: ${form.firm || 'my firm'}`)}&body=${encodeURIComponent(message())}`;
 
   return (
@@ -71,7 +69,7 @@ export default function BookCall() {
           <Reveal delay={0.1}>
             <form onSubmit={onSubmit} className="rounded-2xl bg-black/40 p-5 ring-1 ring-white/10 backdrop-blur sm:p-8">
               <p className="text-lg font-light text-white">Tell us about your firm</p>
-              <p className="mt-1 text-xs text-white/45">This opens WhatsApp with your details filled in. Nothing is stored on this site.</p>
+              <p className="mt-1 text-xs text-white/45">Fill in your name, firm and city, then send. It opens WhatsApp with your details filled in. Nothing is stored on this site.</p>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 <label className="block">
                   <span className="mb-1.5 block text-xs text-white/60">Your name</span>
@@ -107,9 +105,15 @@ export default function BookCall() {
                 </label>
               </div>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                <button type="submit" className="ember-gradient inline-flex flex-1 items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm text-black transition hover:brightness-110">
+                <a
+                  href={ready ? whatsappLink(message()) : undefined}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-disabled={!ready}
+                  className={`ember-gradient inline-flex flex-1 items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm text-black transition ${ready ? 'hover:brightness-110' : 'pointer-events-none opacity-50'}`}
+                >
                   <Send className="h-4 w-4" /> send on WhatsApp
-                </button>
+                </a>
                 <a href={mailto()} className="inline-flex items-center justify-center rounded-full px-6 py-3.5 text-sm text-white/80 ring-1 ring-white/15 transition hover:text-white hover:ring-white/40">
                   or send by email
                 </a>

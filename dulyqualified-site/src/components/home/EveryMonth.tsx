@@ -1,6 +1,6 @@
 import { Check } from 'lucide-react';
 import { deliverables, videos } from '../../data/site';
-import { Blob, Eyebrow, Reveal, SectionHeading } from '../ui';
+import { BgVideo, Blob, Eyebrow, Reveal, SectionHeading } from '../ui';
 
 const blobs = [
   'top-1/2 -translate-y-1/2 -left-[380px] h-[460px] w-[460px] bg-navy opacity-40',
@@ -29,7 +29,7 @@ export default function EveryMonth() {
               <article className="relative flex h-full min-h-[440px] flex-col overflow-hidden rounded-2xl bg-neutral-950 ring-1 ring-white/5">
                 {i === 1 ? (
                   <div className="relative h-44 w-full shrink-0 overflow-hidden">
-                    <video className="block h-full w-full object-cover" src={videos.card} autoPlay loop muted playsInline preload="metadata" aria-hidden="true" />
+                    <BgVideo src={videos.card} />
                     <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-neutral-950" />
                   </div>
                 ) : (

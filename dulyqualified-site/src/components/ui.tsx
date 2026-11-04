@@ -11,7 +11,21 @@ export function LogoMark({ className = 'h-5 w-5' }: { className?: string }) {
   );
 }
 
+export const ARTIFACT = import.meta.env.VITE_ARTIFACT === '1';
+
+export function AmbientOrbs({ ring = false, className = '' }: { ring?: boolean; className?: string }) {
+  return (
+    <div className={`orb-field ${className}`} aria-hidden="true">
+      <div className="orb orb-a" />
+      <div className="orb orb-b" />
+      <div className="orb orb-c" />
+      {ring && <div className="orb-ring" />}
+    </div>
+  );
+}
+
 export function BgVideo({ src, className = '' }: { src: string; className?: string }) {
+  if (ARTIFACT) return <AmbientOrbs ring={src.includes('072418')} className={className} />;
   return (
     <video
       className={`absolute inset-0 h-full w-full object-cover ${className}`}
