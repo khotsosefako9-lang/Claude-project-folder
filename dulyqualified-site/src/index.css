@@ -1,0 +1,34 @@
+@import '@fontsource/readex-pro/300.css';
+@import '@fontsource/readex-pro/400.css';
+@import '@fontsource/readex-pro/500.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { min-height: 100%; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Readex Pro', system-ui, -apple-system, sans-serif;
+  background-color: #000;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+::selection { background: #FA8453; color: #000; }
+
+.hero-title { letter-spacing: -0.04em; line-height: 0.95; }
+.tight { letter-spacing: -0.04em; }
+.ember-gradient { background: linear-gradient(90deg, #FA8453 0%, #F8C9B2 100%); }
+.ember-text {
+  background: linear-gradient(90deg, #FA8453 0%, #F8C9B2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+section[id] { scroll-margin-top: 96px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
