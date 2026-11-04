@@ -1,0 +1,71 @@
+<html>
+<template>
+  <style>
+    #root { position: absolute; inset: 0; font-family: 'Hanken Grotesk', sans-serif; color: #14213D; }
+    @font-face { font-family: 'Hanken Grotesk'; font-style: normal; font-weight: 100 900; src: url('assets/fonts/HankenGrotesk.woff2') format('woff2'); }
+    #c-plate { position: absolute; inset: 0; background: #14213D; }
+    #c-bay { position: absolute; left: 0; top: 560px; width: 1080px; height: 760px; }
+    #c-bay svg { width: 100%; height: 100%; display: block; overflow: visible; }
+    .tc { position: absolute; width: 210px; padding: 14px 16px; background: #FFFFFF; border-radius: 18px; box-shadow: 0 14px 30px rgba(20,33,61,.2); }
+    .tc b { display: inline-block; padding: 4px 10px; border-radius: 999px; background: #14213D; color: #F2F1EC; font-size: 28px; font-weight: 800; letter-spacing: .04em; }
+    .tc i { display: block; height: 10px; border-radius: 5px; background: #14213D; opacity: .2; margin-top: 12px; }
+    .tc i + i { width: 70%; }
+    .tc em { position: absolute; right: -14px; top: -16px; padding: 4px 12px; border-radius: 10px; background: #C8372D; color: #FFFFFF;
+      font-style: normal; font-weight: 800; font-size: 28px; letter-spacing: .04em; opacity: 0; }
+    #c-month { position: absolute; left: 640px; top: 470px; width: 380px; height: 100px; border-radius: 22px; background: #FFFFFF;
+      box-shadow: 0 12px 28px rgba(20,33,61,.16); overflow: hidden; opacity: 0; }
+    #c-month span { position: absolute; left: 24px; top: 10px; font-size: 28px; font-weight: 700; opacity: .6; }
+    #c-mwin { position: absolute; left: 24px; top: 40px; width: 340px; height: 56px; overflow: hidden; }
+    #c-mreel { position: absolute; left: 0; top: 0; }
+    #c-mreel div { height: 56px; font-weight: 800; font-size: 50px; line-height: 56px; }
+    #c-stream { position: absolute; inset: 0; }
+    #c-th { position: absolute; left: 640px; top: 1080px; height: 620px; transform-origin: 50% 100%; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s3" data-width="1080" data-height="1920">
+    <div id="c-bay" data-layout-allow-overflow>
+      <svg viewBox="0 0 1080 760">
+        <path id="c-coast" d="M40 120 C 220 180, 300 420, 470 520 C 640 620, 860 600, 1040 470" fill="none" stroke="#14213D" stroke-width="10" stroke-linecap="round"/>
+        <path d="M40 120 C 220 180, 300 420, 470 520 C 640 620, 860 600, 1040 470 L 1040 760 L 40 760 Z" fill="#5B6F8F" opacity=".16" id="c-sea"/>
+      </svg>
+    </div>
+    <div id="c-month"><span>Tenders this month</span><div id="c-mwin"><div id="c-mreel"><div>November</div><div>December</div><div>January</div><div>February</div></div></div></div>
+    <div id="c-cards"></div>
+    <div id="c-stream" data-layout-ignore></div>
+    <img id="c-th" src="assets/thabo/phone.png" alt="Thabo busy on his phone" />
+    <div id="c-plate"></div>
+  </div>
+  <script>
+    const T = { open: 0.84, close: 1.64, bay: 2.66, month: 3.34, miss: 5.28, busy: 6.12, end: 8.18 };
+    // tender cards sitting along the coastline of the Bay
+    const spots = [[60,700],[300,640],[180,900],[430,860],[620,980],[820,900],[520,700],[760,720],[880,1080],[300,1100]];
+    const host = document.querySelector("#c-cards");
+    const card = (id, x, y) => `<div class="tc" id="${id}" style="left:${x}px;top:${y}px"><b>TENDER</b><i></i><i></i><em>CLOSED</em></div>`;
+    host.innerHTML = spots.map(([x, y], i) => card("c-t" + i, x, y)).join("");
+    // a stream of cards for "easy to miss"
+    let st = ""; for (let i = 0; i < 14; i++) st += card("c-s" + i, 40 + (i * 137) % 860, -260 - i * 170);
+    document.querySelector("#c-stream").innerHTML = st;
+    const tl = gsap.timeline({ paused: true });
+    // the navy of the last beat lifts away like a blind
+    tl.fromTo("#c-plate", { yPercent: 0 }, { yPercent: -100, duration: 0.5, ease: "power3.inOut" }, 0);
+    tl.fromTo("#c-coast", { strokeDasharray: 1400, strokeDashoffset: 1400 }, { strokeDashoffset: 0, duration: 1.1, ease: "power2.inOut" }, 0.2);
+    tl.fromTo("#c-sea", { opacity: 0 }, { opacity: 0.16, duration: 0.6, ease: "power2.out" }, 0.8);
+    // "open": cards pop up across the Bay
+    tl.fromTo("#c-cards .tc", { scale: 0, rotation: -12, opacity: 0 }, { scale: 1, rotation: (i) => [-4,3,-2,5,-3,2,-5,4,-2,3][i], opacity: 1, duration: 0.4, stagger: 0.07, ease: "back.out(2.2)" }, T.open);
+    // "close": one after another they are stamped CLOSED and fade
+    tl.fromTo("#c-cards .tc em", { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.14, stagger: 0.12, ease: "power4.out" }, T.close);
+    tl.to("#c-cards .tc", { opacity: 0.32, duration: 0.3, stagger: 0.12, ease: "power2.out" }, T.close + 0.2);
+    // "every month": the month reel turns over
+    tl.fromTo("#c-month", { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.35, ease: "expo.out" }, T.bay);
+    tl.to("#c-mreel", { y: -168, duration: 1.4, ease: "power2.inOut" }, T.month);
+    // "easy to miss": everything rushes past while Thabo stays buried in his phone
+    tl.to(["#c-cards", "#c-bay"], { y: 260, opacity: 0, filter: "blur(10px)", duration: 0.5, ease: "power2.in" }, T.miss - 0.3);
+    tl.fromTo("#c-stream", { y: 0 }, { y: 3200, duration: 2.6, ease: "power1.in" }, T.miss - 0.2);
+    tl.fromTo("#c-stream", { filter: "blur(0px)" }, { filter: "blur(6px)", duration: 1.2, ease: "power1.in", immediateRender: false }, T.miss + 0.6);
+    tl.fromTo("#c-th", { opacity: 0, x: 200 }, { opacity: 1, x: 0, duration: 0.55, ease: "expo.out" }, T.miss - 0.1);
+    tl.to("#c-th", { keyframes: { scaleY: [1, 0.98, 1] }, duration: 0.6, ease: "sine.inOut", repeat: 2 }, T.busy - 0.4);
+    // whip out
+    tl.to(["#c-th", "#c-month", "#c-stream"], { x: -1300, filter: "blur(18px)", duration: 0.34, ease: "power3.in" }, T.end - 0.34);
+    window.__timelines["s3"] = tl;
+  </script>
+</template>
+</html>

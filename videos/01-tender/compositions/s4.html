@@ -1,0 +1,117 @@
+<html>
+<template>
+  <style>
+    #root { position: absolute; inset: 0; font-family: 'Hanken Grotesk', sans-serif; color: #14213D; }
+    @font-face { font-family: 'Hanken Grotesk'; font-style: normal; font-weight: 100 900; src: url('assets/fonts/HankenGrotesk.woff2') format('woff2'); }
+    @font-face { font-family: 'Newsreader'; font-style: italic; font-weight: 200 800; src: url('assets/fonts/Newsreader-italic.woff2') format('woff2'); }
+    #d-world { position: absolute; inset: 0; }
+    #d-mark { position: absolute; left: 290px; top: 560px; width: 500px; height: 385px; }
+    #d-mark img { position: absolute; left: 0; top: 0; width: 500px; height: 385px; }
+    .th { position: absolute; transform-origin: 50% 100%; opacity: 0; }
+    #d-phone { position: absolute; left: 470px; top: 520px; width: 560px; height: 1000px; border-radius: 64px; background: #14213D; padding: 18px;
+      box-shadow: 0 40px 80px rgba(20,33,61,.3); opacity: 0; }
+    #d-screen { position: relative; width: 100%; height: 100%; border-radius: 48px; background: #F2F1EC; overflow: hidden; }
+    #d-top { height: 132px; display: flex; align-items: center; gap: 16px; padding: 0 30px; border-bottom: 2px solid rgba(20,33,61,.12); background: #FFFFFF; }
+    #d-top img { width: 70px; height: 54px; }
+    #d-top b { font-weight: 800; font-size: 32px; display: block; }
+    #d-top small { font-weight: 500; font-size: 28px; opacity: .6; }
+    .pane { position: absolute; left: 0; right: 0; top: 132px; bottom: 0; padding: 30px; opacity: 0; }
+    .orow { display: flex; align-items: center; gap: 22px; background: #FFFFFF; border-radius: 22px; padding: 22px 24px; margin-bottom: 16px; box-shadow: 0 8px 20px rgba(20,33,61,.1); }
+    .orow b { font-weight: 800; font-size: 64px; width: 90px; letter-spacing: -0.04em; }
+    .orow span { font-weight: 700; font-size: 30px; line-height: 1.15; }
+    .tcard { background: #FFFFFF; border-radius: 26px; padding: 26px; box-shadow: 0 10px 24px rgba(20,33,61,.12); }
+    .tcard .tag { display: inline-block; padding: 6px 14px; border-radius: 999px; background: #14213D; color: #F2F1EC; font-weight: 800; font-size: 28px; letter-spacing: .04em; }
+    .tcard .tag.open { background: #F2F1EC; color: #14213D; border: 2px solid #14213D; margin-left: 8px; }
+    .tcard h4 { font-weight: 800; font-size: 40px; line-height: 1.08; letter-spacing: -0.02em; margin-top: 18px; }
+    .chip { display: inline-block; margin: 14px 10px 0 0; padding: 10px 16px; border-radius: 14px; background: #14213D; color: #F2F1EC; font-weight: 700; font-size: 28px; }
+    #d-count { font-weight: 800; font-size: 170px; line-height: 1; letter-spacing: -0.05em; }
+    #d-count-l { font-weight: 700; font-size: 32px; margin-top: 6px; }
+    #d-bars { display: flex; align-items: flex-end; gap: 12px; height: 140px; margin-top: 18px; }
+    #d-bars i { flex: 1; background: #14213D; border-radius: 10px 10px 0 0; transform-origin: 50% 100%; display: block; }
+    #d-bars i:last-child { background: #C8372D; }
+    #d-shops { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 18px; }
+    #d-shops div svg { width: 100%; display: block; }
+    /* the slot-machine list of the four things in the monthly folder */
+    #d-list { position: absolute; left: 50px; top: 560px; width: 440px; height: 560px; overflow: hidden; opacity: 0; }
+    #d-lreel { position: absolute; left: 0; top: 192px; }
+    #d-lreel div { height: 140px; font-weight: 800; font-size: 70px; line-height: 140px; letter-spacing: -0.04em; opacity: .2; white-space: nowrap; }
+    #d-dot { position: absolute; left: 20px; top: 822px; width: 26px; height: 26px; border-radius: 50%; background: #C8372D; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s4" data-width="1080" data-height="1920">
+    <div id="d-world">
+      <div id="d-mark"><img id="d-navy" src="assets/dq-monogram-navy-part.png" alt="DQ" /><img id="d-tail" src="assets/dq-monogram-tail-part.png" alt="" /></div>
+      <img class="th" id="d-point" src="assets/thabo/point.png" alt="Thabo pointing" style="left:20px; top:760px; height:900px;" />
+      <div id="d-list"><div id="d-lreel"><div id="d-l0">Leads</div><div id="d-l1">Tenders</div><div id="d-l2">Compliance</div><div id="d-l3">Bids</div><div id="d-l4">Leads</div></div></div>
+      <div id="d-dot"></div>
+      <div id="d-phone" data-layout-allow-overflow>
+        <div id="d-screen">
+          <div id="d-top"><img src="assets/dq-monogram-colour-transparent.png" alt="" /><div><b>Duly Qualified</b><small>Your monthly report · sample</small></div></div>
+          <div class="pane" id="d-p0">
+            <div class="orow" id="d-o1"><b>20</b><span>Leads ready to contact</span></div>
+            <div class="orow" id="d-o2"><b>3</b><span>Tenders you can win</span></div>
+            <div class="orow" id="d-o3"><b>2</b><span>Papers to renew</span></div>
+            <div class="orow" id="d-o4"><b>1</b><span>Bid pack ready</span></div>
+          </div>
+          <div class="pane" id="d-p1">
+            <div class="tcard"><span class="tag">TENDER</span><span class="tag open">OPEN NOW</span>
+              <h4>Guarding services, regional office, 24 months</h4>
+              <span class="chip" id="d-ch1">Closes Fri 21</span><span class="chip" id="d-ch2">Briefing Tue 11</span><span class="chip" id="d-ch3">8 documents</span></div>
+          </div>
+          <div class="pane" id="d-p2">
+            <div id="d-count">0</div><div id="d-count-l">businesses ready to hear from you</div>
+            <div id="d-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div id="d-shops"></div>
+          </div>
+        </div>
+      </div>
+      <img class="th" id="d-cele" src="assets/thabo/celebrate.png" alt="Thabo celebrating" style="left:20px; top:740px; height:900px;" />
+    </div>
+  </div>
+  <script>
+    const T = { finds: 1.32, every: 3.16, tenders: 4.2, closing: 5.98, twenty: 7.34, local: 7.9, end: 11.36 };
+    const SHOP = `<svg viewBox="0 0 52 52"><path d="M4 8h44l-3 12H7z" fill="#14213D"/><path d="M7 20h38v28H7z" fill="#FFFFFF" stroke="#14213D" stroke-width="3"/><path d="M31 28h9v20h-9z" fill="#14213D"/><path d="M12 26h14v10H12z" fill="#14213D" opacity=".3"/></svg>`;
+    document.querySelector("#d-shops").innerHTML = Array.from({ length: 20 }, () => `<div>${SHOP}</div>`).join("");
+    const tl = gsap.timeline({ paused: true });
+    // "Duly Qualified": the monogram builds, navy first, then the red tail cuts in
+    tl.fromTo("#d-navy", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.5, ease: "power3.inOut" }, 0.05);
+    tl.fromTo("#d-mark", { scale: 0.7, rotation: -6 }, { scale: 1, rotation: 0, duration: 0.8, ease: "elastic.out(1, 0.55)" }, 0.05);
+    tl.fromTo("#d-tail", { clipPath: "polygon(61% 60%, 61% 60%, 61% 60%, 61% 60%)" }, { clipPath: "polygon(55% 55%, 100% 55%, 100% 100%, 55% 100%)", duration: 0.25, ease: "power4.out" }, 0.5);
+    // "finds them for you": the mark becomes the phone's report; Thabo points at it
+    tl.to("#d-mark", { scale: 0.2, x: 160, y: -60, opacity: 0, duration: 0.45, ease: "power3.in" }, T.finds - 0.25);
+    tl.fromTo("#d-phone", { opacity: 0, y: 500, rotation: 6 }, { opacity: 1, y: 0, rotation: -2, duration: 0.7, ease: "expo.out" }, T.finds - 0.05);
+    tl.fromTo("#d-p0", { opacity: 0 }, { opacity: 1, duration: 0.2 }, T.finds + 0.3);
+    tl.fromTo(".orow", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.4, stagger: 0.16, ease: "expo.out" }, T.finds + 0.35);
+    tl.to("#d-p0", { opacity: 0, y: -40, duration: 0.25, ease: "power2.in" }, T.tenders - 0.3);
+    tl.fromTo("#d-point", { opacity: 0, x: -300 }, { opacity: 1, x: 0, duration: 0.55, ease: "back.out(1.6)" }, T.finds + 0.1);
+    // "Every month:": Thabo steps aside for the folder list, which spins like a slot machine
+    tl.to("#d-point", { x: -400, opacity: 0, duration: 0.35, ease: "power3.in" }, T.every - 0.2);
+    tl.fromTo("#d-list", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.35, ease: "expo.out" }, T.every);
+    tl.to("#d-l0", { opacity: 1, duration: 0.2 }, T.every);
+    tl.to("#d-l0", { opacity: 0.2, duration: 0.2 }, T.tenders - 0.3);
+    tl.fromTo("#d-dot", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(3)" }, T.every + 0.1);
+    tl.fromTo("#d-lreel", { y: 0 }, { y: -140, duration: 0.6, ease: "power3.inOut" }, T.tenders - 0.3);
+    tl.to("#d-l1", { opacity: 1, duration: 0.2 }, T.tenders);
+    tl.fromTo("#d-p1", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.45, ease: "expo.out" }, T.tenders);
+    // "with closing dates": the dates pop onto the tender
+    tl.fromTo(["#d-ch1", "#d-ch2", "#d-ch3"], { scale: 0 }, { scale: 1, duration: 0.35, stagger: 0.14, ease: "back.out(2.6)" }, T.closing - 0.1);
+    // "and twenty": the list rolls on to Leads, the count races to 20 and Thabo leaps
+    tl.to("#d-l1", { opacity: 0.2, duration: 0.2 }, T.twenty - 0.4);
+    tl.to("#d-lreel", { y: -560, duration: 0.6, ease: "power3.inOut" }, T.twenty - 0.5);
+    tl.to("#d-l4", { opacity: 1, duration: 0.2 }, T.twenty);
+    tl.to("#d-p1", { opacity: 0, y: -40, duration: 0.25, ease: "power2.in" }, T.twenty - 0.25);
+    tl.fromTo("#d-p2", { opacity: 0 }, { opacity: 1, duration: 0.25, ease: "power2.out" }, T.twenty);
+    const c = { v: 0 };
+    tl.fromTo(c, { v: 0 }, { v: 20, duration: 0.9, ease: "power2.out", onUpdate: () => { document.querySelector("#d-count").textContent = Math.round(c.v); } }, T.twenty);
+    tl.fromTo("#d-bars i", { scaleY: 0 }, { scaleY: (i) => [0.25, 0.4, 0.38, 0.6, 0.78, 1][i], duration: 0.6, stagger: 0.07, ease: "back.out(1.8)" }, T.twenty + 0.1);
+    tl.to(["#d-list", "#d-dot"], { opacity: 0, x: -200, duration: 0.3, ease: "power3.in" }, T.twenty + 0.2);
+    tl.fromTo("#d-cele", { opacity: 0, y: 260, scaleY: 0.85, scaleX: 1.1 }, { opacity: 1, y: 0, scaleY: 1, scaleX: 1, duration: 0.6, ease: "back.out(2.2)" }, T.twenty + 0.25);
+    tl.to("#d-cele", { keyframes: { y: [0, -60, 0, -30, 0] }, duration: 1.2, ease: "power1.inOut" }, T.twenty + 0.9);
+    // "local businesses likely to need guarding": twenty shopfronts fill the report
+    tl.fromTo("#d-shops div", { scale: 0 }, { scale: 1, duration: 0.25, stagger: 0.05, ease: "back.out(2)" }, T.local);
+    // zoom through the phone screen into the end card
+    tl.to("#d-phone", { scale: 3.2, y: -200, duration: 0.5, ease: "power3.in" }, T.end - 0.5);
+    tl.to("#d-cele", { x: -500, opacity: 0, duration: 0.35, ease: "power3.in" }, T.end - 0.5);
+    window.__timelines["s4"] = tl;
+  </script>
+</template>
+</html>

@@ -1,0 +1,73 @@
+<html>
+<template>
+  <style>
+    #root { position: absolute; inset: 0; font-family: 'Hanken Grotesk', sans-serif; color: #14213D; }
+    @font-face { font-family: 'Hanken Grotesk'; font-style: normal; font-weight: 100 900; src: url('assets/fonts/HankenGrotesk.woff2') format('woff2'); }
+    #a-world { position: absolute; inset: 0; }
+    #a-disc { position: absolute; left: 190px; top: 560px; width: 700px; height: 700px; border-radius: 50%; background: #E7E3D8; }
+    #a-th { position: absolute; left: 375px; top: 600px; width: 330px; height: 1040px; }
+    #a-th img { position: absolute; left: 0; bottom: 0; height: 1040px; transform-origin: 50% 100%; }
+    .badge { position: absolute; width: 96px; height: 110px; }
+    .badge svg { width: 100%; height: 100%; display: block; }
+    .card { position: absolute; padding: 18px 26px; background: #FFFFFF; border: 2px solid rgba(20,33,61,.12);
+      box-shadow: 0 16px 34px rgba(20,33,61,.18); font-weight: 700; font-size: 34px; white-space: nowrap; }
+    .card small { display: block; font-weight: 500; font-size: 28px; opacity: .65; margin-top: 2px; }
+    #a-week { position: absolute; left: 90px; top: 1290px; width: 900px; display: flex; justify-content: space-between; }
+    .day { width: 112px; height: 72px; border-radius: 14px; border: 4px solid #14213D; font-weight: 800; font-size: 32px;
+      display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .day i { position: absolute; inset: 0; background: #14213D; transform-origin: 0 50%; }
+    .day b { position: relative; z-index: 1; }
+  </style>
+  <div id="root" data-composition-id="s1" data-width="1080" data-height="1920">
+    <div id="a-world">
+      <div id="a-disc"></div>
+      <div id="a-badges"></div>
+      <div id="a-cards">
+        <div class="card" id="a-c1" style="left:60px;top:640px">Walmer clinic<small>night shift · 2 guards</small></div>
+        <div class="card" id="a-c2" style="left:640px;top:600px">Newton Park offices<small>access control</small></div>
+        <div class="card" id="a-c3" style="left:40px;top:900px">North End depot<small>24/7 patrol</small></div>
+        <div class="card" id="a-c4" style="left:700px;top:880px">Humewood flats<small>gatehouse</small></div>
+        <div class="card" id="a-c5" style="left:90px;top:1140px">Korsten school<small>day shift</small></div>
+        <div class="card" id="a-c6" style="left:660px;top:1130px">Summerstrand hotel<small>events</small></div>
+      </div>
+      <div id="a-th">
+        <img id="a-proud" src="assets/thabo/proud.png" alt="Thabo, proud" />
+      </div>
+      <div id="a-week">
+        <div class="day"><i></i><b>M</b></div><div class="day"><i></i><b>T</b></div><div class="day"><i></i><b>W</b></div>
+        <div class="day"><i></i><b>T</b></div><div class="day"><i></i><b>F</b></div><div class="day"><i></i><b>S</b></div><div class="day"><i></i><b>S</b></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const T = { guards: 3.2, clients: 4.32, busy: 5.4, end: 7.18 };
+    // twelve guard badges arranged in an arc around Thabo
+    const SHIELD = `<svg viewBox="0 0 96 110"><path d="M48 4 L90 18 V52 C90 80 70 98 48 106 C26 98 6 80 6 52 V18 Z" fill="#14213D"/><path d="M48 30 l7 15 16 2 -12 11 3 16 -14 -8 -14 8 3 -16 -12 -11 16 -2z" fill="#F2F1EC"/></svg>`;
+    const g = document.querySelector("#a-badges");
+    for (let i = 0; i < 12; i++) {
+      const ang = Math.PI * (1.05 + 0.9 * i / 11), r = 430;
+      const d = document.createElement("div"); d.className = "badge"; d.id = "a-b" + i;
+      d.style.left = (540 + r * Math.cos(ang) - 48) + "px"; d.style.top = (930 + r * Math.sin(ang) * 0.9 - 55) + "px";
+      d.innerHTML = SHIELD; g.appendChild(d);
+    }
+    const tl = gsap.timeline({ paused: true });
+    // frame 0: Thabo already standing on his stage; he settles with a little bounce
+    tl.fromTo("#a-disc", { scale: 0.86 }, { scale: 1, duration: 0.9, ease: "expo.out" }, 0);
+    tl.fromTo("#a-proud", { scaleY: 0.94, scaleX: 1.04 }, { scaleY: 1, scaleX: 1, duration: 0.7, ease: "elastic.out(1, 0.45)" }, 0);
+    // "Twelve guards": badges burst out from behind him, one after another
+    tl.fromTo(".badge", { x: 0, y: 0, scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, stagger: 0.045, ease: "back.out(2.2)" }, T.guards);
+    // "good clients": badges tuck away as client cards fly in from depth
+    tl.to(".badge", { scale: 0, opacity: 0, duration: 0.25, stagger: 0.02, ease: "power3.in" }, T.clients - 0.15);
+    tl.fromTo(".card", { scale: 2.2, opacity: 0, filter: "blur(14px)", rotation: (i) => [-6, 5, -4, 6, -5, 4][i] },
+      { scale: 1, opacity: 1, filter: "blur(0px)", rotation: (i) => [-3, 3, -2, 3, -2, 2][i], duration: 0.5, stagger: 0.09, ease: "expo.out" }, T.clients);
+    // "always busy": the whole week fills with shifts
+    tl.fromTo("#a-week", { y: 140, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "expo.out" }, T.busy - 0.2);
+    tl.fromTo(".day i", { scaleX: 0 }, { scaleX: 1, duration: 0.14, stagger: 0.06, ease: "power2.out" }, T.busy + 0.1);
+    tl.to(".day b", { color: "#F2F1EC", duration: 0.05, stagger: 0.06 }, T.busy + 0.12);
+    tl.to(".card", { keyframes: { y: [0, -10, 0] }, duration: 0.35, stagger: 0.04, ease: "power1.inOut" }, T.busy + 0.2);
+    // whip out to the left with a smear
+    tl.to("#a-world", { x: -1300, filter: "blur(18px)", duration: 0.34, ease: "power3.in" }, T.end - 0.34);
+    window.__timelines["s1"] = tl;
+  </script>
+</template>
+</html>

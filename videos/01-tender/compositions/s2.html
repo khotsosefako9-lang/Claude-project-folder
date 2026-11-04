@@ -1,0 +1,91 @@
+<html>
+<template>
+  <style>
+    #root { position: absolute; inset: 0; font-family: 'Hanken Grotesk', sans-serif; color: #14213D; }
+    @font-face { font-family: 'Hanken Grotesk'; font-style: normal; font-weight: 100 900; src: url('assets/fonts/HankenGrotesk.woff2') format('woff2'); }
+    @font-face { font-family: 'Newsreader'; font-style: italic; font-weight: 200 800; src: url('assets/fonts/Newsreader-italic.woff2') format('woff2'); }
+    #b-world { position: absolute; inset: 0; }
+    .th { position: absolute; transform-origin: 50% 100%; }
+    #b-phone { position: absolute; left: 430px; top: 470px; width: 580px; height: 860px; border-radius: 64px; background: #14213D; padding: 18px;
+      box-shadow: 0 40px 80px rgba(20,33,61,.35); }
+    #b-screen { position: relative; width: 100%; height: 100%; border-radius: 48px; background: #E7E3D8; overflow: hidden; }
+    #b-head { height: 120px; background: #FFFFFF; display: flex; align-items: center; gap: 18px; padding: 0 30px; font-weight: 800; font-size: 36px; }
+    #b-head i { width: 70px; height: 70px; border-radius: 50%; background: #5B6F8F; display: block; }
+    #b-head small { display: block; font-weight: 500; font-size: 28px; opacity: .6; }
+    #b-bub { position: absolute; left: 26px; top: 170px; max-width: 470px; background: #FFFFFF; border-radius: 0 30px 30px 30px; padding: 24px 28px;
+      font-weight: 700; font-size: 44px; line-height: 1.18; box-shadow: 0 2px 0 rgba(20,33,61,.12); }
+    #b-bub .ch { opacity: 0; }
+    #b-bub .bw { display: inline-block; white-space: nowrap; }
+    /* the tender card the message grows into */
+    #b-card { position: absolute; left: 70px; top: 520px; width: 940px; height: 640px; background: #FFFFFF; border-radius: 34px;
+      box-shadow: 0 40px 80px rgba(20,33,61,.25); padding: 46px 52px; opacity: 0; }
+    #b-card .tag { display: inline-block; padding: 8px 18px; border-radius: 999px; background: #14213D; color: #F2F1EC; font-weight: 800; font-size: 28px; letter-spacing: .06em; }
+    #b-card h3 { font-weight: 800; font-size: 76px; letter-spacing: -0.03em; line-height: 1.02; margin-top: 22px; }
+    #b-card .row { display: flex; gap: 16px; margin-top: 22px; }
+    #b-card .pill { padding: 10px 22px; border-radius: 999px; border: 3px solid #14213D; font-weight: 700; font-size: 32px; }
+    #b-roll { position: absolute; left: 52px; top: 430px; width: 836px; height: 150px; border-radius: 24px; background: #F2F1EC; overflow: hidden; }
+    #b-roll .lbl { position: absolute; left: 28px; top: 20px; font-weight: 700; font-size: 28px; opacity: .6; }
+    #b-reel { position: absolute; left: 0; top: 0; }
+    #b-reel div { height: 80px; font-weight: 800; font-size: 72px; line-height: 80px; letter-spacing: -0.02em; }
+    #b-win { position: absolute; left: 28px; top: 58px; height: 80px; overflow: hidden; width: 600px; }
+    #b-strike { position: absolute; left: 20px; top: 92px; width: 360px; height: 12px; background: #C8372D; transform-origin: 0 50%; }
+    #b-stamp { position: absolute; left: 470px; top: 380px; padding: 10px 30px; border: 10px solid #C8372D; color: #C8372D; border-radius: 16px;
+      font-weight: 800; font-size: 96px; letter-spacing: .04em; opacity: 0; }
+    /* the loss: navy flood with Thabo in a spotlight */
+    #b-flood { position: absolute; inset: 0; background: #14213D; opacity: 0; }
+    #b-spot { position: absolute; left: 240px; top: 860px; width: 600px; height: 600px; border-radius: 50%; background: #1E2E52; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s2" data-width="1080" data-height="1920">
+    <div id="b-world">
+      <img class="th" id="b-phoneth" src="assets/thabo/phone.png" alt="Thabo reading his phone" style="left:60px; top:700px; height:960px;" />
+      <div id="b-phone">
+        <div id="b-screen">
+          <div id="b-head"><i></i><div>Sizwe<small>Bay Security</small></div></div>
+          <div id="b-bub"></div>
+        </div>
+      </div>
+      <div id="b-card">
+        <span class="tag">TENDER · GUARDING</span>
+        <h3>Guarding services, two years</h3>
+        <div class="row"><span class="pill">Government office</span><span class="pill">Port Elizabeth</span></div>
+        <div id="b-roll"><div class="lbl">Closing date</div><div id="b-win"><div id="b-reel"><div>Monday</div><div>Tuesday</div><div>Wednesday</div><div>Thursday</div><div>Friday</div></div></div><div id="b-strike"></div></div>
+        <div id="b-stamp">CLOSED</div>
+      </div>
+      <img class="th" id="b-shock" src="assets/thabo/shock.png" alt="Thabo shocked" style="left:640px; top:1000px; height:700px; opacity:0;" />
+    </div>
+    <div id="b-flood"></div>
+    <div id="b-spot"></div>
+    <img class="th" id="b-slump" src="assets/thabo/slump.png" alt="Thabo slumped" style="left:390px; top:820px; height:820px; opacity:0;" />
+  </div>
+  <script>
+    const T = { msg: 1.0, contract: 2.42, office: 4.36, closed: 6.82, friday: 7.38, never: 9.22, end: 11.96 };
+    const bub = document.querySelector("#b-bub");
+    bub.innerHTML = "Did you see the guarding tender?".split(" ").map(w => `<span class="bw">${[...w].map(c => `<span class="ch">${c}</span>`).join("")}</span>`).join(" ");
+    const tl = gsap.timeline({ paused: true });
+    // whip in: Thabo with his phone, the phone screen sweeps up beside him
+    tl.fromTo("#b-world", { x: 1300, filter: "blur(18px)" }, { x: 0, filter: "blur(0px)", duration: 0.36, ease: "power3.out" }, 0);
+    tl.fromTo("#b-phone", { y: 300, rotation: 8 }, { y: 0, rotation: -3, duration: 0.8, ease: "expo.out" }, 0.1);
+    // the message types out as it is mentioned
+    tl.to("#b-bub .ch", { opacity: 1, duration: 0.01, stagger: 0.035, ease: "none" }, T.msg);
+    // "a two-year guarding contract": the phone grows into the tender card
+    tl.to("#b-phone", { scale: 1.6, x: -160, y: 80, opacity: 0, filter: "blur(10px)", duration: 0.45, ease: "power3.in" }, T.contract - 0.1);
+    tl.to("#b-phoneth", { x: -500, opacity: 0, duration: 0.4, ease: "power3.in" }, T.contract - 0.1);
+    tl.fromTo("#b-card", { scale: 0.5, y: 120, opacity: 0, rotation: -4 }, { scale: 1, y: 0, opacity: 1, rotation: 0, duration: 0.7, ease: "back.out(1.5)" }, T.contract + 0.2);
+    tl.fromTo("#b-card .pill", { scale: 0 }, { scale: 1, duration: 0.35, stagger: 0.15, ease: "back.out(2.5)" }, T.office - 0.2);
+    // closing-date reel: spins through the week and lands on Friday
+    tl.fromTo("#b-reel", { y: 0 }, { y: -320, duration: 1.0, ease: "power3.inOut" }, T.closed - 0.3);
+    tl.fromTo("#b-strike", { scaleX: 0 }, { scaleX: 1, duration: 0.25, ease: "power2.out" }, T.friday + 0.2);
+    tl.fromTo("#b-stamp", { opacity: 0, scale: 1.8, rotation: -10 }, { opacity: 1, scale: 1, rotation: -10, duration: 0.16, ease: "power4.out" }, T.friday + 0.45);
+    tl.fromTo("#b-card", { x: 0 }, { keyframes: { x: [0, -12, 10, -6, 0] }, duration: 0.18, ease: "none", immediateRender: false }, T.friday + 0.6);
+    // Thabo pops up in shock
+    tl.fromTo("#b-shock", { opacity: 0, y: 300, scaleY: 0.8 }, { opacity: 1, y: 0, scaleY: 1, duration: 0.5, ease: "back.out(2)" }, T.closed + 0.05);
+    // "Thabo never saw it": navy floods in from the stamp; he is left slumped in a spotlight
+    tl.fromTo("#b-flood", { opacity: 1, clipPath: "circle(0% at 70% 30%)" }, { opacity: 1, clipPath: "circle(150% at 70% 30%)", duration: 0.6, ease: "power2.inOut" }, T.never - 0.5);
+    tl.fromTo("#b-spot", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.6, ease: "expo.out" }, T.never);
+    tl.set("#b-card", { opacity: 0 }, T.never + 0.2);
+    tl.fromTo("#b-slump", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, T.never + 0.05);
+    tl.fromTo("#b-slump", { scaleY: 1 }, { scaleY: 0.97, duration: 1.4, ease: "sine.inOut", immediateRender: false }, T.never + 0.6);
+    window.__timelines["s2"] = tl;
+  </script>
+</template>
+</html>
