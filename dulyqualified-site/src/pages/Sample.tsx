@@ -94,7 +94,7 @@ export default function Sample() {
   const cycle = (i: number) => setStatus((st) => ({ ...st, [i]: statusOrder[(statusOrder.indexOf(st[i] ?? 'new') + 1) % statusOrder.length] }));
 
   return (
-    <div className="relative w-full overflow-hidden bg-black">
+    <div className="relative w-full overflow-x-clip bg-black">
       {/* Header */}
       <header className="relative px-4 pb-16 pt-36 sm:px-6 sm:pt-44 md:px-10">
         <Blob className="-left-40 top-10 h-[480px] w-[480px] bg-navy opacity-40" />

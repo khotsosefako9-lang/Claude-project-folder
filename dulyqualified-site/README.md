@@ -1,11 +1,11 @@
 # Duly Qualified website
 
-Marketing site for [Duly Qualified](https://dulyqualified.co.za), built from the MotionSites
-"Guardnet" template (`.claude/skills/motionsites/pro-prompts/guardnet-landing.md`), adapted to the
-business: black cinematic layout, oversized type, looping video backgrounds and an ember gradient accent.
+Marketing site for [Duly Qualified](https://dulyqualified.co.za), started from the MotionSites
+"Guardnet" template (`.claude/skills/motionsites/pro-prompts/guardnet-landing.md`) and redesigned
+around a black, ember-lit, HUD-framed look.
 
 **Stack:** React 18, Vite, TypeScript, Tailwind CSS 3, Framer Motion, lucide-react, React Router.
-The font (Readex Pro) is installed locally via `@fontsource`, so no Google Fonts requests.
+Fonts (Readex Pro, Doto, Space Mono) are installed locally via `@fontsource`, so no Google Fonts requests.
 
 ## Pages
 
@@ -28,13 +28,16 @@ npm run build    # outputs dist/
 All copy, prices, FAQs and contact details are in `src/data/site.ts`; the sample report is in
 `src/data/sample.ts`. Layout code doesn't need to change for copy edits.
 
-## Before going live
+## Design
 
-- **Videos:** the three background videos are hot-linked from the template's CDN (`videos` in
-  `src/data/site.ts`). Host your own copies (e.g. in `public/videos/`) and update the URLs.
-- **Privacy wording:** the original privacy page says the site loads nothing from other websites.
-  That stays false until the videos are self-hosted, so the line was dropped from `/privacy`.
-  Restore it once they are.
+Inspired by cinematic hero work (ember horizon with the product rising out of it, Nothing-style HUD
+framing, type that interacts with objects, a curved carousel). Everything is drawn in code: the ember
+horizon and sparks, the 1,060-dot market map (scroll-driven), the falling tender references and the
+floating certificates. No videos or remote media, so the page loads nothing from other websites.
+
+## Notes
+
 - **Book-a-call form** opens WhatsApp (or email) with the details pre-filled; nothing is stored.
 - **Hosting:** it's a single-page app. `public/_redirects` (Netlify) and `vercel.json` (Vercel)
   route `/sample` and `/privacy` to `index.html`.
+- **Artifact preview:** `npm run build:artifact` writes one self-contained HTML file to `dist-artifact/`.

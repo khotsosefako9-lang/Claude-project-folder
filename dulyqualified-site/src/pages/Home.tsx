@@ -5,7 +5,8 @@ import Hero from '../components/home/Hero';
 import HowItWorks from '../components/home/HowItWorks';
 import Pricing from '../components/home/Pricing';
 import SampleTeaser from '../components/home/SampleTeaser';
-import Tenders from '../components/home/Tenders';
+import Paperwork from '../components/home/Paperwork';
+import TenderRain from '../components/home/TenderRain';
 import WhoFor from '../components/home/WhoFor';
 
 export default function Home() {
@@ -14,7 +15,8 @@ export default function Home() {
       <Hero />
       <HowItWorks />
       <EveryMonth />
-      <Tenders />
+      <TenderRain />
+      <Paperwork />
       <WhoFor />
       <SampleTeaser />
       <Pricing />

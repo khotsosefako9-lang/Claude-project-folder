@@ -1,106 +1,100 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { videos } from '../../data/site';
-import { BgVideo, EmberButton, GhostButton } from '../ui';
+import { useRef } from 'react';
+import { Link } from 'react-router-dom';
+import EmberSparks from '../EmberSparks';
+import { EmberButton, GhostButton, HudFrame, Mono } from '../ui';
+import ReportMock from './ReportMock';
 
-const word = (delay: number) => ({
-  initial: { opacity: 0, y: 60, filter: 'blur(12px)' },
+const rise = (delay: number) => ({
+  initial: { opacity: 0, y: 24, filter: 'blur(10px)' },
   animate: { opacity: 1, y: 0, filter: 'blur(0px)' },
-  transition: { duration: 1.1, delay, ease: [0.22, 1, 0.36, 1] as const },
+  transition: { duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] as const },
 });
 
-function Stat({ value, caption, side, rotate, className }: { value: string; caption: string; side: 'left' | 'right'; rotate: number; className: string }) {
-  return (
-    <motion.div {...word(0.9)} className={`absolute flex items-center gap-4 ${className}`}>
-      {side === 'left' && <span className="hidden h-px w-24 bg-white/40 md:block" style={{ transform: `rotate(${rotate}deg)` }} />}
-      <div>
-        <p className="tight text-2xl font-medium sm:text-4xl md:text-5xl">{value}</p>
-        <p className="mt-1 text-[10px] font-light text-white/70 sm:text-xs md:text-sm">{caption}</p>
-      </div>
-      {side === 'right' && <span className="hidden h-px w-24 bg-white/40 md:block" style={{ transform: `rotate(${rotate}deg)` }} />}
-    </motion.div>
-  );
-}
+const sideLinks = [
+  ['Leads', '/#month'],
+  ['Tenders', '/#tenders'],
+  ['Compliance', '/#paperwork'],
+  ['Pricing', '/#pricing'],
+];
 
 export default function Hero() {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
+  const mockY = useTransform(scrollYProgress, [0, 1], [0, -90]);
+  const glow = useTransform(scrollYProgress, [0, 0.6], [1, 0.4]);
+
   return (
-    <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden bg-black" aria-labelledby="hero-title">
-      <BgVideo src={videos.hero} />
-      <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
+    <section ref={ref} className="relative w-full overflow-hidden bg-black pt-28 sm:pt-36" aria-labelledby="hero-title">
+      <HudFrame inset="inset-x-3 top-3 bottom-0 sm:inset-x-6 sm:top-6" />
 
-      <div className="relative z-10 mx-auto h-full w-full max-w-[1320px]">
-        <h1 id="hero-title" className="sr-only">
-          Duly Qualified: qualified leads, qualified to bid.
-        </h1>
-        {/* Phones and tablets: stacked layout */}
-        <div className="flex h-full flex-col justify-end px-4 pb-10 pt-28 sm:px-6 lg:hidden">
-          <div aria-hidden="true" className="hero-title text-[19vw] font-medium text-white sm:text-[16vw]">
-            <motion.p {...word(0.1)}>qualified</motion.p>
-            <motion.p {...word(0.25)} className="text-right">
-              leads<span className="ember-text">.</span>
-            </motion.p>
-            <motion.p {...word(0.4)} className="pl-[8%]">
-              to bid<span className="ember-text">.</span>
-            </motion.p>
-          </div>
-          <motion.p {...word(0.6)} className="mt-6 max-w-md text-[15px] font-light leading-relaxed text-white/90 sm:text-[17px]">
-            Every month: twenty businesses ready to hear from you, the government tenders you can win, and your compliance papers kept in order.
-          </motion.p>
-          <motion.dl {...word(0.8)} className="mt-6 grid grid-cols-3 gap-3 border-t border-white/15 pt-5">
-            {[
-              ['20', 'checked prospects a month'],
-              ['11', 'tender documents tracked'],
-              ['1 firm', 'per service, per city'],
-            ].map(([v, c]) => (
-              <div key={c}>
-                <dt className="tight text-2xl font-medium sm:text-3xl">{v}</dt>
-                <dd className="mt-1 text-[11px] font-light leading-snug text-white/70 sm:text-xs">{c}</dd>
-              </div>
-            ))}
-          </motion.dl>
-          <motion.div {...word(1)} className="mt-7 flex flex-col gap-2 sm:flex-row">
-            <EmberButton to="/#call" className="w-full sm:w-auto">
-              book a 15-minute call <ArrowRight className="h-4 w-4" />
-            </EmberButton>
-            <GhostButton to="/sample" className="w-full bg-neutral-900/80 backdrop-blur sm:w-auto">see a sample report</GhostButton>
-          </motion.div>
-        </div>
+      {/* HUD side details, desktop only */}
+      <div className="pointer-events-none absolute left-10 top-1/3 hidden flex-col gap-2 xl:flex">
+        <Mono>DQ / 01</Mono>
+        <Mono className="text-white/30">33.96° S</Mono>
+        <Mono className="text-white/30">25.60° E</Mono>
+        <Mono className="text-white/30">Gqeberha</Mono>
+      </div>
+      <nav aria-label="Sections" className="absolute right-10 top-1/3 hidden flex-col items-end gap-2 xl:flex">
+        {sideLinks.map(([label, to]) => (
+          <Link key={label} to={to} className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/45 transition-colors hover:text-white">
+            {label}
+          </Link>
+        ))}
+      </nav>
 
-        {/* Desktop: Guardnet scattered layout */}
-        <div className="hidden lg:block">
-          <motion.p {...word(0.1)} aria-hidden="true" className="hero-title absolute left-10 top-[16%] text-[15vw] font-medium text-white 2xl:text-[220px]">
-            qualified
-          </motion.p>
-          <motion.p {...word(0.25)} aria-hidden="true" className="hero-title absolute right-10 top-[37%] text-[15vw] font-medium text-white 2xl:text-[220px]">
-            leads<span className="ember-text">.</span>
-          </motion.p>
-          <motion.p {...word(0.4)} aria-hidden="true" className="hero-title absolute left-[30%] top-[57%] text-[15vw] font-medium text-white 2xl:text-[220px]">
-            to bid<span className="ember-text">.</span>
-          </motion.p>
+      <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-5 text-center">
+        <motion.div {...rise(0.05)} className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] text-white/70 sm:text-xs">
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-fire opacity-75" />
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-fire" />
+          </span>
+          For security and cleaning firms in Gqeberha
+        </motion.div>
 
-          <motion.div {...word(0.6)} className="absolute left-10 top-[46%] max-w-[320px]">
-            <p className="text-[17px] font-light leading-relaxed text-white/90">
-              Every month: twenty businesses ready to hear from you, the government tenders you can win, and your compliance papers kept in order.
-            </p>
-          </motion.div>
+        <motion.h1 {...rise(0.15)} id="hero-title" className="tight mt-6 text-[44px] font-medium leading-[0.98] text-white [text-wrap:balance] sm:text-7xl md:text-[88px]">
+          Qualified leads.
+          <br />
+          <span className="ember-text">Qualified to bid.</span>
+        </motion.h1>
 
-          <Stat value="20" caption="checked prospects, every month" side="right" rotate={-20} className="bottom-32 left-10" />
-          <Stat value="11" caption="tender documents tracked" side="left" rotate={20} className="right-10 top-[24%]" />
-          <Stat value="1 firm" caption="per service, per city" side="left" rotate={-20} className="bottom-32 right-10 text-right" />
+        <motion.p {...rise(0.3)} className="mt-6 max-w-xl text-[15px] font-light leading-relaxed text-white/65 sm:text-lg">
+          Every month: twenty businesses ready to hear from you, the government tenders you can win, and your compliance papers kept in order.
+        </motion.p>
 
-          {/* Static wrapper does the centring; framer-motion owns the inner transform. */}
-          <div className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2">
-            <motion.div {...word(1.1)} className="flex w-max items-center gap-1 rounded-full bg-neutral-900/80 p-2 backdrop-blur">
-              <GhostButton to="/sample">see a sample report</GhostButton>
-              <EmberButton to="/#call">
-                book a 15-minute call <ArrowRight className="h-3.5 w-3.5" />
-              </EmberButton>
-            </motion.div>
-          </div>
-        </div>
+        <motion.div {...rise(0.45)} className="mt-8 flex w-full flex-col items-center justify-center gap-2 sm:w-auto sm:flex-row">
+          <EmberButton to="/#call" className="w-full sm:w-auto">
+            book a 15-minute call <ArrowRight className="h-4 w-4" />
+          </EmberButton>
+          <GhostButton to="/sample" className="w-full border border-white/15 sm:w-auto">
+            see a sample report
+          </GhostButton>
+        </motion.div>
       </div>
 
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent to-black" />
+      {/* Stage: the horizon, sparks, and the report rising out of the glow */}
+      <div className="relative mt-16 sm:mt-20">
+        <motion.div style={{ opacity: glow }} className="absolute inset-x-0 top-0 h-full">
+          <div className="horizon" style={{ top: 120 }} />
+          <div className="absolute inset-x-0" style={{ top: -240, height: 360 }}>
+            <EmberSparks top={1} />
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 90 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          className="relative z-10 mx-auto max-w-5xl px-4 pt-[170px] sm:px-8"
+        >
+          <motion.div style={{ y: mockY }}>
+            <ReportMock />
+          </motion.div>
+        </motion.div>
+
+        <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-20 h-40 bg-gradient-to-b from-transparent to-black" />
+      </div>
     </section>
   );
 }

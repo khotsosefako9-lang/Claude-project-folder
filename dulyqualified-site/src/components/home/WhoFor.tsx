@@ -1,6 +1,70 @@
 import { MapPin, Shield, Sparkles } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { cities, sectors } from '../../data/site';
-import { Blob, Eyebrow, OutlineButton, Reveal, SectionHeading } from '../ui';
+import { Blob, Eyebrow, Mono, OutlineButton, Reveal, SectionHeading } from '../ui';
+
+// The kinds of buyers we find, from the "who it's for" lists.
+const buyers: { name: string; sector: 'Security' | 'Cleaning' }[] = [
+  { name: 'Industrial sites', sector: 'Security' },
+  { name: 'Offices', sector: 'Cleaning' },
+  { name: 'Warehouses and logistics yards', sector: 'Security' },
+  { name: 'Clinics and practices', sector: 'Cleaning' },
+  { name: 'Shopping centres', sector: 'Security' },
+  { name: 'Factories', sector: 'Cleaning' },
+  { name: 'Office parks', sector: 'Security' },
+  { name: 'Food producers', sector: 'Cleaning' },
+  { name: 'Residential estates', sector: 'Security' },
+  { name: 'Body corporates', sector: 'Cleaning' },
+  { name: 'Schools', sector: 'Security' },
+  { name: 'Hospitality', sector: 'Cleaning' },
+  { name: 'Retirement villages', sector: 'Security' },
+  { name: 'New developments', sector: 'Security' },
+];
+
+/** Cards on the inside wall of a slowly turning cylinder. */
+function BuyerRing() {
+  const [r, setR] = useState(480);
+  useEffect(() => {
+    const fit = () => setR(window.innerWidth < 640 ? 300 : window.innerWidth < 1024 ? 400 : 500);
+    fit();
+    window.addEventListener('resize', fit);
+    return () => window.removeEventListener('resize', fit);
+  }, []);
+  const step = 360 / buyers.length;
+  const cardW = r < 400 ? 130 : 190;
+
+  return (
+    <div
+      className="ring-stage relative mx-auto h-[220px] w-full overflow-hidden sm:h-[300px]"
+      style={{ perspective: `${r * 1.1}px`, maskImage: 'linear-gradient(to right, transparent, #000 12%, #000 88%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, #000 12%, #000 88%, transparent)' }}
+    >
+      <div className="ring absolute left-1/2 top-1/2" style={{ width: 0, height: 0 }}>
+        {buyers.map((b, i) => (
+          <div
+            key={b.name}
+            className="absolute"
+            style={{
+              width: cardW,
+              left: -cardW / 2,
+              top: r < 400 ? -80 : -110,
+              transform: `rotateY(${i * step}deg) translateZ(${-r}px)`,
+              backfaceVisibility: 'hidden',
+            }}
+          >
+            <div
+              className={`flex aspect-[3/4] flex-col justify-between rounded-xl border p-3 sm:p-4 ${
+                b.sector === 'Security' ? 'border-[#FF8A4C]/25 bg-gradient-to-b from-[#2a130a] to-[#0b0807]' : 'border-sky-300/20 bg-gradient-to-b from-[#0b1a26] to-[#07090b]'
+              }`}
+            >
+              <Mono className={b.sector === 'Security' ? 'text-[#FF8A4C]' : 'text-sky-200'}>{b.sector}</Mono>
+              <p className="text-[13px] font-light leading-snug text-white sm:text-[17px]">{b.name}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 const icons = [Shield, Sparkles];
 const cardBlobs = [
@@ -24,7 +88,11 @@ export default function WhoFor() {
           </Reveal>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-3 sm:mt-16 sm:gap-4 md:grid-cols-2">
+        <Reveal className="mt-10 sm:mt-14">
+          <BuyerRing />
+        </Reveal>
+
+        <div className="mt-8 grid grid-cols-1 gap-3 sm:mt-10 sm:gap-4 md:grid-cols-2">
           {sectors.map((s, i) => {
             const Icon = icons[i];
             return (

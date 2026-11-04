@@ -1,6 +1,9 @@
 @import '@fontsource/readex-pro/latin-300.css';
 @import '@fontsource/readex-pro/latin-400.css';
 @import '@fontsource/readex-pro/latin-500.css';
+@import '@fontsource/doto/latin-700.css';
+@import '@fontsource/doto/latin-900.css';
+@import '@fontsource/space-mono/latin-400.css';
 
 @tailwind base;
 @tailwind components;
@@ -28,19 +31,37 @@ body {
 }
 section[id] { scroll-margin-top: 96px; }
 
-/* Ambient orb: stands in for background video where remote media can't load. */
-.orb-field { position: absolute; inset: 0; overflow: hidden; background: #000; }
-.orb { position: absolute; border-radius: 9999px; filter: blur(60px); opacity: 0.85; will-change: transform; }
-.orb-a { width: 60vmax; height: 60vmax; left: 18%; top: -10%; background: radial-gradient(circle at 35% 35%, #FA8453 0%, #b4441c 35%, transparent 70%); animation: orbA 18s ease-in-out infinite alternate; }
-.orb-b { width: 55vmax; height: 55vmax; right: -15%; top: 10%; background: radial-gradient(circle at 60% 40%, #3b5bdb 0%, #1e3a8a 40%, transparent 70%); animation: orbB 22s ease-in-out infinite alternate; }
-.orb-c { width: 30vmax; height: 30vmax; left: 40%; bottom: -5%; background: radial-gradient(circle, #F8C9B2 0%, transparent 65%); opacity: 0.35; animation: orbC 16s ease-in-out infinite alternate; }
-.orb-ring { position: absolute; left: 50%; top: 50%; width: 70vmin; height: 70vmin; border-radius: 9999px; transform: translate(-50%, -50%); box-shadow: inset 0 0 80px 10px rgba(250,132,83,0.35), 0 0 120px 20px rgba(30,58,138,0.35); animation: ring 14s ease-in-out infinite alternate; }
-@keyframes orbA { to { transform: translate(-12%, 18%) scale(1.15); } }
-@keyframes orbB { to { transform: translate(-18%, -10%) scale(0.9); } }
-@keyframes orbC { to { transform: translate(20%, -25%) scale(1.3); } }
-@keyframes ring { to { transform: translate(-48%, -52%) scale(1.12) rotate(25deg); } }
+/* HUD frame corners (Nothing-style technical framing) */
+.hud-corner { position: absolute; width: 7px; height: 7px; background: rgba(255,255,255,0.55); }
+.dashed-x { background-image: linear-gradient(to right, rgba(255,255,255,0.18) 50%, transparent 0); background-size: 8px 1px; background-repeat: repeat-x; height: 1px; }
+.dashed-y { background-image: linear-gradient(to bottom, rgba(255,255,255,0.18) 50%, transparent 0); background-size: 1px 8px; background-repeat: repeat-y; width: 1px; }
+
+/* Ember horizon */
+.horizon {
+  position: absolute; left: 50%; width: 190vw; aspect-ratio: 1; border-radius: 9999px; transform: translateX(-50%);
+  background: radial-gradient(closest-side, #000 96%, rgba(255,90,31,0.25) 99%, transparent 100%);
+  box-shadow:
+    0 -1px 0 1px #ffe2cc,
+    0 -6px 24px 4px #ff7a33,
+    0 -30px 90px 20px rgba(255, 90, 31, 0.65),
+    0 -90px 220px 60px rgba(255, 70, 20, 0.28),
+    inset 0 18px 60px rgba(255, 106, 43, 0.55);
+  animation: flicker 5s ease-in-out infinite;
+}
+@media (min-width: 1024px) { .horizon { width: 150vw; } }
+@keyframes flicker { 0%,100% { filter: brightness(1); } 40% { filter: brightness(1.12); } 55% { filter: brightness(0.94); } 70% { filter: brightness(1.06); } }
+
+/* Curved carousel */
+.ring-stage { perspective: 1600px; }
+.ring { transform-style: preserve-3d; animation: spin 48s linear infinite; }
+.ring:hover { animation-play-state: paused; }
+@keyframes spin { from { transform: rotateY(0deg); } to { transform: rotateY(-360deg); } }
+
+.font-dot { font-family: 'Doto', 'Space Mono', ui-monospace, monospace; }
+.font-mono { font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .ring, .horizon { animation: none !important; }
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }

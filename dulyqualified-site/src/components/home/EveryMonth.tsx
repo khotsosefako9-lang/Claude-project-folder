@@ -1,6 +1,6 @@
 import { Check } from 'lucide-react';
-import { deliverables, videos } from '../../data/site';
-import { BgVideo, Blob, Eyebrow, Reveal, SectionHeading } from '../ui';
+import { deliverables } from '../../data/site';
+import { Blob, Eyebrow, HudFrame, Reveal, SectionHeading } from '../ui';
 
 const blobs = [
   'top-1/2 -translate-y-1/2 -left-[380px] h-[460px] w-[460px] bg-navy opacity-40',
@@ -27,17 +27,11 @@ export default function EveryMonth() {
           {deliverables.map((d, i) => (
             <Reveal key={d.n} delay={i * 0.08}>
               <article className="relative flex h-full min-h-[440px] flex-col overflow-hidden rounded-2xl bg-neutral-950 ring-1 ring-white/5">
-                {i === 1 ? (
-                  <div className="relative h-44 w-full shrink-0 overflow-hidden">
-                    <BgVideo src={videos.card} />
-                    <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-neutral-950" />
-                  </div>
-                ) : (
-                  <Blob className={blobs[i]} />
-                )}
-                <div className={`relative flex flex-1 flex-col p-6 sm:p-8 ${i === 1 ? 'pt-2 sm:pt-2' : ''}`}>
+                <Blob className={blobs[i] || '-bottom-24 -right-24 h-56 w-56 bg-fire opacity-20'} />
+                <HudFrame inset="inset-2" className="opacity-60" />
+                <div className="relative flex flex-1 flex-col p-6 sm:p-8">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs uppercase tracking-[0.18em] text-white/45">{d.n}</span>
+                    <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/45">{d.n}</span>
                     <span
                       className="rounded-full border border-ember/40 px-3 py-1 text-[11px] text-ember"
                       style={{ transform: `rotate(${[-6, 5, -4, 6][i]}deg)` }}
@@ -45,7 +39,7 @@ export default function EveryMonth() {
                       {d.tag}
                     </span>
                   </div>
-                  <h3 className={`${i === 1 ? 'mt-6' : 'mt-14'} text-xl font-light leading-tight text-white sm:text-2xl`}>{d.title}</h3>
+                  <h3 className={`mt-14 text-xl font-light leading-tight text-white sm:text-2xl`}>{d.title}</h3>
                   {i === 0 ? (
                     <p className="mt-6 flex items-baseline gap-3">
                       <span className="tight ember-text text-7xl font-medium">20</span>

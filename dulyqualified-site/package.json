@@ -10,7 +10,9 @@
     "build:artifact": "tsc -b && vite build --mode artifact && node scripts/inline-artifact.mjs"
   },
   "dependencies": {
+    "@fontsource/doto": "^5.2.10",
     "@fontsource/readex-pro": "^5.1.0",
+    "@fontsource/space-mono": "^5.2.9",
     "framer-motion": "^11.11.17",
     "lucide-react": "^0.460.0",
     "react": "^18.3.1",

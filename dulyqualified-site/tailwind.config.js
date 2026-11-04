@@ -11,6 +11,8 @@ export default {
         blush: '#F8C9B2',
         navy: '#1e3a8a',
         ink: '#0F1626',
+        fire: '#FF5A1F',
+        char: '#0A0807',
       },
     },
   },

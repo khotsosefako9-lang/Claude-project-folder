@@ -35,7 +35,7 @@ export default function Privacy() {
           <div>
             <h2>This website</h2>
             <p>
-              This site doesn’t use cookies or advertising trackers. To see whether the site is working, we count page visits and clicks on the call, WhatsApp, email and sample report links. We only record the date, the page and which link was clicked. We don’t record your IP address or anything else that identifies you.
+              This site doesn’t use cookies or advertising trackers, and it doesn’t load anything from other websites. To see whether the site is working, we count page visits and clicks on the call, WhatsApp, email and sample report links. We only record the date, the page and which link was clicked. We don’t record your IP address or anything else that identifies you.
             </p>
             <p className="mt-4">If you email, call or WhatsApp us, we use your message and contact details only to reply to you and, if you become a client, to provide our service.</p>
           </div>

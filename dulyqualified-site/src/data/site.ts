@@ -12,15 +12,6 @@ export const contact = {
 export const whatsappLink = (text = "Hi Duly Qualified, I'd like to book a 15-minute call.") =>
   `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(text)}`;
 
-// Remote stock videos from the MotionSites "Guardnet" template.
-// Third-party hosted: replace with your own files (e.g. /videos/hero.mp4) before launch.
-export const videos = {
-  hero: 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260421_074215_f4339e1c-0b1a-4f60-98b2-90e3d7840cb7.mp4',
-  paperwork:
-    'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260421_072418_508a7d2e-396d-4f6f-9d42-ec920fcf7755.mp4',
-  card: 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260421_072701_f6a01abb-eb30-4559-9d6e-774362defbc3.mp4',
-};
-
 export const navLinks = [
   { label: 'how it works', href: '/#how' },
   { label: 'every month', href: '/#month' },

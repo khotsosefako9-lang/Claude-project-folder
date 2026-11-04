@@ -11,33 +11,25 @@ export function LogoMark({ className = 'h-5 w-5' }: { className?: string }) {
   );
 }
 
-export const ARTIFACT = import.meta.env.VITE_ARTIFACT === '1';
-
-export function AmbientOrbs({ ring = false, className = '' }: { ring?: boolean; className?: string }) {
+/** Nothing-style technical frame: dashed rules inset from the edges, with corner squares. */
+export function HudFrame({ inset = 'inset-3 sm:inset-6', className = '' }: { inset?: string; className?: string }) {
   return (
-    <div className={`orb-field ${className}`} aria-hidden="true">
-      <div className="orb orb-a" />
-      <div className="orb orb-b" />
-      <div className="orb orb-c" />
-      {ring && <div className="orb-ring" />}
+    <div aria-hidden="true" className={`pointer-events-none absolute ${inset} ${className}`}>
+      <div className="dashed-x absolute left-0 right-0 top-0" />
+      <div className="dashed-x absolute bottom-0 left-0 right-0" />
+      <div className="dashed-y absolute bottom-0 left-0 top-0" />
+      <div className="dashed-y absolute bottom-0 right-0 top-0" />
+      <span className="hud-corner -left-[3px] -top-[3px]" />
+      <span className="hud-corner -right-[3px] -top-[3px]" />
+      <span className="hud-corner -bottom-[3px] -left-[3px]" />
+      <span className="hud-corner -bottom-[3px] -right-[3px]" />
     </div>
   );
 }
 
-export function BgVideo({ src, className = '' }: { src: string; className?: string }) {
-  if (ARTIFACT) return <AmbientOrbs ring={src.includes('072418')} className={className} />;
-  return (
-    <video
-      className={`absolute inset-0 h-full w-full object-cover ${className}`}
-      src={src}
-      autoPlay
-      loop
-      muted
-      playsInline
-      preload="metadata"
-      aria-hidden="true"
-    />
-  );
+/** Small monospaced HUD caption. */
+export function Mono({ children, className = '' }: { children: ReactNode; className?: string }) {
+  return <span className={`font-mono text-[10px] uppercase tracking-[0.16em] text-white/50 sm:text-[11px] ${className}`}>{children}</span>;
 }
 
 export function Blob({ className }: { className: string }) {
